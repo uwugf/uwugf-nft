@@ -1,0 +1,37 @@
+{
+  "_comment": "Map of the UwU GF Google Drive assets -> clean local paths. IDs captured from the shared 'uwu gf' folder (owner: babydegen.eth). Use with scripts/pull_backgrounds.sh (gdown) or rclone (see docs/SYNC_ART.md).",
+  "drive_roots": {
+    "uwu_gf_shared_folder": "1XSjrjNn7VmC6y13MonKm-9W8LuMFkGdR",
+    "layers_parent": "1T6ukPbOYVnb4DtAghYo3LuJ7hAvfvvzR",
+    "trait_sheet_spreadsheet": "1OZ01rxiMVQD6Q7IyO9tKNs5ub32dA9Knvthrm-szX54"
+  },
+  "layer_folders": {
+    "01_Background": "1z_p0Krf8kg_YXQNUkqvcMNONRNKj-zwN",
+    "02_Skin": "1pBz1F5_mSRkWIm3sn0KNOfbvoa1B0CfS",
+    "04_Choker": "1deMfHhsazKi4UGomjlB4IVOtQJeYxbHH",
+    "05_Mouth_Lips": "1pDIoK5TUFaxIHxzhHqZBvqOUqmiKVp4f",
+    "06_Eyes": "1Im1go9GhOoPFEPpgiVysC4m-koLzNa0P",
+    "03_Hoodies": "1--hb8RW6Z8Qfny49ffoug-WYHPZ8GEj4"
+  },
+  "backgrounds": [
+    {"name": "Asylum",             "file": "1.png",  "id": "1xwzE4Nw98e1-JBiR07RhJZNYCHWWvR_F"},
+    {"name": "Haunted House",      "file": "2.png",  "id": "11AerahzZ5UxhzW7CJFX91paCjZU8DE8y"},
+    {"name": "Chinese Restaurant", "file": "3.png",  "id": "1GLfGfTuF16ZN-s1Z_ppLd_m9gQrIHjTo"},
+    {"name": "Casino",             "file": "4.png",  "id": "17rpmVJJlesZu8JNFdaKhrhYlyqw89PJN"},
+    {"name": "School",             "file": "5.png",  "id": "1tlLiIsTrMPT2uQTrYrsCU55nKgNx3hk9"},
+    {"name": "Sunflower Field",    "file": "6.png",  "id": "1EXKjPA15L3MAABp5nDgsMy82a96dKWwY"},
+    {"name": "Nightclub",          "file": "7.png",  "id": "1TSUEFBMVZI9czrzYRrygUJiarLYSw5-P"},
+    {"name": "Rainbow Sky",        "file": "8.png",  "id": "1pJzr-BVt92rNgjcKWP18pJUrYGkyNn7W"},
+    {"name": "Pink Cafe",          "file": "9.png",  "id": "1O2ytZ9n4y05f-9-kFJjTgloQm0ZESW9z"},
+    {"name": "Unicorn Cafe",       "file": "10.png", "id": "1He5D37DON0IZztjxVx-eBX9HCxVKiBw3"},
+    {"name": "Wedding Arch",       "file": "11.png", "id": "1iHXrU0WCxHRMQzw_u8Z8tIni7BZVaA5g"},
+    {"name": "Candy Shop",         "file": "12.png", "id": "1at9KFOmm2r6aDLneqHJtEkrJzFZwCjQw"},
+    {"name": "Playground",         "file": "13.png", "id": "1otJh7Wg8R8Fse7e_kUCP61yiXV_ibXOK"},
+    {"name": "Pub",                "file": "14.png", "id": "1zYx0BLcftPY4op7QIv3MEyyJZcXTgW3L"},
+    {"name": "Library",            "file": "15.png", "id": "1yGPuJAK58YVHJIq4wGIu_T6fRRl-fGYy"}
+  ],
+  "samples": {
+    "Final_Canvas_composite": "1qbiv-3If1OJFrlc7tBaEang5dm7u1foB",
+    "Uwu_element": "1TLJ5qm7nCWfY0q6RuGwsEDiY3w8R1OJb"
+  }
+}

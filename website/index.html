@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UwU GF ♡ 6969 hand-drawn girlfriends, on-chain</title>
+<meta name="description" content="6969 hand-drawn uwu girlfriends living rent-free on the blockchain. Whitelist 0.00069Ξ · Public 0.001Ξ · minting on Ethereum. 🎀" />
+<meta property="og:title" content="UwU GF ♡ 6969 hand-drawn girlfriends" />
+<meta property="og:description" content="she's cute, she's degen, she's your exit liquidity (jk). wl open 🥺" />
+<meta property="og:image" content="assets/uwugf-banner.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="assets/uwugf-banner.png" />
+<link rel="icon" type="image/png" href="assets/uwugf-logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --pink:#ff5fa2; --pink-soft:#ffd6e8; --lav:#b08bff; --lav-soft:#e7dcff;
+    --cream:#fff6fb; --plum:#3a2348; --plum-soft:#7a5d8c; --mint:#9be8d8;
+    --gold:#ffd86b; --card:#ffffff; --shadow:0 18px 40px -18px rgba(255,95,162,.45);
+    --ring:0 0 0 4px rgba(255,95,162,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Quicksand',system-ui,sans-serif;color:var(--plum);
+    background:
+      radial-gradient(1200px 600px at 80% -10%, var(--lav-soft), transparent 60%),
+      radial-gradient(1000px 500px at 0% 0%, var(--pink-soft), transparent 55%),
+      linear-gradient(180deg,#fff7fc 0%, #fdf0fb 40%, #f3ecff 100%);
+    min-height:100vh;overflow-x:hidden;
+  }
+  h1,h2,h3,.brand,.btn{font-family:'Fredoka',sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-flex;align-items:center;gap:.5em;border:none;cursor:pointer;
+    font-weight:600;font-size:1rem;padding:.8em 1.5em;border-radius:999px;
+    transition:transform .15s ease, box-shadow .15s ease;}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-pink{background:linear-gradient(135deg,var(--pink),#ff86bd);color:#fff;box-shadow:var(--shadow)}
+  .btn-lav{background:linear-gradient(135deg,var(--lav),#c6a8ff);color:#fff;box-shadow:0 18px 40px -18px rgba(176,139,255,.6)}
+  .btn-ghost{background:#fff;color:var(--pink);box-shadow:0 6px 18px -8px rgba(58,35,72,.25)}
+  .btn[disabled]{opacity:.55;cursor:not-allowed;transform:none}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:rgba(255,247,252,.72);border-bottom:1px solid rgba(255,95,162,.12)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{font-weight:700;font-size:1.45rem;letter-spacing:.5px;display:flex;align-items:center;gap:.4em}
+  .brand img{height:46px;width:auto;display:block}
+  .brand .face{font-size:1.1rem}
+  .navlinks{display:flex;gap:1.6rem;align-items:center;font-weight:600}
+  .navlinks a{color:var(--plum-soft)}
+  .navlinks a:hover{color:var(--pink)}
+  .nav-cta{display:flex;gap:.6rem;align-items:center}
+  .menu-btn{display:none;background:none;border:none;font-size:1.6rem;cursor:pointer}
+
+  /* hero */
+  .hero{padding:64px 0 36px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;isolation:isolate}
+  .floaties{position:absolute;inset:-20px 0 0;overflow:hidden;pointer-events:none;z-index:0}
+  .floaties span{position:absolute;bottom:-30px;animation:floatUp linear infinite;opacity:0;filter:drop-shadow(0 4px 6px rgba(255,95,162,.25))}
+  .hero>div:not(.floaties){position:relative;z-index:1}
+  .tag{display:inline-flex;gap:.5em;align-items:center;background:#fff;border:1px solid var(--pink-soft);
+    color:var(--pink);font-weight:600;padding:.45em 1em;border-radius:999px;box-shadow:var(--shadow);font-size:.9rem}
+  .hero h1{font-size:clamp(2.4rem,5.4vw,4rem);line-height:1.04;margin:.5em 0 .35em;font-weight:700}
+  .hero h1 .grad{background:linear-gradient(135deg,var(--pink),var(--lav));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:1.18rem;color:var(--plum-soft);max-width:34ch;margin-bottom:1.5em}
+  .hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:2rem;max-width:520px}
+  .stat{background:#fff;border-radius:18px;padding:.9rem .6rem;text-align:center;box-shadow:0 10px 26px -16px rgba(58,35,72,.3)}
+  .stat b{display:block;font-family:'Fredoka';font-size:1.25rem;color:var(--pink)}
+  .stat span{font-size:.72rem;color:var(--plum-soft);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+
+  /* hero art grid */
+  .gf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .gf-card{aspect-ratio:1;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);
+    background:#fff;transition:box-shadow .25s ease;animation:bob 6s ease-in-out infinite}
+  .gf-card:hover{box-shadow:0 26px 52px -18px rgba(255,95,162,.6)}
+  .gf-card svg{width:100%;height:100%;display:block}
+  .gf-card:nth-child(2n){animation-duration:7s;animation-delay:-2s}
+  .gf-card:nth-child(3n){animation-duration:5.4s;animation-delay:-1.2s}
+  .gf-card:nth-child(4n){animation-duration:6.6s;animation-delay:-3.1s}
+
+  /* marquee */
+  .marquee{overflow:hidden;white-space:nowrap;padding:14px 0;margin:18px 0 0;
+    border-top:1px dashed var(--pink-soft);border-bottom:1px dashed var(--pink-soft);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+  .marquee div{display:inline-block;animation:scroll 26s linear infinite;font-family:'Fredoka';font-weight:600;color:var(--lav)}
+  .marquee span{margin:0 1.1rem;color:var(--pink)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* cute animations ♡ */
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1.5deg)}}
+  @keyframes wiggle{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+  @keyframes floatUp{0%{transform:translateY(0) scale(.7);opacity:0}15%{opacity:.9}100%{transform:translateY(-340px) scale(1.15);opacity:0}}
+  @keyframes pulseGlow{0%,100%{box-shadow:0 18px 40px -18px rgba(255,95,162,.45)}50%{box-shadow:0 20px 54px -8px rgba(255,95,162,.9)}}
+  .brand .face{display:inline-block;animation:wiggle 3.5s ease-in-out infinite;transform-origin:50% 60%}
+  .hero-cta .btn-pink{animation:pulseGlow 2.4s ease-in-out infinite}
+  .marquee.rev div{animation-direction:reverse;animation-duration:30s;color:var(--pink)}
+  .marquee.rev span{color:var(--lav)}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+  section{padding:70px 0}
+  .eyebrow{color:var(--pink);font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:.85rem}
+  .h2{font-size:clamp(1.8rem,3.5vw,2.7rem);font-weight:700;margin:.3em 0 .5em}
+  .sub{color:var(--plum-soft);font-size:1.05rem;max-width:52ch}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+  .card{background:var(--card);border-radius:24px;padding:28px;box-shadow:0 14px 36px -22px rgba(58,35,72,.35);
+    border:1px solid rgba(255,95,162,.08)}
+  .card .ico{font-size:2rem}
+  .card h3{margin:.5em 0 .3em;font-size:1.25rem}
+  .card p{color:var(--plum-soft)}
+
+  /* traits */
+  .traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:30px}
+  .trait{background:#fff;border-radius:18px;padding:18px;display:flex;justify-content:space-between;align-items:center;
+    box-shadow:0 10px 26px -18px rgba(58,35,72,.3);font-weight:600}
+  .trait b{font-family:'Fredoka';color:var(--lav);font-size:1.4rem}
+  .fit-carousel{overflow:hidden;margin:26px 0 8px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+  .fit-track{display:flex;gap:18px;width:max-content;animation:fitscroll 26s linear infinite}
+  .fit-track img{width:196px;height:196px;object-fit:cover;border-radius:24px;box-shadow:var(--shadow);background:#fff}
+  .fit-carousel:hover .fit-track{animation-play-state:paused}
+  @keyframes fitscroll{to{transform:translateX(-50%)}}
+  .tiers{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  .tier{padding:.6em 1.1em;border-radius:999px;font-weight:700;color:#fff}
+  .t-common{background:#9aa7c7}.t-rare{background:var(--mint);color:#1c5b4d}
+  .t-super{background:var(--lav)}.t-legend{background:linear-gradient(135deg,var(--gold),var(--pink))}
+
+  /* roadmap */
+  .road{display:grid;gap:16px;margin-top:30px}
+  .step{background:#fff;border-radius:20px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;
+    box-shadow:0 12px 30px -22px rgba(58,35,72,.35)}
+  .step .n{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--pink),var(--lav));color:#fff;font-family:'Fredoka';font-weight:700}
+  .step h3{font-size:1.15rem}.step p{color:var(--plum-soft)}
+
+  /* whitelist form */
+  .wl{position:relative;background:linear-gradient(135deg,#fff,#fff0f8);border-radius:32px;padding:44px;box-shadow:var(--shadow);
+    border:1px solid rgba(255,95,162,.12)}
+  .wl-mascot{position:absolute;top:-42px;right:24px;width:clamp(82px,13vw,130px);border-radius:22px;
+    box-shadow:var(--shadow);transform:rotate(4deg);border:3px solid #fff;animation:bob 5s ease-in-out infinite}
+  .wl-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  .field.full{grid-column:1/-1}
+  .field label{font-weight:600;font-size:.9rem}
+  .field input,.field textarea{font-family:inherit;font-size:1rem;padding:.85em 1em;border-radius:14px;
+    border:2px solid var(--pink-soft);background:#fff;color:var(--plum);transition:border .15s, box-shadow .15s}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--pink);box-shadow:var(--ring)}
+  .wl .note{font-size:.82rem;color:var(--plum-soft);margin-top:14px}
+  .wl-success{display:none;text-align:center;padding:20px;background:#eafaf3;border-radius:18px;color:#1c5b4d;font-weight:600;margin-top:18px}
+
+  /* countdown */
+  .count{display:flex;gap:14px;justify-content:center;margin:10px 0 0}
+  .count .u{background:#fff;border-radius:18px;padding:14px 18px;min-width:78px;text-align:center;box-shadow:var(--shadow)}
+  .count .u b{font-family:'Fredoka';font-size:2rem;color:var(--pink);display:block;line-height:1}
+  .count .u span{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--plum-soft);font-weight:700}
+
+  /* faq */
+  .faq{margin-top:28px;display:grid;gap:12px}
+  .q{background:#fff;border-radius:18px;padding:0 22px;box-shadow:0 10px 26px -20px rgba(58,35,72,.3);overflow:hidden}
+  .q button{width:100%;text-align:left;background:none;border:none;padding:20px 0;font-family:'Fredoka';font-weight:600;
+    font-size:1.08rem;color:var(--plum);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1em}
+  .q .a{max-height:0;overflow:hidden;transition:max-height .3s ease;color:var(--plum-soft)}
+  .q.open .a{max-height:240px;padding-bottom:20px}
+  .q button .chev{transition:transform .3s;color:var(--pink)}
+  .q.open button .chev{transform:rotate(180deg)}
+
+  footer{padding:50px 0 36px;text-align:center;border-top:1px solid rgba(255,95,162,.12);margin-top:40px}
+  .footer-banner{width:100%;max-width:840px;border-radius:24px;margin:0 auto 26px;display:block;box-shadow:var(--shadow)}
+  .socials{display:flex;gap:14px;justify-content:center;margin:18px 0}
+  .socials a{width:46px;height:46px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:1.2rem;
+    box-shadow:0 10px 24px -16px rgba(58,35,72,.4);transition:transform .15s}
+  .socials a:hover{transform:translateY(-3px)}
+  .disclaimer{font-size:.78rem;color:var(--plum-soft);max-width:60ch;margin:14px auto 0;line-height:1.6}
+
+  .gf-card.soon{position:relative}
+  .gf-card.soon::after{content:'soon 🥺';position:absolute;inset:0;display:grid;place-items:center;
+    background:rgba(58,35,72,.5);color:#fff;font-family:'Fredoka';font-weight:700;font-size:1.05rem;backdrop-filter:blur(7px);border-radius:24px}
+  .gf-card img{width:100%;height:100%;object-fit:cover;display:block}
+
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr;text-align:center}
+    .hero p.lead{margin-inline:auto}.hero-cta{justify-content:center}.stats{margin-inline:auto}
+    .navlinks{display:none}.menu-btn{display:block}
+    nav.open .navlinks{display:flex;position:absolute;top:68px;left:0;right:0;flex-direction:column;
+      background:rgba(255,247,252,.98);padding:18px 22px;gap:1.1rem;border-bottom:1px solid var(--pink-soft);box-shadow:var(--shadow)}
+    .cards{grid-template-columns:1fr}.wl-grid{grid-template-columns:1fr}.wl{padding:28px}
+    .peek-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media(max-width:560px){
+    nav .wrap{height:60px}
+    .brand{font-size:1.12rem}
+    .nav-cta .btn-ghost{display:none}
+    .nav-cta .btn-pink{padding:.55em .95em;font-size:.82rem}
+    .stats{grid-template-columns:1fr 1fr;max-width:320px}
+    .hero h1{font-size:2.15rem}
+    section{padding:54px 0}
+    .count{gap:8px}.count .u{min-width:58px;padding:12px 9px}
+    .count .u b{font-size:1.55rem}
+    .wl{padding:26px 20px}
+    .wl-mascot{display:none}          /* was overlapping the countdown on mobile */
+    .footer-banner{margin-bottom:18px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="brand" aria-label="UwU GF"><img src="assets/uwugf-logo-t.png" alt="UwU GF" /></a>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#traits">Traits</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#whitelist" class="btn btn-pink">Apply for WL 🎀</a>
+      <button class="btn btn-ghost" disabled title="soon 🥺">Mint soon</button>
+    </div>
+    <button class="menu-btn" aria-label="menu" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<header class="wrap hero">
+  <div class="floaties" id="floaties"></div>
+  <div>
+    <span class="tag">🌸 hand-drawn · 6969 supply · minting on Ethereum</span>
+    <h1>your new <span class="grad">uwu girlfriend</span> lives on-chain 🥺</h1>
+    <p class="lead">6969 hand-drawn uwu gfs. she's cute, she's degen, she's kinda your exit liquidity (jk… unless?). whitelist is open bestie.</p>
+    <div class="hero-cta">
+      <a href="#whitelist" class="btn btn-pink">Apply for whitelist 💕</a>
+      <a href="#about" class="btn btn-lav">Meet the GFs</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>6969</b><span>supply</span></div>
+      <div class="stat"><b>0.00069Ξ</b><span>whitelist</span></div>
+      <div class="stat"><b>0.001Ξ</b><span>public</span></div>
+      <div class="stat"><b>ETH</b><span>chain</span></div>
+    </div>
+  </div>
+  <div class="gf-grid" id="gfGrid"><!-- SVG GFs injected by JS --></div>
+</header>
+
+<div class="marquee"><div id="mq"></div></div>
+
+<section id="about" class="wrap">
+  <span class="eyebrow">what even is this</span>
+  <h2 class="h2">a girlfriend for every mood you doomscroll through</h2>
+  <p class="sub">every UwU GF is hand-drawn from 100+ traits across 9 layers — no lazy AI mid-curve here. she has range, she has lore, she has a unicorn hoodie.</p>
+  <div class="cards">
+    <div class="card"><div class="ico">🎨</div><h3>actually hand-drawn</h3><p>backgrounds, eyes, chokers, hoodies, stuffies — drawn frame by frame in Procreate. real art, real love.</p></div>
+    <div class="card"><div class="ico">💎</div><h3>rarity that matters</h3><p>common → rare → super rare → legendary, plus 12 iconic 1/1s (yes, including EXIT LIQUIDITY).</p></div>
+    <div class="card"><div class="ico">🩷</div><h3>fair & cute on Ethereum</h3><p>wl 0.00069Ξ, public 0.001Ξ on Ethereum L1. built on ERC-721A so batch mints keep gas as lean as possible. 6.9% royalties.</p></div>
+  </div>
+</section>
+
+<section id="traits" class="wrap">
+  <span class="eyebrow">the wardrobe</span>
+  <h2 class="h2">9 layers of cuteness 🎀</h2>
+  <p class="sub">100+ hand-drawn traits across 9 layers — 15 backgrounds · 24 eyes · 14 mouths · ~20 fuzzy hoodies · chokers · stuffies · 12 iconic 1/1s. peep the fits 👇</p>
+  <div class="fit-carousel"><div class="fit-track" id="fitTrack"></div></div>
+  <div class="tiers">
+    <span class="tier t-common">common</span>
+    <span class="tier t-rare">rare</span>
+    <span class="tier t-super">super rare</span>
+    <span class="tier t-legend">✦ legendary</span>
+  </div>
+</section>
+
+<section id="mint" class="wrap" style="text-align:center">
+  <span class="eyebrow">mint countdown</span>
+  <h2 class="h2">she's almost ready 🥺</h2>
+  <div class="count" id="count">
+    <div class="u"><b id="d">--</b><span>days</span></div>
+    <div class="u"><b id="h">--</b><span>hrs</span></div>
+    <div class="u"><b id="m">--</b><span>min</span></div>
+    <div class="u"><b id="s">--</b><span>sec</span></div>
+  </div>
+</section>
+
+<section id="whitelist" class="wrap">
+  <div class="wl">
+    <img class="wl-mascot" src="assets/uwugf-mascot.png" alt="UwU GF mascot" />
+    <span class="eyebrow">be her bestie</span>
+    <h2 class="h2">apply for whitelist 🥺👉👈</h2>
+    <p class="sub">WL gets you in at <b>0.00069Ξ</b> instead of 0.001Ξ. limited spots — she's picky.</p>
+    <form id="wlForm">
+      <div class="wl-grid">
+        <div class="field"><label>X / Twitter handle *</label><input name="twitter" placeholder="@yourhandle" required /></div>
+        <div class="field"><label>Wallet address (ETH) *</label><input name="wallet" placeholder="0x… or yourname.eth" required /></div>
+        <div class="field"><label>Referred by (optional)</label><input name="ref" placeholder="@friend" /></div>
+        <div class="field full"><label>why do you deserve a uwu gf? 💕</label><textarea name="why" rows="3" placeholder="be delulu, be funny, manifest her"></textarea></div>
+      </div>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+        <button type="submit" class="btn btn-pink">Submit application 🎀</button>
+        <span class="note">by applying you agree to be charming. no guarantees, no financial advice.</span>
+      </div>
+    </form>
+    <div class="wl-success" id="wlOk">yay! 🥳 your application is in — follow <b>@uwugf</b> on X so you don't miss the mint 💕</div>
+  </div>
+</section>
+
+<section id="faq" class="wrap">
+  <span class="eyebrow">delulu questions</span>
+  <h2 class="h2">FAQ</h2>
+  <div class="faq" id="faq">
+    <div class="q"><button>what is UwU GF? <span class="chev">▾</span></button><div class="a"><p>6969 hand-drawn uwu girlfriend NFTs, each built from 100+ traits. cute, degen, collectible.</p></div></div>
+    <div class="q"><button>how much & what chain? <span class="chev">▾</span></button><div class="a"><p>whitelist 0.00069Ξ, public 0.001Ξ, minting on Ethereum. we use ERC-721A so batch minting keeps gas as low as possible. 6.9% creator royalties.</p></div></div>
+    <div class="q"><button>how do I get whitelisted? <span class="chev">▾</span></button><div class="a"><p>apply above, follow @uwugf, be active in the community, make fan art / memes. KOL & collab spots too.</p></div></div>
+    <div class="q"><button>when does it mint? <span class="chev">▾</span></button><div class="a"><p>date TBA — see the countdown. follow our X for the exact drop time. don't trust DMs, only the official site.</p></div></div>
+    <div class="q"><button>is this financial advice? <span class="chev">▾</span></button><div class="a"><p>absolutely not. buy her because she's cute, not because you think she'll fund your lambo. NFTs are risky & speculative.</p></div></div>
+  </div>
+</section>
+
+<div class="marquee rev"><div id="mq2"></div></div>
+
+<footer>
+  <div class="wrap">
+    <img class="footer-banner" src="assets/uwugf-banner.png" alt="UwU GF banner" />
+    <a href="#" class="brand" style="justify-content:center"><img src="assets/uwugf-logo-t.png" alt="UwU GF" style="height:56px" /></a>
+    <div class="socials">
+      <a href="#" title="X / Twitter">𝕏</a>
+      <a href="#" title="OpenSea">⛵</a>
+    </div>
+    <p class="disclaimer">UwU GF is an art collectible project. Nothing here is financial advice or a promise of value or returns. NFTs are speculative and you may lose money. Only interact with the official contract address published on our verified X account. Always verify the URL. © 2026 UwU GF.</p>
+  </div>
+</footer>
+
+<script>
+  // ---- config: edit these for launch ----
+  const CONFIG = {
+    mintDate: "2026-09-01T17:00:00Z",   // countdown target (UTC)
+    wlEndpoint: "",                      // e.g. Formspree/Tally POST url; empty = store locally
+  };
+
+  // ---- hero SVG girlfriends (placeholder art until real PNGs land) ----
+  const palettes = [
+    {skin:'#ffe0c2',hair:'#7a4be0',hood:'#ff5fa2',blush:'#ff9ec4'},
+    {skin:'#ffd9e8',hair:'#ff8ad4',hood:'#b08bff',blush:'#ff7fb6'},
+    {skin:'#f6e7d2',hair:'#2a2140',hood:'#9be8d8',blush:'#ff9ec4'},
+    {skin:'#ffe9d6',hair:'#ffd86b',hood:'#7ec8ff',blush:'#ffb0cf'},
+    {skin:'#e9d7ff',hair:'#5fd0c0',hood:'#ff86bd',blush:'#ff9ec4'},
+    {skin:'#ffdfe0',hair:'#b08bff',hood:'#ffd86b',blush:'#ff8fb8'},
+    {skin:'#fff0d6',hair:'#ff5fa2',hood:'#b6e36b',blush:'#ff9ec4'},
+    {skin:'#f3e0cf',hair:'#7ec8ff',hood:'#ff5fa2',blush:'#ffa6c8'},
+    {skin:'#ffe6f0',hair:'#3a2348',hood:'#c6a8ff',blush:'#ff86bd'},
+  ];
+  const gf = p => `
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <rect width="200" height="200" fill="#fff"/>
+      <rect width="200" height="200" fill="${p.hood}" opacity="0.18"/>
+      <path d="M40 200 q60 -70 120 0Z" fill="${p.hood}"/>
+      <circle cx="100" cy="96" r="60" fill="${p.skin}"/>
+      <path d="M40 96 a60 60 0 0 1 120 0 q-60 -46 -120 0Z" fill="${p.hair}"/>
+      <path d="M40 96 a60 60 0 0 1 120 0 q-30 18 -60 18 q-30 0 -60 -18Z" fill="${p.hair}" opacity=".55"/>
+      <ellipse cx="78" cy="102" rx="11" ry="15" fill="#2a2140"/>
+      <ellipse cx="122" cy="102" rx="11" ry="15" fill="#2a2140"/>
+      <circle cx="82" cy="96" r="4.5" fill="#fff"/><circle cx="126" cy="96" r="4.5" fill="#fff"/>
+      <ellipse cx="64" cy="120" rx="11" ry="6.5" fill="${p.blush}" opacity=".75"/>
+      <ellipse cx="136" cy="120" rx="11" ry="6.5" fill="${p.blush}" opacity=".75"/>
+      <path d="M90 124 q10 9 20 0" stroke="#7a3b5e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <rect x="74" y="150" width="52" height="9" rx="4.5" fill="${p.hood}"/>
+      <circle cx="100" cy="154.5" r="3.2" fill="#fff"/>
+    </svg>`;
+  // ---- hero grid = real hand-drawn teasers + a couple "soon" cards ----
+  // lead with the finished "main characters", then curated variety
+  const HERO_IMAGES = ['assets/peek-1.jpg','assets/peek-2.jpg','assets/hero-1.jpg','assets/hero-5.jpg','assets/hero-2.jpg','assets/hero-3.jpg'];
+  const heroCards = HERO_IMAGES.map(src=>`<div class="gf-card"><img src="${src}" alt="UwU GF"/></div>`);
+  const SOON_IMAGES = ['assets/hero-7.jpg','assets/hero-8.jpg','assets/hero-9.jpg'];
+  const heroSoon = SOON_IMAGES.map(src=>`<div class="gf-card soon"><img src="${src}" alt=""/></div>`);
+  document.getElementById('gfGrid').innerHTML = heroCards.concat(heroSoon).join('');
+
+  // ---- wardrobe "fits" carousel (hoodie garments, no face) ----
+  const FITS = ['assets/fit-purple.jpg','assets/fit-pink.jpg','assets/fit-periwinkle.jpg'];
+  const fitEl = document.getElementById('fitTrack');
+  if(fitEl){ const base = [...FITS,...FITS,...FITS]; fitEl.innerHTML = base.concat(base).map(s=>`<img src="${s}" alt="UwU GF fit" loading="lazy"/>`).join(''); }
+
+
+  // ---- marquee ----
+  const words = ['uwu','🎀','hand-drawn','💕','6969','🥺','exit liquidity','💎','on ETH','🦄','wgmi','✨'];
+  const line = words.concat(words).map(w=>`<span>${w}</span>`).join('');
+  document.getElementById('mq').innerHTML = line + line;
+  const words2 = ['she will not text back','🥺','but she lives in your wallet forever','💖','6969 uwu gfs','🎀','wl 0.00069Ξ','💎','public 0.001Ξ','🦄'];
+  const line2 = words2.concat(words2).map(w=>`<span>${w}</span>`).join('');
+  document.getElementById('mq2').innerHTML = line2 + line2;
+
+  // ---- floating hearts + sparkles in the hero ----
+  const FLO = ['💕','✨','🌸','🥺','🦄','💎','🎀','⭐','💗','🍬'];
+  document.getElementById('floaties').innerHTML = Array.from({length:16},(_,i)=>{
+    const e=FLO[i%FLO.length], left=Math.random()*100, dur=7+Math.random()*7, del=-Math.random()*12, size=0.9+Math.random()*1.4;
+    return `<span style="left:${left}%;animation-duration:${dur}s;animation-delay:${del}s;font-size:${size}rem">${e}</span>`;
+  }).join('');
+
+  // ---- countdown ----
+  const target = new Date(CONFIG.mintDate).getTime();
+  const pad = n => String(n).padStart(2,'0');
+  setInterval(()=>{
+    const t = target - Date.now();
+    if(t<0) return;
+    document.getElementById('d').textContent = Math.floor(t/86400000);
+    document.getElementById('h').textContent = pad(Math.floor(t/3600000)%24);
+    document.getElementById('m').textContent = pad(Math.floor(t/60000)%60);
+    document.getElementById('s').textContent = pad(Math.floor(t/1000)%60);
+  },1000);
+
+  // ---- FAQ accordion ----
+  document.querySelectorAll('.q button').forEach(b=>{
+    b.onclick=()=>b.parentElement.classList.toggle('open');
+  });
+
+  // ---- whitelist form ----
+  document.getElementById('wlForm').addEventListener('submit', async e=>{
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    data.ts = new Date().toISOString();
+    try{
+      if(CONFIG.wlEndpoint){
+        await fetch(CONFIG.wlEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      }else{
+        const all = JSON.parse(localStorage.getItem('uwugf_wl')||'[]');
+        all.push(data); localStorage.setItem('uwugf_wl', JSON.stringify(all));
+      }
+      e.target.style.display='none';
+      document.getElementById('wlOk').style.display='block';
+    }catch(err){ alert('oops, try again 🥺'); }
+  });
+</script>
+</body>
+</html>
