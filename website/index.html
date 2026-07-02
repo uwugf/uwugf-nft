@@ -310,7 +310,9 @@ document.addEventListener('DOMContentLoaded', async function() {
       t.addEventListener('click',function(){
         if(t.dataset.busy)return;t.dataset.busy='1';
         var vis=visible(),pick,guard=0;
-        do{pick=bank[Math.floor(Math.random()*bank.length)];guard++;}while(vis.indexOf(pick)!==-1&&guard<200);
+        var rareOnScreen=vis.filter(function(s){return RARES.indexOf(s)!==-1&&s!==t.dataset.cur;}).length;
+        var pool=rareOnScreen>=2?bank.filter(function(s){return RARES.indexOf(s)===-1;}):bank;
+        do{pick=pool[Math.floor(Math.random()*pool.length)];guard++;}while(vis.indexOf(pick)!==-1&&guard<200);
         var isRare=RARES.indexOf(pick)!==-1;
         var pre=new Image();pre.src=pick;
         var r=t.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
