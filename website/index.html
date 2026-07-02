@@ -290,11 +290,10 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // ---------- tap-to-reveal card grid v3 ----------
     var BACK='assets/unrevealed.jpg';
-    var bank=[];
-    for(var bi=1;bi<=59;bi++){bank.push('assets/bank/r-'+(bi<10?'0':'')+bi+'.jpg');}
-    bank.push('assets/bank/art-1.jpg');bank.push('assets/bank/art-2.jpg');
-    var RARES=[];for(var li=1;li<=8;li++){RARES.push('assets/bank/leg-'+li+'.jpg');}
-    bank=bank.concat(RARES);
+    var P='assets/bank/';var REG=[['r-01.jpg','ogwhite'],['r-02.jpg','ogwhite'],['r-03.jpg','ogneonpink'],['r-04.jpg','ogneonpink'],['r-05.jpg','ogred'],['r-06.jpg','ogred'],['r-07.jpg','ogyellow'],['r-08.jpg','ogyellow'],['r-09.jpg','ogneongreen'],['r-10.jpg','ogneongreen'],['r-11.jpg','ogviolet'],['r-12.jpg','ogviolet'],['r-13.jpg','tangerine'],['r-14.jpg','tangerine'],['r-15.jpg','joker'],['r-16.jpg','joker'],['r-17.jpg','fuzzypink'],['r-18.jpg','fuzzypink'],['r-19.jpg','fuzzypurple'],['r-20.jpg','fuzzypurple'],['r-21.jpg','fuzzyperiwinkle'],['r-22.jpg','fuzzyperiwinkle'],['r-23.jpg','starspurple'],['r-24.jpg','starspurple'],['r-25.jpg','starsblue'],['r-26.jpg','starsblue'],['r-27.jpg','clouds'],['r-28.jpg','clouds'],['r-29.jpg','pepesuit'],['r-30.jpg','pepesuit'],['art-1.jpg','fuzzypurple'],['art-2.jpg','ogwhite']];var RARE=[['leg-1.jpg','rainbow'],['leg-2.jpg','blackgold'],['leg-3.jpg','pepesuit'],['leg-4.jpg','ogneonpink'],['leg-5.jpg','starspurple'],['leg-6.jpg','clouds'],['leg-7.jpg','fuzzypink'],['leg-8.jpg','joker']];
+    var bank=[],HOOD={},RARES=[];
+    REG.forEach(function(e){var u=P+e[0];bank.push(u);HOOD[u]=e[1];});
+    RARE.forEach(function(e){var u=P+e[0];bank.push(u);RARES.push(u);HOOD[u]=e[1];});
     var iq=bank.slice();
     (function drip(){if(!iq.length)return;var im=new Image();im.src=iq.shift();setTimeout(drip,350);})();
     var hint=document.getElementById('uwu-hint'),reveals=0;
@@ -309,10 +308,14 @@ document.addEventListener('DOMContentLoaded', async function() {
       function clearRare(){t.style.animation=t.dataset.baseAnim;t.style.boxShadow='';}
       t.addEventListener('click',function(){
         if(t.dataset.busy)return;t.dataset.busy='1';
-        var vis=visible(),pick,guard=0;
+        var vis=visible(),pick;
+        var visH={};document.querySelectorAll('[data-reveal]').forEach(function(x){
+          if(x!==t&&x.dataset.cur!==BACK&&HOOD[x.dataset.cur])visH[HOOD[x.dataset.cur]]=1;});
         var rareOnScreen=vis.filter(function(s){return RARES.indexOf(s)!==-1&&s!==t.dataset.cur;}).length;
-        var pool=rareOnScreen>=2?bank.filter(function(s){return RARES.indexOf(s)===-1;}):bank;
-        do{pick=pool[Math.floor(Math.random()*pool.length)];guard++;}while(vis.indexOf(pick)!==-1&&guard<200);
+        var pool=bank.filter(function(s){
+          return vis.indexOf(s)===-1&&!visH[HOOD[s]]&&!(rareOnScreen>=2&&RARES.indexOf(s)!==-1);});
+        if(!pool.length)pool=bank.filter(function(s){return vis.indexOf(s)===-1;});
+        pick=pool[Math.floor(Math.random()*pool.length)];
         var isRare=RARES.indexOf(pick)!==-1;
         var pre=new Image();pre.src=pick;
         var r=t.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
