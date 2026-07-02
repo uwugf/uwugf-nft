@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
-# Put the UwU GF site live. Two easy options ♡
-#
-#  A) Vercel  — run from repo root (uses vercel.json -> serves website/):
+# Put the UwU GF site live on Vercel (uses vercel.json -> serves website/).
+# Normally not needed: pushing to main auto-deploys via the GitHub integration.
+# Manual deploy from repo root:
 #        npx vercel deploy --prod --yes
-#     first run opens a browser to log in; after that it just deploys.
-#     non-interactive with a token (create at vercel.com/account/tokens):
+# non-interactive with a token (create at vercel.com/account/tokens):
 #        VERCEL_TOKEN=xxx ./scripts/deploy_web.sh
-#
-#  B) Netlify Drop — zero CLI, zero account:
-#        drag  uwugf-site.zip  onto  https://app.netlify.com/drop
-#
 set -e
 cd "$(dirname "$0")/.."
 if [ -n "$VERCEL_TOKEN" ]; then

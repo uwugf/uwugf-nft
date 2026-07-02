@@ -1,3 +1,5 @@
+> **Update (Jul 2, 2026):** Netlify project deleted (free-tier credits too tight). Site now lives on Vercel: https://uwugf-nft.vercel.app — auto-deploys from GitHub `main`.
+
 # UwU GF — anonymous ops setup 🕵️‍♀️
 
 A do-it-yourself guide to a clean, pseudonymous project identity — nothing tied to

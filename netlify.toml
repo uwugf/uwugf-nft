@@ -1,4 +1,0 @@
-# Netlify — static site, published from website/
-[build]
-  publish = "website"
-  command = ""
