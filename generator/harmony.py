@@ -47,7 +47,7 @@ PAIR_WEIGHTS = [
     (("Skin",   "Hoodie"),     0.15),   # only scores when skin is colorful (Zombie)
 ]
 
-ACCEPT = 0.70          # accept a roll at/above this score
+ACCEPT = 0.85          # accept a roll at/above this score (max floor that keeps every trait mintable)
 MAX_TRIES = 50         # rejection-sampling budget; then best-seen wins
 
 
@@ -124,7 +124,7 @@ def analyze(write: bool = True) -> dict:
 def _pair_score(a: dict, b: dict) -> float:
     """Harmony of two trait palettes on the color wheel."""
     if a["neutral"] or b["neutral"]:
-        return 0.78                                   # neutrals go with anything
+        return 0.85                                   # neutrals go with anything
     if a["multi"] or b["multi"]:
         other = b if a["multi"] else a
         if a["multi"] and b["multi"]:
