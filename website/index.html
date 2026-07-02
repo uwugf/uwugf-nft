@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     clearInterval(ready);init();
   },300);
   function init(){
-    var st=document.createElement('style');st.textContent="#uwu-sound-btn{position:fixed;bottom:16px;right:16px;z-index:99998;width:48px;height:48px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#ff5fa2,#b08bff);color:#fff;font-size:22px;line-height:1;cursor:pointer;box-shadow:0 10px 24px rgba(255,95,162,.45);transition:transform .15s;font-family:'Fredoka',sans-serif;}#uwu-sound-btn:hover{transform:scale(1.12) rotate(-6deg);}#uwu-sound-btn.off{filter:grayscale(.8);opacity:.7;}.uwu-p{position:fixed;z-index:99999;pointer-events:none;font-size:18px;will-change:transform,opacity;}@keyframes uwuLegGlow{0%{box-shadow:0 0 0 0 rgba(255,196,64,.95);}35%{box-shadow:0 0 52px 16px rgba(255,196,64,.8);}100%{box-shadow:0 14px 30px rgba(176,139,255,.18);}}@keyframes uwuShine{from{transform:translateX(-130%) skewX(-18deg);}to{transform:translateX(230%) skewX(-18deg);}}@keyframes uwuPop{0%{transform:scale(1);}35%{transform:scale(1.07);}70%{transform:scale(.985);}100%{transform:scale(1);}}.uwu-leg{animation:uwuLegGlow 1.7s ease-out,uwuPop .9s ease-out;z-index:5;}.uwu-shine{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:inherit;}.uwu-shine::after{content:\"\";position:absolute;top:-20%;bottom:-20%;width:45%;background:linear-gradient(105deg,transparent,rgba(255,255,230,.85),transparent);animation:uwuShine 1.05s ease-out;}";
+    var st=document.createElement('style');st.textContent="#uwu-sound-btn{position:fixed;bottom:16px;right:16px;z-index:99998;width:48px;height:48px;border-radius:50%;border:2px solid #fff;background:linear-gradient(135deg,#ff5fa2,#b08bff);color:#fff;font-size:22px;line-height:1;cursor:pointer;box-shadow:0 10px 24px rgba(255,95,162,.45);transition:transform .15s;font-family:'Fredoka',sans-serif;}#uwu-sound-btn:hover{transform:scale(1.12) rotate(-6deg);}#uwu-sound-btn.off{filter:grayscale(.8);opacity:.7;}.uwu-p{position:fixed;z-index:99999;pointer-events:none;font-size:18px;will-change:transform,opacity;}@keyframes uwuLegGlow{0%{box-shadow:0 0 0 0 rgba(255,196,64,.95),0 14px 30px rgba(176,139,255,.18);}35%{box-shadow:0 0 52px 16px rgba(255,196,64,.85),0 14px 30px rgba(176,139,255,.18);}100%{box-shadow:0 0 18px 5px rgba(255,196,64,.5),0 14px 30px rgba(176,139,255,.18);}}@keyframes uwuRarePulse{0%,100%{box-shadow:0 0 14px 4px rgba(255,196,64,.45),0 14px 30px rgba(176,139,255,.18);}50%{box-shadow:0 0 30px 10px rgba(255,196,64,.85),0 14px 30px rgba(176,139,255,.18);}}@keyframes uwuShine{from{transform:translateX(-130%) skewX(-18deg);}to{transform:translateX(230%) skewX(-18deg);}}.uwu-shine{position:absolute;inset:0;overflow:hidden;pointer-events:none;border-radius:inherit;}.uwu-shine::after{content:\"\";position:absolute;top:-20%;bottom:-20%;width:45%;background:linear-gradient(105deg,transparent,rgba(255,255,230,.85),transparent);animation:uwuShine 1.05s ease-out forwards;}";
     document.head.appendChild(st);
     var pref=localStorage.getItem('uwu-sound')!=='off';
     var started=false,actx=null,mbuf=null,mgain=null;
@@ -288,31 +288,34 @@ document.addEventListener('DOMContentLoaded', async function() {
       return 'dflt';
     }
 
-    // ---------- tap-to-reveal card grid v2 ----------
+    // ---------- tap-to-reveal card grid v3 ----------
     var BACK='assets/unrevealed.jpg';
     var bank=[];
     for(var bi=1;bi<=59;bi++){bank.push('assets/bank/r-'+(bi<10?'0':'')+bi+'.jpg');}
     bank.push('assets/bank/art-1.jpg');bank.push('assets/bank/art-2.jpg');
-    var LEGS=[];for(var li=1;li<=8;li++){LEGS.push('assets/bank/leg-'+li+'.jpg');}
-    bank=bank.concat(LEGS);
+    var RARES=[];for(var li=1;li<=8;li++){RARES.push('assets/bank/leg-'+li+'.jpg');}
+    bank=bank.concat(RARES);
     var iq=bank.slice();
     (function drip(){if(!iq.length)return;var im=new Image();im.src=iq.shift();setTimeout(drip,350);})();
     var hint=document.getElementById('uwu-hint'),reveals=0;
     function setHint(t){if(hint)hint.textContent=t;}
     function visible(){var o=[];document.querySelectorAll('[data-reveal]').forEach(function(x){o.push(x.dataset.cur);});return o;}
-    function sfxLegendary(){[440,554,659,880,1108].forEach(function(f,i){setTimeout(function(){tone(f,f*1.01,0.28,'square',0.22);tone(f*2,f*2.02,0.3,'sine',0.12);},i*95);});}
+    function sfxRare(){[440,554,659,880,1108].forEach(function(f,i){setTimeout(function(){tone(f,f*1.01,0.28,'square',0.22);tone(f*2,f*2.02,0.3,'sine',0.12);},i*95);});}
     document.querySelectorAll('[data-reveal]').forEach(function(t){
       var img=t.querySelector('img');
       t.dataset.cur=img.getAttribute('src');
+      t.dataset.baseAnim=t.style.animation;
       img.style.transition='transform .19s ease-in';
+      function clearRare(){t.style.animation=t.dataset.baseAnim;t.style.boxShadow='';}
       t.addEventListener('click',function(){
         if(t.dataset.busy)return;t.dataset.busy='1';
         var vis=visible(),pick,guard=0;
         do{pick=bank[Math.floor(Math.random()*bank.length)];guard++;}while(vis.indexOf(pick)!==-1&&guard<200);
-        var isLeg=LEGS.indexOf(pick)!==-1;
+        var isRare=RARES.indexOf(pick)!==-1;
         var pre=new Image();pre.src=pick;
         var r=t.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
         function flipTo(src,done){
+          if(src===BACK)clearRare();
           img.style.transform='rotateY(88deg)';
           setTimeout(function(){
             function go(){
@@ -326,16 +329,23 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         function finish(){
           reveals++;
-          if(isLeg){
-            t.classList.remove('uwu-leg');void t.offsetWidth;t.classList.add('uwu-leg');
+          if(isRare){
+            t.style.animation=t.dataset.baseAnim+', uwuLegGlow 1.6s ease-out';
             var sh=document.createElement('div');sh.className='uwu-shine';t.appendChild(sh);
-            setTimeout(function(){sh.remove();},1200);
-            sfxLegendary();
-            for(var w=0;w<3;w++){setTimeout(function(){burst(cx,cy,true,'gold');},w*160);}
-            setHint('👑 LEGENDARY FOUND!! one of the rarest gfs ✨');
+            setTimeout(function(){sh.remove();},1150);
+            setTimeout(function(){
+              if(RARES.indexOf(t.dataset.cur)!==-1){
+                t.style.animation=t.dataset.baseAnim+', uwuRarePulse 2.4s ease-in-out infinite';
+              }
+            },1650);
+            sfxRare();
+            burst(cx,cy,true,'gold');
+            setTimeout(function(){burst(cx,cy,false,'gold');},180);
+            setHint('👑 RARE FOUND!! she is one of the rarest gfs ✨');
           }else{
+            clearRare();
             sfx('sparkle');burst(cx,cy,true,'hero');
-            setHint(reveals<2?'cutie!! tap again for the next gf 💕':'keep tapping — a LEGENDARY is hiding in there 👑');
+            setHint(reveals<2?'cutie!! tap again for the next gf 💕':'keep tapping — a RARE one is hiding in there 👑');
           }
           t.dataset.busy='';
         }
