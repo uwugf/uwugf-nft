@@ -837,5 +837,53 @@
   "multi": true,
   "pastel": true,
   "dom_bucket": 1
+ },
+ "Hoodie/Pepe Suit": {
+  "neutral": false,
+  "hue": 96.74940024458027,
+  "sat": 0.454,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 3
+ },
+ "Stuffie/Nub": {
+  "neutral": false,
+  "hue": 196.9406041841243,
+  "sat": 0.29,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Stuffie/Pepe": {
+  "neutral": false,
+  "hue": null,
+  "sat": 0.621,
+  "multi": true,
+  "pastel": false,
+  "dom_bucket": 7
+ },
+ "Stuffie/Wif": {
+  "neutral": false,
+  "hue": 31.251318377797993,
+  "sat": 0.419,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Stuffie/Teddy Bear": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.559,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Stuffie/Voodoo Doll": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.078,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
  }
 }

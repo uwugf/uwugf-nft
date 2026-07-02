@@ -104,9 +104,9 @@ layer_order,category,trait_name,source_file,rarity_tier,weight,art_done,notes
 8,Hoodie,Clouds,super_rare/Clouds.png,super_rare,10,TRUE,
 8,Hoodie,Black & Gold,legendary/Black & Gold.png,legendary,3,TRUE,
 8,Hoodie,Rainbow,legendary/Rainbow.png,legendary,3,TRUE,
-8,Hoodie,Pepe Suit,,rare,30,FALSE,art pending
-9,Stuffie,Nub,,common,100,FALSE,art pending
-9,Stuffie,Pepe,,rare,30,FALSE,art pending
-9,Stuffie,Wif,,common,100,FALSE,art pending
-9,Stuffie,Teddy Bear,,common,100,FALSE,art pending
-9,Stuffie,Voodoo Doll,,rare,30,FALSE,art pending
+8,Hoodie,Pepe Suit,rare/Pepe Suit.png,rare,30,TRUE,
+9,Stuffie,Nub,common/Nub.png,common,100,TRUE,
+9,Stuffie,Pepe,rare/Pepe.png,rare,30,TRUE,
+9,Stuffie,Wif,common/Wif.png,common,100,TRUE,
+9,Stuffie,Teddy Bear,common/Teddy Bear.png,common,100,TRUE,
+9,Stuffie,Voodoo Doll,rare/Voodoo Doll.png,rare,30,TRUE,

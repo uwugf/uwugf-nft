@@ -817,10 +817,10 @@
         },
         {
           "name": "Pepe Suit",
-          "file": "",
+          "file": "rare/Pepe Suit.png",
           "tier": "rare",
           "weight": 30,
-          "art_done": false
+          "art_done": true
         }
       ]
     },
@@ -831,38 +831,38 @@
       "options": [
         {
           "name": "Nub",
-          "file": "",
+          "file": "common/Nub.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Pepe",
-          "file": "",
+          "file": "rare/Pepe.png",
           "tier": "rare",
           "weight": 30,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Wif",
-          "file": "",
+          "file": "common/Wif.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Teddy Bear",
-          "file": "",
+          "file": "common/Teddy Bear.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Voodoo Doll",
-          "file": "",
+          "file": "rare/Voodoo Doll.png",
           "tier": "rare",
           "weight": 30,
-          "art_done": false
+          "art_done": true
         }
       ]
     }

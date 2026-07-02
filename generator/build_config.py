@@ -145,7 +145,7 @@ SPEC: dict[str, dict] = {
             "Tangerine", "Joker",
             "Fuzzy Pink", "Fuzzy Purple", "Fuzzy Periwinkle", "Stars Purple", "Stars Blue", "Clouds",
             "Black & Gold", "Rainbow",
-            "Pepe Suit",  # pending art (gab)
+            "Pepe Suit",
         ],
         "tiers": {
             "Rainbow": "legendary", "Black & Gold": "legendary",
@@ -153,10 +153,9 @@ SPEC: dict[str, dict] = {
             "Stars Purple": "super_rare", "Stars Blue": "super_rare", "Clouds": "super_rare",
             "Joker": "rare", "Pepe Suit": "rare",
         },
-        "not_done": ["Pepe Suit"],
     },
     "Stuffie": {
-        "done": False,  # all FALSE on sheet — art not drawn yet
+        "done": True,   # all 5 uploaded 2026-07-02 (incl. gab's wif)
         "traits": ["Nub", "Pepe", "Wif", "Teddy Bear", "Voodoo Doll"],
         "tiers": {"Voodoo Doll": "rare", "Pepe": "rare"},
     },
