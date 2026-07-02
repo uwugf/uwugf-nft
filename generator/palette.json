@@ -1,0 +1,841 @@
+{
+ "Background/Asylum": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.079,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/Haunted House": {
+  "neutral": false,
+  "hue": 15.342194452997512,
+  "sat": 0.371,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/Chinese Restaurant": {
+  "neutral": false,
+  "hue": 23.729830892980278,
+  "sat": 0.442,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/Casino": {
+  "neutral": false,
+  "hue": 21.644745786739808,
+  "sat": 0.428,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/School": {
+  "neutral": false,
+  "hue": 62.0085178237043,
+  "sat": 0.336,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 2
+ },
+ "Background/Sunflower Field": {
+  "neutral": false,
+  "hue": 41.38466096015372,
+  "sat": 0.535,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 1
+ },
+ "Background/Nightclub": {
+  "neutral": false,
+  "hue": 336.57754647812646,
+  "sat": 0.475,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 11
+ },
+ "Background/Rainbow Sky": {
+  "neutral": false,
+  "hue": 209.6436394657602,
+  "sat": 0.212,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Background/Pink Cafe": {
+  "neutral": false,
+  "hue": 3.6781047444767587,
+  "sat": 0.288,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/Unicorn Cafe": {
+  "neutral": false,
+  "hue": 355.9298042314246,
+  "sat": 0.255,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/Wedding Arch": {
+  "neutral": false,
+  "hue": null,
+  "sat": 0.302,
+  "multi": true,
+  "pastel": true,
+  "dom_bucket": 11
+ },
+ "Background/Candy Shop": {
+  "neutral": false,
+  "hue": 189.02362666221123,
+  "sat": 0.351,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Background/Playground": {
+  "neutral": false,
+  "hue": 22.253828635180795,
+  "sat": 0.347,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/Pub": {
+  "neutral": false,
+  "hue": 14.381798934859448,
+  "sat": 0.381,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Background/Library": {
+  "neutral": false,
+  "hue": 22.690640804945744,
+  "sat": 0.407,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Skin/Pale": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.073,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Skin/Pale Ivory": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.143,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Skin/Ivory": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.223,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Skin/Porcelain": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.274,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Skin/Sienna": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.385,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Skin/Limestone": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.397,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Skin/Espresso": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.722,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Skin/Zombie": {
+  "neutral": false,
+  "hue": 135.0,
+  "sat": 0.704,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 4
+ },
+ "Make-up/Retardio": {
+  "neutral": false,
+  "hue": 244.31736792217805,
+  "sat": 0.622,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 7
+ },
+ "Make-up/Bowie": {
+  "neutral": false,
+  "hue": 13.194183679303672,
+  "sat": 0.718,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Make-up/Kiss": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.0,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Make-up/Harley Quinn": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.0,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Make-up/Heart Cheeks": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0,
+  "multi": false,
+  "pastel": true
+ },
+ "Make-up/Mime": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.001,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Mouth/Straight Plump": {
+  "neutral": false,
+  "hue": 345.0,
+  "sat": 0.509,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 11
+ },
+ "Mouth/Smile": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.368,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Mouth/Kiss": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.86,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Mouth/Pout": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.485,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Mouth/Angry": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.412,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Mouth/Tongue": {
+  "neutral": false,
+  "hue": 357.87485702451806,
+  "sat": 0.463,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 11
+ },
+ "Mouth/Goth": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.015,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Mouth/Smile with teeth": {
+  "neutral": false,
+  "hue": 345.0,
+  "sat": 0.507,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 11
+ },
+ "Mouth/Vampire": {
+  "neutral": false,
+  "hue": 14.999999999999996,
+  "sat": 0.595,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Mouth/Braces": {
+  "neutral": false,
+  "hue": 15.42032653020169,
+  "sat": 0.365,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Mouth/Lip bite": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.724,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Mouth/Stitched mouth": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.0,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Mouth/Vampire 2": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.591,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Mouth/Bubblegum": {
+  "neutral": false,
+  "hue": 311.2113876212737,
+  "sat": 0.296,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 10
+ },
+ "Eyes/Bright-Green": {
+  "neutral": false,
+  "hue": 140.76105052833222,
+  "sat": 0.296,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 4
+ },
+ "Eyes/Bright-Blue": {
+  "neutral": false,
+  "hue": 194.99999999999997,
+  "sat": 0.374,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Eyes/Bright-Brown": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.32,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/Bright-Gold": {
+  "neutral": false,
+  "hue": 45.0,
+  "sat": 0.434,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Eyes/Bright-Heart-Green": {
+  "neutral": false,
+  "hue": 140.95606551136035,
+  "sat": 0.31,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 4
+ },
+ "Eyes/Bright-Heart-Blue": {
+  "neutral": false,
+  "hue": 194.99999999999997,
+  "sat": 0.392,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Eyes/Bright-Heart-Brown": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.319,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/Bright-Heart-Gold": {
+  "neutral": false,
+  "hue": 45.0,
+  "sat": 0.437,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Eyes/Dead": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.34,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/Alien": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.023,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/Ghost": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.003,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/Dazed": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.413,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/Rolling-Green": {
+  "neutral": false,
+  "hue": 160.11301096345628,
+  "sat": 0.395,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 5
+ },
+ "Eyes/Rolling-Blue": {
+  "neutral": false,
+  "hue": 194.99999999999997,
+  "sat": 0.473,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 6
+ },
+ "Eyes/Rolling-Brown": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.384,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/Rolling-Gold": {
+  "neutral": false,
+  "hue": 44.99999999999999,
+  "sat": 0.49,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 1
+ },
+ "Eyes/SideEye-Green": {
+  "neutral": false,
+  "hue": 162.0682755913016,
+  "sat": 0.286,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 5
+ },
+ "Eyes/SideEye-Blue": {
+  "neutral": false,
+  "hue": 195.0,
+  "sat": 0.355,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Eyes/SideEye-Brown": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.28,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Eyes/SideEye-Gold": {
+  "neutral": false,
+  "hue": 45.0,
+  "sat": 0.362,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Eyes/Diamonds": {
+  "neutral": false,
+  "hue": 194.99999999999997,
+  "sat": 0.338,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Eyes/Sniper": {
+  "neutral": false,
+  "hue": 45.0,
+  "sat": 0.354,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Eyes/Lucky": {
+  "neutral": false,
+  "hue": 108.02936349162324,
+  "sat": 0.23,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 3
+ },
+ "Eyes/Uwu": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.007,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Hair/Bangs Black": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.09,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Hair/Bangs Blonde": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.41,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Hair/Bangs Brown": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.739,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Hair/Bangs Pink": {
+  "neutral": false,
+  "hue": 333.4567929864612,
+  "sat": 0.216,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 11
+ },
+ "Hair/Bangs Purple": {
+  "neutral": false,
+  "hue": 285.0128197196707,
+  "sat": 0.799,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 9
+ },
+ "Hair/Full Bangs Black": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.129,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Hair/Full Bangs Blue": {
+  "neutral": false,
+  "hue": 194.99157507513678,
+  "sat": 0.998,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 6
+ },
+ "Hair/Full Bangs Brown": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.729,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Hair/Full Bangs Orange": {
+  "neutral": false,
+  "hue": 44.804986607236344,
+  "sat": 0.749,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 1
+ },
+ "Hair/Full Bangs Red": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.797,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Hair/Curtain Bangs Black": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.068,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Hair/Curtain Bangs Blonde": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.405,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Hair/Curtain Bangs Blue": {
+  "neutral": false,
+  "hue": 194.99999999999997,
+  "sat": 0.995,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 6
+ },
+ "Hair/Curtain Bangs Brown": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.739,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Hair/Curtain Bangs Green": {
+  "neutral": false,
+  "hue": 134.9877095526353,
+  "sat": 0.638,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 4
+ },
+ "Hair/Curtain Bangs Pink": {
+  "neutral": false,
+  "hue": 315.0,
+  "sat": 0.217,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 10
+ },
+ "Hair/Curtain Bangs Purple": {
+  "neutral": false,
+  "hue": 285.0,
+  "sat": 0.542,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 9
+ },
+ "Hair/Curtain Bangs Red": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.8,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Choker/Heart Choker": {
+  "neutral": false,
+  "hue": 70.22865933000735,
+  "sat": 0.444,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Choker/UWU Choker": {
+  "neutral": false,
+  "hue": 285.0,
+  "sat": 0.334,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 9
+ },
+ "Choker/Star Choker": {
+  "neutral": false,
+  "hue": 45.0,
+  "sat": 0.494,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 1
+ },
+ "Choker/XX Choker": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.5,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 0
+ },
+ "Hoodie/Og White": {
+  "neutral": true,
+  "hue": null,
+  "sat": 0.094,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Hoodie/Og Neon Pink": {
+  "neutral": false,
+  "hue": 318.30510529397463,
+  "sat": 0.871,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 10
+ },
+ "Hoodie/Og Red": {
+  "neutral": false,
+  "hue": 15.669133023518855,
+  "sat": 0.891,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Hoodie/Og Yellow": {
+  "neutral": false,
+  "hue": 43.44278214840412,
+  "sat": 0.556,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 1
+ },
+ "Hoodie/Og Neon Green": {
+  "neutral": false,
+  "hue": 101.64886945835671,
+  "sat": 0.881,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 3
+ },
+ "Hoodie/Og Violet": {
+  "neutral": false,
+  "hue": 287.5739186712139,
+  "sat": 0.819,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 9
+ },
+ "Hoodie/Tangerine": {
+  "neutral": false,
+  "hue": 20.418256911549364,
+  "sat": 0.823,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Hoodie/Joker": {
+  "neutral": false,
+  "hue": 289.62300974904537,
+  "sat": 0.936,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 9
+ },
+ "Hoodie/Fuzzy Pink": {
+  "neutral": false,
+  "hue": 329.8196554514259,
+  "sat": 0.394,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 10
+ },
+ "Hoodie/Fuzzy Purple": {
+  "neutral": false,
+  "hue": 291.179805633001,
+  "sat": 0.365,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 9
+ },
+ "Hoodie/Fuzzy Periwinkle": {
+  "neutral": false,
+  "hue": 257.2103308943244,
+  "sat": 0.354,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 8
+ },
+ "Hoodie/Stars Purple": {
+  "neutral": false,
+  "hue": 308.84263075469306,
+  "sat": 0.46,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 9
+ },
+ "Hoodie/Stars Blue": {
+  "neutral": false,
+  "hue": 229.49287231209433,
+  "sat": 0.554,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 7
+ },
+ "Hoodie/Clouds": {
+  "neutral": false,
+  "hue": 192.9396248737015,
+  "sat": 0.337,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 6
+ },
+ "Hoodie/Black & Gold": {
+  "neutral": false,
+  "hue": 42.890290266718104,
+  "sat": 0.238,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Hoodie/Rainbow": {
+  "neutral": false,
+  "hue": null,
+  "sat": 0.33,
+  "multi": true,
+  "pastel": true,
+  "dom_bucket": 1
+ }
+}
