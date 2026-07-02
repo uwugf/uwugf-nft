@@ -107,7 +107,7 @@ SPEC: dict[str, dict] = {
         },
     },
     "Make-up": {
-        "done": False,  # marked TRUE on sheet but no art folder yet
+        "done": True,   # uploaded to Drive "Make Up" folder 2026-07-02
         "traits": ["Retardio", "Bowie", "Kiss", "Harley Quinn", "Heart Cheeks", "Mime"],
         "tiers": {"Harley Quinn": "rare", "Mime": "rare", "Bowie": "rare"},
     },
@@ -117,28 +117,43 @@ SPEC: dict[str, dict] = {
         "tiers": {},
     },
     "Hair": {
-        "done": False,  # all FALSE on sheet — art not drawn yet
+        "done": True,   # all 18 uploaded to Drive 2026-07-02 ("done with all hair")
+        # actual drawn set is 18 (sheet had 15): Full Bangs Red replaces the planned
+        # Blonde, plus extra Curtain Bangs Blue/Pink/Purple.
         "traits": [
-            "Bangs Pink", "Bangs Blonde", "Bangs Black", "Bangs Brown", "Bangs Purple",
-            "Full Bangs Blue", "Full Bangs Blonde", "Full Bangs Brown", "Full Bangs Orange", "Full Bangs Black",
-            "Curtain Bangs Red", "Curtain Bangs Blonde", "Curtain Bangs Black", "Curtain Bangs Brown", "Curtain Bangs Green",
+            "Bangs Black", "Bangs Blonde", "Bangs Brown", "Bangs Pink", "Bangs Purple",
+            "Full Bangs Black", "Full Bangs Blue", "Full Bangs Brown", "Full Bangs Orange", "Full Bangs Red",
+            "Curtain Bangs Black", "Curtain Bangs Blonde", "Curtain Bangs Blue", "Curtain Bangs Brown",
+            "Curtain Bangs Green", "Curtain Bangs Pink", "Curtain Bangs Purple", "Curtain Bangs Red",
         ],
-        "tiers": {},
+        # natural shades common; fashion colors rare (starting points, tune in sheet)
+        "tiers": {
+            "Bangs Pink": "rare", "Bangs Purple": "rare",
+            "Full Bangs Blue": "rare", "Full Bangs Orange": "rare", "Full Bangs Red": "rare",
+            "Curtain Bangs Blue": "rare", "Curtain Bangs Green": "rare",
+            "Curtain Bangs Pink": "rare", "Curtain Bangs Purple": "rare", "Curtain Bangs Red": "rare",
+        },
     },
     "Hoodie": {
         "done": True,
+        # 16 drawn hoodies, names re-verified against the art one-by-one (2026-07-02):
+        # the sheet's original Og Violet + Joker DO exist (earlier fc_XX renaming had
+        # scrambled them). Solana/Weed/Uwu dropped per babydegen; Pepe Suit replaces
+        # them (gab drawing it).
         "traits": [
-            "Og White", "Og Neon Pink", "Og Red", "Og Violet", "Og Yellow", "Og Neon Green",
-            "Fuzzy Pink", "Fuzzy Purple", "Fuzzy Periwinkle", "Stars Purple", "Clouds",
-            "Joker", "Black & Gold", "Rainbow", "Tangerine", "Stars blue",
-            "Solana", "Weed", "Uwu",  # pending art
+            "Og White", "Og Neon Pink", "Og Red", "Og Yellow", "Og Neon Green", "Og Violet",
+            "Tangerine", "Joker",
+            "Fuzzy Pink", "Fuzzy Purple", "Fuzzy Periwinkle", "Stars Purple", "Stars Blue", "Clouds",
+            "Black & Gold", "Rainbow",
+            "Pepe Suit",  # pending art (gab)
         ],
         "tiers": {
             "Rainbow": "legendary", "Black & Gold": "legendary",
-            "Clouds": "super_rare", "Stars Purple": "super_rare", "Stars blue": "super_rare", "Joker": "super_rare",
-            "Solana": "rare",
+            "Fuzzy Pink": "super_rare", "Fuzzy Purple": "super_rare", "Fuzzy Periwinkle": "super_rare",
+            "Stars Purple": "super_rare", "Stars Blue": "super_rare", "Clouds": "super_rare",
+            "Joker": "rare", "Pepe Suit": "rare",
         },
-        "not_done": ["Solana", "Weed", "Uwu"],
+        "not_done": ["Pepe Suit"],
     },
     "Stuffie": {
         "done": False,  # all FALSE on sheet — art not drawn yet

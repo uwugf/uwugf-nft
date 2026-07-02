@@ -1,0 +1,124 @@
+{
+  "seed": 58705,
+  "tokens": [
+    {
+      "id": 1,
+      "traits": {
+        "Background": "Sunflower Field",
+        "Skin": "Pale Ivory",
+        "Make-up": "Mime",
+        "Mouth": "Smile",
+        "Eyes": "Bright-Blue",
+        "Hair": "Full Bangs Red",
+        "Hoodie": "Og Violet"
+      }
+    },
+    {
+      "id": 2,
+      "traits": {
+        "Background": "Playground",
+        "Skin": "Pale Ivory",
+        "Mouth": "Braces",
+        "Eyes": "SideEye-Blue",
+        "Hair": "Bangs Purple",
+        "Hoodie": "Og Neon Pink"
+      }
+    },
+    {
+      "id": 3,
+      "traits": {
+        "Background": "School",
+        "Skin": "Ivory",
+        "Make-up": "Heart Cheeks",
+        "Mouth": "Goth",
+        "Eyes": "Bright-Heart-Green",
+        "Hair": "Full Bangs Black",
+        "Hoodie": "Og Violet"
+      }
+    },
+    {
+      "id": 4,
+      "traits": {
+        "Background": "Nightclub",
+        "Skin": "Espresso",
+        "Make-up": "Heart Cheeks",
+        "Mouth": "Tongue",
+        "Eyes": "Bright-Gold",
+        "Hair": "Full Bangs Blue",
+        "Hoodie": "Og Neon Pink"
+      }
+    },
+    {
+      "id": 5,
+      "traits": {
+        "Background": "Library",
+        "Skin": "Pale Ivory",
+        "Make-up": "Heart Cheeks",
+        "Mouth": "Bubblegum",
+        "Eyes": "SideEye-Brown",
+        "Hair": "Full Bangs Orange",
+        "Hoodie": "Og Neon Pink"
+      }
+    },
+    {
+      "id": 6,
+      "traits": {
+        "Background": "Playground",
+        "Skin": "Sienna",
+        "Make-up": "Retardio",
+        "Mouth": "Tongue",
+        "Eyes": "Bright-Heart-Blue",
+        "Hair": "Full Bangs Black",
+        "Hoodie": "Og Neon Pink"
+      }
+    },
+    {
+      "id": 7,
+      "traits": {
+        "Background": "Playground",
+        "Skin": "Porcelain",
+        "Make-up": "Retardio",
+        "Mouth": "Goth",
+        "Eyes": "SideEye-Blue",
+        "Hair": "Curtain Bangs Brown",
+        "Hoodie": "Og White"
+      }
+    },
+    {
+      "id": 8,
+      "traits": {
+        "Background": "Asylum",
+        "Skin": "Pale Ivory",
+        "Make-up": "Bowie",
+        "Mouth": "Straight Plump",
+        "Eyes": "Bright-Heart-Blue",
+        "Hair": "Bangs Brown",
+        "Hoodie": "Joker"
+      }
+    },
+    {
+      "id": 9,
+      "traits": {
+        "Background": "Library",
+        "Skin": "Porcelain",
+        "Make-up": "Heart Cheeks",
+        "Mouth": "Kiss",
+        "Eyes": "Bright-Green",
+        "Hair": "Curtain Bangs Green",
+        "Hoodie": "Og Yellow"
+      }
+    },
+    {
+      "id": 10,
+      "traits": {
+        "Background": "Casino",
+        "Skin": "Ivory",
+        "Make-up": "Heart Cheeks",
+        "Mouth": "Straight Plump",
+        "Eyes": "Bright-Heart-Blue",
+        "Hair": "Full Bangs Brown",
+        "Hoodie": "Og Yellow"
+      }
+    }
+  ]
+}

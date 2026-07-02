@@ -2,13 +2,13 @@ layer_order,category,trait_name,source_file,rarity_tier,weight,art_done,notes
 1,Background,Asylum,Asylum.png,common,100,TRUE,
 1,Background,Haunted House,Haunted House.png,common,100,TRUE,
 1,Background,Chinese Restaurant,Chinese Restaurant.png,common,100,TRUE,
-1,Background,Casino,Casino.png,common,100,TRUE,
+1,Background,Casino,rare/Casino.png,rare,30,TRUE,
 1,Background,School,School.png,common,100,TRUE,
 1,Background,Sunflower Field,Sunflower Field.png,common,100,TRUE,
 1,Background,Nightclub,Nightclub.png,common,100,TRUE,
-1,Background,Rainbow Sky,Rainbow Sky.png,common,100,TRUE,
+1,Background,Rainbow Sky,super_rare/Rainbow Sky.png,super_rare,10,TRUE,
 1,Background,Pink Cafe,Pink Cafe.png,common,100,TRUE,
-1,Background,Unicorn Cafe,Unicorn Cafe.png,common,100,TRUE,
+1,Background,Unicorn Cafe,super_rare/Unicorn Cafe.png,super_rare,10,TRUE,
 1,Background,Wedding Arch,Wedding Arch.png,common,100,TRUE,
 1,Background,Candy Shop,Candy Shop.png,common,100,TRUE,
 1,Background,Playground,Playground.png,common,100,TRUE,
@@ -22,12 +22,12 @@ layer_order,category,trait_name,source_file,rarity_tier,weight,art_done,notes
 2,Skin,Limestone,common/Limestone.png,common,100,TRUE,
 2,Skin,Espresso,rare/Espresso.png,rare,30,TRUE,
 2,Skin,Zombie,legendary/Zombie.png,legendary,3,TRUE,
-3,Make-up,Retardio,,common,100,FALSE,art pending
-3,Make-up,Bowie,,rare,30,FALSE,art pending
-3,Make-up,Kiss,,common,100,FALSE,art pending
-3,Make-up,Harley Quinn,,rare,30,FALSE,art pending
-3,Make-up,Heart Cheeks,,common,100,FALSE,art pending
-3,Make-up,Mime,,rare,30,FALSE,art pending
+3,Make-up,Retardio,common/Retardio.png,common,100,TRUE,
+3,Make-up,Bowie,rare/Bowie.png,rare,30,TRUE,
+3,Make-up,Kiss,common/Kiss.png,common,100,TRUE,
+3,Make-up,Harley Quinn,rare/Harley Quinn.png,rare,30,TRUE,
+3,Make-up,Heart Cheeks,common/Heart Cheeks.png,common,100,TRUE,
+3,Make-up,Mime,rare/Mime.png,rare,30,TRUE,
 4,Mouth,Straight Plump,common/Straight_Plump.png,common,100,TRUE,
 4,Mouth,Smile,common/Smile.png,common,100,TRUE,
 4,Mouth,Kiss,common/Kiss.png,common,100,TRUE,
@@ -35,11 +35,11 @@ layer_order,category,trait_name,source_file,rarity_tier,weight,art_done,notes
 4,Mouth,Angry,super_rare/Angry.png,super_rare,10,TRUE,
 4,Mouth,Tongue,rare/Tongue.png,rare,30,TRUE,
 4,Mouth,Goth,super_rare/Goth.png,super_rare,10,TRUE,
-4,Mouth,Smile with teeth,,common,100,TRUE,
+4,Mouth,Smile with teeth,common/Smile with teeth.png,common,100,TRUE,
 4,Mouth,Vampire,super_rare/Vampire.png,super_rare,10,TRUE,
 4,Mouth,Braces,super_rare/Braces.png,super_rare,10,TRUE,
-4,Mouth,Lip bite,,common,100,TRUE,
-4,Mouth,Stitched mouth,,rare,30,TRUE,
+4,Mouth,Lip bite,rare/Lip bite.png,rare,30,TRUE,
+4,Mouth,Stitched mouth,super_rare/Stitched mouth.png,super_rare,10,TRUE,
 4,Mouth,Vampire 2,legendary/Vampire_2.png,legendary,3,TRUE,
 4,Mouth,Bubblegum,rare/Bubblegum.png,rare,30,TRUE,
 5,Eyes,Bright-Green,common/Bright-Green.png,common,100,TRUE,
@@ -54,10 +54,10 @@ layer_order,category,trait_name,source_file,rarity_tier,weight,art_done,notes
 5,Eyes,Alien,super_rare/Alien.png,super_rare,10,TRUE,
 5,Eyes,Ghost,legendary/Ghost.png,legendary,3,TRUE,
 5,Eyes,Dazed,legendary/Dazed.png,legendary,3,TRUE,
-5,Eyes,Rolling-Green,,common,100,TRUE,
-5,Eyes,Rolling-Blue,,common,100,TRUE,
-5,Eyes,Rolling-Brown,,common,100,TRUE,
-5,Eyes,Rolling-Gold,,common,100,TRUE,
+5,Eyes,Rolling-Green,rare/Rolling-Green.png,rare,30,TRUE,
+5,Eyes,Rolling-Blue,rare/Rolling-Blue.png,rare,30,TRUE,
+5,Eyes,Rolling-Brown,rare/Rolling-Brown.png,rare,30,TRUE,
+5,Eyes,Rolling-Gold,rare/Rolling-Gold.png,rare,30,TRUE,
 5,Eyes,SideEye-Green,common/Side Eye-Green.png,common,100,TRUE,
 5,Eyes,SideEye-Blue,common/Side Eye-Blue.png,common,100,TRUE,
 5,Eyes,SideEye-Brown,common/Side Eye-Brown.png,common,100,TRUE,
@@ -65,45 +65,46 @@ layer_order,category,trait_name,source_file,rarity_tier,weight,art_done,notes
 5,Eyes,Diamonds,super_rare/Diamonds.png,super_rare,10,TRUE,
 5,Eyes,Sniper,super_rare/Sniper.png,super_rare,10,TRUE,
 5,Eyes,Lucky,legendary/Lucky.png,legendary,3,TRUE,
-5,Eyes,Uwu,,legendary,3,TRUE,
-6,Hair,Bangs Pink,,common,100,FALSE,art pending
-6,Hair,Bangs Blonde,,common,100,FALSE,art pending
-6,Hair,Bangs Black,,common,100,FALSE,art pending
-6,Hair,Bangs Brown,,common,100,FALSE,art pending
-6,Hair,Bangs Purple,,common,100,FALSE,art pending
-6,Hair,Full Bangs Blue,,common,100,FALSE,art pending
-6,Hair,Full Bangs Blonde,,common,100,FALSE,art pending
-6,Hair,Full Bangs Brown,,common,100,FALSE,art pending
-6,Hair,Full Bangs Orange,,common,100,FALSE,art pending
-6,Hair,Full Bangs Black,,common,100,FALSE,art pending
-6,Hair,Curtain Bangs Red,,common,100,FALSE,art pending
-6,Hair,Curtain Bangs Blonde,,common,100,FALSE,art pending
-6,Hair,Curtain Bangs Black,,common,100,FALSE,art pending
-6,Hair,Curtain Bangs Brown,,common,100,FALSE,art pending
-6,Hair,Curtain Bangs Green,,common,100,FALSE,art pending
-7,Choker,Heart Choker,,common,100,TRUE,
-7,Choker,UWU Choker,,common,100,TRUE,
-7,Choker,Star Choker,,common,100,TRUE,
-7,Choker,XX Choker,,common,100,TRUE,
-8,Hoodie,Og White,,common,100,TRUE,
-8,Hoodie,Og Neon Pink,,common,100,TRUE,
-8,Hoodie,Og Red,,common,100,TRUE,
-8,Hoodie,Og Violet,,common,100,TRUE,
-8,Hoodie,Og Yellow,,common,100,TRUE,
-8,Hoodie,Og Neon Green,,common,100,TRUE,
+5,Eyes,Uwu,legendary/Uwu.png,legendary,3,TRUE,
+6,Hair,Bangs Black,common/Bangs Black.png,common,100,TRUE,
+6,Hair,Bangs Blonde,common/Bangs Blonde.png,common,100,TRUE,
+6,Hair,Bangs Brown,common/Bangs Brown.png,common,100,TRUE,
+6,Hair,Bangs Pink,rare/Bangs Pink.png,rare,30,TRUE,
+6,Hair,Bangs Purple,rare/Bangs Purple.png,rare,30,TRUE,
+6,Hair,Full Bangs Black,common/Full Bangs Black.png,common,100,TRUE,
+6,Hair,Full Bangs Blue,rare/Full Bangs Blue.png,rare,30,TRUE,
+6,Hair,Full Bangs Brown,common/Full Bangs Brown.png,common,100,TRUE,
+6,Hair,Full Bangs Orange,rare/Full Bangs Orange.png,rare,30,TRUE,
+6,Hair,Full Bangs Red,rare/Full Bangs Red.png,rare,30,TRUE,
+6,Hair,Curtain Bangs Black,common/Curtain Bangs Black.png,common,100,TRUE,
+6,Hair,Curtain Bangs Blonde,common/Curtain Bangs Blonde.png,common,100,TRUE,
+6,Hair,Curtain Bangs Blue,rare/Curtain Bangs Blue.png,rare,30,TRUE,
+6,Hair,Curtain Bangs Brown,common/Curtain Bangs Brown.png,common,100,TRUE,
+6,Hair,Curtain Bangs Green,rare/Curtain Bangs Green.png,rare,30,TRUE,
+6,Hair,Curtain Bangs Pink,rare/Curtain Bangs Pink.png,rare,30,TRUE,
+6,Hair,Curtain Bangs Purple,rare/Curtain Bangs Purple.png,rare,30,TRUE,
+6,Hair,Curtain Bangs Red,rare/Curtain Bangs Red.png,rare,30,TRUE,
+7,Choker,Heart Choker,super_rare/Heart Choker.png,super_rare,10,TRUE,
+7,Choker,UWU Choker,super_rare/UWU Choker.png,super_rare,10,TRUE,
+7,Choker,Star Choker,super_rare/Star Choker.png,super_rare,10,TRUE,
+7,Choker,XX Choker,super_rare/XX Choker.png,super_rare,10,TRUE,
+8,Hoodie,Og White,common/Og White.png,common,100,TRUE,
+8,Hoodie,Og Neon Pink,common/Og Neon Pink.png,common,100,TRUE,
+8,Hoodie,Og Red,common/Og Red.png,common,100,TRUE,
+8,Hoodie,Og Yellow,common/Og Yellow.png,common,100,TRUE,
+8,Hoodie,Og Neon Green,common/Og Neon Green.png,common,100,TRUE,
+8,Hoodie,Og Violet,common/Og Violet.png,common,100,TRUE,
+8,Hoodie,Tangerine,common/Tangerine.png,common,100,TRUE,
+8,Hoodie,Joker,rare/Joker.png,rare,30,TRUE,
 8,Hoodie,Fuzzy Pink,super_rare/Fuzzy Pink.png,super_rare,10,TRUE,
 8,Hoodie,Fuzzy Purple,super_rare/Fuzzy Purple.png,super_rare,10,TRUE,
 8,Hoodie,Fuzzy Periwinkle,super_rare/Fuzzy Periwinkle.png,super_rare,10,TRUE,
-8,Hoodie,Stars Purple,,super_rare,10,TRUE,
-8,Hoodie,Clouds,,super_rare,10,TRUE,
-8,Hoodie,Joker,,super_rare,10,TRUE,
-8,Hoodie,Black & Gold,,legendary,3,TRUE,
-8,Hoodie,Rainbow,,legendary,3,TRUE,
-8,Hoodie,Tangerine,,common,100,TRUE,
-8,Hoodie,Stars blue,,super_rare,10,TRUE,
-8,Hoodie,Solana,,rare,30,FALSE,art pending
-8,Hoodie,Weed,,common,100,FALSE,art pending
-8,Hoodie,Uwu,,common,100,FALSE,art pending
+8,Hoodie,Stars Purple,super_rare/Stars Purple.png,super_rare,10,TRUE,
+8,Hoodie,Stars Blue,super_rare/Stars Blue.png,super_rare,10,TRUE,
+8,Hoodie,Clouds,super_rare/Clouds.png,super_rare,10,TRUE,
+8,Hoodie,Black & Gold,legendary/Black & Gold.png,legendary,3,TRUE,
+8,Hoodie,Rainbow,legendary/Rainbow.png,legendary,3,TRUE,
+8,Hoodie,Pepe Suit,,rare,30,FALSE,art pending
 9,Stuffie,Nub,,common,100,FALSE,art pending
 9,Stuffie,Pepe,,rare,30,FALSE,art pending
 9,Stuffie,Wif,,common,100,FALSE,art pending

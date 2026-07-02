@@ -54,9 +54,9 @@
         },
         {
           "name": "Casino",
-          "file": "Casino.png",
-          "tier": "common",
-          "weight": 100,
+          "file": "rare/Casino.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         },
         {
@@ -82,9 +82,9 @@
         },
         {
           "name": "Rainbow Sky",
-          "file": "Rainbow Sky.png",
-          "tier": "common",
-          "weight": 100,
+          "file": "super_rare/Rainbow Sky.png",
+          "tier": "super_rare",
+          "weight": 10,
           "art_done": true
         },
         {
@@ -96,9 +96,9 @@
         },
         {
           "name": "Unicorn Cafe",
-          "file": "Unicorn Cafe.png",
-          "tier": "common",
-          "weight": 100,
+          "file": "super_rare/Unicorn Cafe.png",
+          "tier": "super_rare",
+          "weight": 10,
           "art_done": true
         },
         {
@@ -208,45 +208,45 @@
       "options": [
         {
           "name": "Retardio",
-          "file": "",
+          "file": "common/Retardio.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Bowie",
-          "file": "",
+          "file": "rare/Bowie.png",
           "tier": "rare",
           "weight": 30,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Kiss",
-          "file": "",
+          "file": "common/Kiss.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Harley Quinn",
-          "file": "",
+          "file": "rare/Harley Quinn.png",
           "tier": "rare",
           "weight": 30,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Heart Cheeks",
-          "file": "",
+          "file": "common/Heart Cheeks.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Mime",
-          "file": "",
+          "file": "rare/Mime.png",
           "tier": "rare",
           "weight": 30,
-          "art_done": false
+          "art_done": true
         }
       ]
     },
@@ -306,7 +306,7 @@
         },
         {
           "name": "Smile with teeth",
-          "file": "",
+          "file": "common/Smile with teeth.png",
           "tier": "common",
           "weight": 100,
           "art_done": true
@@ -327,16 +327,16 @@
         },
         {
           "name": "Lip bite",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "rare/Lip bite.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         },
         {
           "name": "Stitched mouth",
-          "file": "",
-          "tier": "rare",
-          "weight": 30,
+          "file": "super_rare/Stitched mouth.png",
+          "tier": "super_rare",
+          "weight": 10,
           "art_done": true
         },
         {
@@ -446,30 +446,30 @@
         },
         {
           "name": "Rolling-Green",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "rare/Rolling-Green.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         },
         {
           "name": "Rolling-Blue",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "rare/Rolling-Blue.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         },
         {
           "name": "Rolling-Brown",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "rare/Rolling-Brown.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         },
         {
           "name": "Rolling-Gold",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "rare/Rolling-Gold.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         },
         {
@@ -523,7 +523,7 @@
         },
         {
           "name": "Uwu",
-          "file": "",
+          "file": "legendary/Uwu.png",
           "tier": "legendary",
           "weight": 3,
           "art_done": true
@@ -536,109 +536,130 @@
       "none_weight": 0,
       "options": [
         {
-          "name": "Bangs Pink",
-          "file": "",
+          "name": "Bangs Black",
+          "file": "common/Bangs Black.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Bangs Blonde",
-          "file": "",
+          "file": "common/Bangs Blonde.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
-        },
-        {
-          "name": "Bangs Black",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Bangs Brown",
-          "file": "",
+          "file": "common/Bangs Brown.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
+        },
+        {
+          "name": "Bangs Pink",
+          "file": "rare/Bangs Pink.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
         },
         {
           "name": "Bangs Purple",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
-        },
-        {
-          "name": "Full Bangs Blue",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
-        },
-        {
-          "name": "Full Bangs Blonde",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
-        },
-        {
-          "name": "Full Bangs Brown",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
-        },
-        {
-          "name": "Full Bangs Orange",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
+          "file": "rare/Bangs Purple.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
         },
         {
           "name": "Full Bangs Black",
-          "file": "",
+          "file": "common/Full Bangs Black.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
-          "name": "Curtain Bangs Red",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
+          "name": "Full Bangs Blue",
+          "file": "rare/Full Bangs Blue.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
         },
         {
-          "name": "Curtain Bangs Blonde",
-          "file": "",
+          "name": "Full Bangs Brown",
+          "file": "common/Full Bangs Brown.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
+        },
+        {
+          "name": "Full Bangs Orange",
+          "file": "rare/Full Bangs Orange.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
+        },
+        {
+          "name": "Full Bangs Red",
+          "file": "rare/Full Bangs Red.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
         },
         {
           "name": "Curtain Bangs Black",
-          "file": "",
+          "file": "common/Curtain Bangs Black.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
+        },
+        {
+          "name": "Curtain Bangs Blonde",
+          "file": "common/Curtain Bangs Blonde.png",
+          "tier": "common",
+          "weight": 100,
+          "art_done": true
+        },
+        {
+          "name": "Curtain Bangs Blue",
+          "file": "rare/Curtain Bangs Blue.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
         },
         {
           "name": "Curtain Bangs Brown",
-          "file": "",
+          "file": "common/Curtain Bangs Brown.png",
           "tier": "common",
           "weight": 100,
-          "art_done": false
+          "art_done": true
         },
         {
           "name": "Curtain Bangs Green",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
+          "file": "rare/Curtain Bangs Green.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
+        },
+        {
+          "name": "Curtain Bangs Pink",
+          "file": "rare/Curtain Bangs Pink.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
+        },
+        {
+          "name": "Curtain Bangs Purple",
+          "file": "rare/Curtain Bangs Purple.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
+        },
+        {
+          "name": "Curtain Bangs Red",
+          "file": "rare/Curtain Bangs Red.png",
+          "tier": "rare",
+          "weight": 30,
+          "art_done": true
         }
       ]
     },
@@ -649,30 +670,30 @@
       "options": [
         {
           "name": "Heart Choker",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "super_rare/Heart Choker.png",
+          "tier": "super_rare",
+          "weight": 10,
           "art_done": true
         },
         {
           "name": "UWU Choker",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "super_rare/UWU Choker.png",
+          "tier": "super_rare",
+          "weight": 10,
           "art_done": true
         },
         {
           "name": "Star Choker",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "super_rare/Star Choker.png",
+          "tier": "super_rare",
+          "weight": 10,
           "art_done": true
         },
         {
           "name": "XX Choker",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
+          "file": "super_rare/XX Choker.png",
+          "tier": "super_rare",
+          "weight": 10,
           "art_done": true
         }
       ]
@@ -684,44 +705,58 @@
       "options": [
         {
           "name": "Og White",
-          "file": "",
+          "file": "common/Og White.png",
           "tier": "common",
           "weight": 100,
           "art_done": true
         },
         {
           "name": "Og Neon Pink",
-          "file": "",
+          "file": "common/Og Neon Pink.png",
           "tier": "common",
           "weight": 100,
           "art_done": true
         },
         {
           "name": "Og Red",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": true
-        },
-        {
-          "name": "Og Violet",
-          "file": "",
+          "file": "common/Og Red.png",
           "tier": "common",
           "weight": 100,
           "art_done": true
         },
         {
           "name": "Og Yellow",
-          "file": "",
+          "file": "common/Og Yellow.png",
           "tier": "common",
           "weight": 100,
           "art_done": true
         },
         {
           "name": "Og Neon Green",
-          "file": "",
+          "file": "common/Og Neon Green.png",
           "tier": "common",
           "weight": 100,
+          "art_done": true
+        },
+        {
+          "name": "Og Violet",
+          "file": "common/Og Violet.png",
+          "tier": "common",
+          "weight": 100,
+          "art_done": true
+        },
+        {
+          "name": "Tangerine",
+          "file": "common/Tangerine.png",
+          "tier": "common",
+          "weight": 100,
+          "art_done": true
+        },
+        {
+          "name": "Joker",
+          "file": "rare/Joker.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         },
         {
@@ -747,72 +782,44 @@
         },
         {
           "name": "Stars Purple",
-          "file": "",
+          "file": "super_rare/Stars Purple.png",
+          "tier": "super_rare",
+          "weight": 10,
+          "art_done": true
+        },
+        {
+          "name": "Stars Blue",
+          "file": "super_rare/Stars Blue.png",
           "tier": "super_rare",
           "weight": 10,
           "art_done": true
         },
         {
           "name": "Clouds",
-          "file": "",
-          "tier": "super_rare",
-          "weight": 10,
-          "art_done": true
-        },
-        {
-          "name": "Joker",
-          "file": "",
+          "file": "super_rare/Clouds.png",
           "tier": "super_rare",
           "weight": 10,
           "art_done": true
         },
         {
           "name": "Black & Gold",
-          "file": "",
+          "file": "legendary/Black & Gold.png",
           "tier": "legendary",
           "weight": 3,
           "art_done": true
         },
         {
           "name": "Rainbow",
-          "file": "",
+          "file": "legendary/Rainbow.png",
           "tier": "legendary",
           "weight": 3,
           "art_done": true
         },
         {
-          "name": "Tangerine",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": true
-        },
-        {
-          "name": "Stars blue",
-          "file": "",
-          "tier": "super_rare",
-          "weight": 10,
-          "art_done": true
-        },
-        {
-          "name": "Solana",
+          "name": "Pepe Suit",
           "file": "",
           "tier": "rare",
           "weight": 30,
-          "art_done": false
-        },
-        {
-          "name": "Weed",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
-          "art_done": false
-        },
-        {
-          "name": "Uwu",
-          "file": "",
-          "tier": "common",
-          "weight": 100,
           "art_done": false
         }
       ]
