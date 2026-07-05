@@ -157,7 +157,8 @@
       </a>
       <div style="display:flex;gap:12px;">
         <a href="#" aria-label="X" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;color:var(--plum);font-family:'Fredoka';font-weight:700;font-size:17px;">𝕏</a>
-        <a href="#" aria-label="OpenSea" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;font-size:20px;">⛵</a>
+        <a href="#" id="footOS" target="_blank" rel="noopener" aria-label="OpenSea" title="the collection on opensea" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;font-size:20px;">⛵</a>
+        <a href="#" id="footScan" target="_blank" rel="noopener" aria-label="Etherscan" title="the contract on etherscan" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;color:var(--plum);font-family:'Fredoka';font-weight:700;font-size:17px;">Ξ</a>
       </div>
       <div style="flex:1 1 100%;display:flex;justify-content:center;margin-top:2px;"><img src="assets/uwu-face.png" alt="uwu" style="height:30px;width:auto;object-fit:contain;opacity:.9;"></div>
       <p style="flex:1 1 100%;text-align:center;font-size:13px;color:var(--muted);margin:6px 0 0;">uwu gf is a collection of hand-drawn art. nothing here is financial advice. be kind, stay delulu. 💕</p>
@@ -404,6 +405,8 @@
       $("contractAddr").textContent = short(cfg.contract);
       $("copyAddr").style.display = "inline-block";
       const a = $("explorerLink"); a.style.display = "inline"; a.href = `${cfg.explorer}/address/${cfg.contract}`;
+      $("footScan").href = `${cfg.explorer}/address/${cfg.contract}`;
+      $("footOS").href = `${cfg.opensea}/${cfg.contract}`;
     }
     state.read = new ethers.JsonRpcProvider(cfg.rpc);
     try { state.proofs = await (await fetch(cfg.wlProofsUrl, { cache: "no-store" })).json(); } catch { state.proofs = null; }
