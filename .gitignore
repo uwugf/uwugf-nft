@@ -16,6 +16,7 @@ art/reference/*
 .env
 .env.*
 !.env.example
+secret/
 
 # foundry
 contract/out/
@@ -31,3 +32,6 @@ website/dist/
 .DS_Store
 
 uwugf-site.zip
+
+# merkle script deps
+scripts/node_modules/

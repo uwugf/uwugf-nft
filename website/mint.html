@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mint · uwu gf — adopt your onchain girlfriend</title>
+<meta name="description" content="6969 hand-drawn uwu girlfriends. whitelist 0.00069Ξ · public 0.001Ξ. she's cute, she's degen, she's waiting for you.">
+<link rel="icon" href="assets/uwu-face.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js"></script>
+<script src="mint-config.js"></script>
+<style>
+  :root{--hot-pink:#ff5fa2;--soft-pink:#ffd6e8;--lavender:#b08bff;--soft-lav:#e7dcff;--plum:#3a2348;--muted:#7a5d8c;--mint:#9be8d8;--gold:#ffd86b;}
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  @keyframes pulseGlow{0%,100%{box-shadow:0 10px 26px rgba(255,95,162,.42);}50%{box-shadow:0 10px 34px rgba(255,95,162,.62);}}
+  @keyframes wiggle{0%,100%{transform:rotate(-2.2deg);}50%{transform:rotate(2.2deg);}}
+  @keyframes spinHeart{0%{transform:rotate(0);}100%{transform:rotate(360deg);}}
+  @keyframes floatUp{0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(-130px) scale(1.5);opacity:0;}}
+  @keyframes peekFade{0%{opacity:0;transform:scale(1.02);}8%{opacity:1;transform:scale(1);}92%{opacity:1;}100%{opacity:0;}}
+  @keyframes shimmer{0%{background-position:-400px 0;}100%{background-position:400px 0;}}
+  .qty-btn{width:46px;height:46px;border-radius:16px;border:1.5px solid rgba(176,139,255,.35);background:#fff;color:var(--plum);font-family:'Fredoka';font-weight:700;font-size:22px;cursor:pointer;transition:all .15s;}
+  .qty-btn:hover:not(:disabled){border-color:var(--hot-pink);color:var(--hot-pink);transform:translateY(-1px);}
+  .qty-btn:disabled{opacity:.35;cursor:not-allowed;}
+  .mint-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,52px);align-items:start;}
+  @media(max-width:900px){.mint-grid{grid-template-columns:1fr;}}
+  a.navlink{text-decoration:none;color:var(--muted);}
+  a.navlink:hover{color:var(--hot-pink);}
+  .copy-btn{border:none;background:rgba(176,139,255,.14);color:var(--lavender);border-radius:8px;padding:3px 9px;font-family:'Fredoka';font-weight:600;font-size:12px;cursor:pointer;}
+  .copy-btn:hover{background:rgba(255,95,162,.14);color:var(--hot-pink);}
+  #mintBtn:disabled{background:linear-gradient(90deg,#e9d8ef,#e3dcf5);color:#a68fb8;box-shadow:none;animation:none;cursor:not-allowed;}
+  .skeleton{background:linear-gradient(90deg,rgba(176,139,255,.10) 25%,rgba(255,95,162,.16) 37%,rgba(176,139,255,.10) 63%);background-size:400px 100%;animation:shimmer 1.4s infinite;border-radius:8px;color:transparent!important;}
+</style>
+</head>
+<body style="font-family:'Quicksand',system-ui,sans-serif;color:var(--plum);min-height:100vh;overflow-x:hidden;background:radial-gradient(1200px 620px at 0% -5%, rgba(255,95,162,.20), transparent 60%), radial-gradient(1050px 620px at 100% -5%, rgba(176,139,255,.20), transparent 60%), linear-gradient(180deg,#fff7fc 0%,#fdf0fb 48%,#f3ecff 100%);">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px clamp(16px,4vw,34px);backdrop-filter:blur(14px);background:rgba(255,247,252,.72);border-bottom:1px solid rgba(176,139,255,.18);">
+    <a href="index.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--plum);">
+      <img src="assets/uwugf-logo-t.png" alt="uwu gf" style="height:44px;width:auto;object-fit:contain;animation:wiggle 3.4s ease-in-out infinite;">
+    </a>
+    <div style="display:flex;align-items:center;gap:28px;font-family:'Quicksand';font-weight:600;font-size:15px;">
+      <a class="navlink" href="index.html#about">about</a>
+      <a class="navlink" href="index.html#traits">traits</a>
+      <a class="navlink" href="index.html#faq">faq</a>
+      <span id="navWallet" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(255,95,162,.12);color:var(--hot-pink);font-family:'Fredoka';font-weight:600;font-size:13px;">♡ minting now</span>
+    </div>
+  </nav>
+
+  <!-- TESTNET BANNER (hidden on mainnet) -->
+  <div id="testnetBanner" style="display:none;justify-content:center;gap:8px;padding:9px 16px;background:linear-gradient(90deg,rgba(255,216,107,.35),rgba(155,232,216,.35));border-bottom:1px solid rgba(255,216,107,.5);font-family:'Fredoka';font-weight:600;font-size:13.5px;color:#7a5d1c;text-align:center;">
+    <span>🧪 testnet dress rehearsal on <span id="bannerChain">Sepolia</span> — play money only, her love is still real</span>
+  </div>
+
+  <!-- MINT -->
+  <section style="position:relative;max-width:1180px;margin:0 auto;padding:52px clamp(16px,4vw,34px) 40px;">
+    <div class="mint-grid">
+
+      <!-- left: the pitch -->
+      <div>
+        <span style="display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,95,162,.12);color:var(--hot-pink);font-family:'Fredoka';font-weight:600;font-size:13px;">💕 the adoption center</span>
+        <h1 style="font-family:'Fredoka';font-weight:700;font-size:clamp(34px,4.8vw,56px);line-height:1.06;letter-spacing:-.015em;margin:18px 0 12px;">adopt your <span style="background:linear-gradient(90deg,var(--hot-pink),var(--lavender));-webkit-background-clip:text;background-clip:text;color:transparent;">uwu gf</span></h1>
+        <p style="margin:0 0 26px;font-size:16.5px;line-height:1.65;color:var(--muted);max-width:480px;">6969 hand-drawn girlfriends living rent-free onchain. no roadmap, no discord — just art, vibes and a girl who thinks you're funny.</p>
+
+        <!-- polaroid -->
+        <div style="position:relative;width:min(100%,430px);aspect-ratio:1/1.06;">
+          <div style="position:absolute;inset:0;background:#fff;border-radius:26px;box-shadow:0 18px 44px rgba(176,139,255,.26);transform:rotate(-2deg);"></div>
+          <div style="position:absolute;inset:10px 10px 58px;border-radius:18px;overflow:hidden;transform:rotate(-2deg);" id="peekFrame">
+            <img class="peek" src="assets/peek-1.jpg" alt="uwu gf sneak peek" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="position:absolute;left:0;right:0;bottom:12px;text-align:center;transform:rotate(-2deg);font-family:'Fredoka';font-weight:600;font-size:15px;color:var(--muted);">she could be yours ♡</div>
+        </div>
+
+        <!-- trust chips -->
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;">
+          <span style="padding:7px 14px;border-radius:999px;background:rgba(176,139,255,.14);color:var(--lavender);font-family:'Fredoka';font-weight:600;font-size:13px;">ERC-721A · cheap gas</span>
+          <span style="padding:7px 14px;border-radius:999px;background:rgba(176,139,255,.14);color:var(--lavender);font-family:'Fredoka';font-weight:600;font-size:13px;">supply locked at 6969</span>
+          <span style="padding:7px 14px;border-radius:999px;background:rgba(176,139,255,.14);color:var(--lavender);font-family:'Fredoka';font-weight:600;font-size:13px;">6.9% royalties</span>
+          <span style="padding:7px 14px;border-radius:999px;background:rgba(176,139,255,.14);color:var(--lavender);font-family:'Fredoka';font-weight:600;font-size:13px;">provenance pinky-sworn 🤙</span>
+        </div>
+      </div>
+
+      <!-- right: mint console -->
+      <div style="background:#fff;border:1px solid rgba(255,95,162,.14);border-radius:28px;box-shadow:0 14px 38px rgba(255,95,162,.10);padding:clamp(20px,3vw,30px);">
+
+        <!-- phase pills -->
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span id="pillWl"  style="padding:6px 14px;border-radius:999px;font-family:'Fredoka';font-weight:600;font-size:13px;background:rgba(176,139,255,.14);color:var(--lavender);">🎀 guest list · soon</span>
+          <span id="pillPub" style="padding:6px 14px;border-radius:999px;font-family:'Fredoka';font-weight:600;font-size:13px;background:rgba(176,139,255,.14);color:var(--lavender);">💌 public · soon</span>
+        </div>
+
+        <!-- supply -->
+        <div style="margin:22px 0 6px;display:flex;align-items:baseline;justify-content:space-between;">
+          <span style="font-family:'Fredoka';font-weight:700;font-size:26px;"><span id="minted" class="skeleton">0</span> <span style="font-size:15px;color:var(--muted);font-weight:600;">/ 6969 adopted</span></span>
+          <span id="supplyPct" style="font-family:ui-monospace,monospace;font-size:13px;color:var(--muted);">0%</span>
+        </div>
+        <div style="height:14px;border-radius:999px;background:rgba(176,139,255,.16);overflow:hidden;">
+          <div id="supplyBar" style="height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,var(--hot-pink),var(--lavender));transition:width .8s cubic-bezier(.2,.8,.2,1);"></div>
+        </div>
+
+        <!-- price -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin:20px 0 4px;">
+          <span style="font-size:14px;color:var(--muted);font-weight:600;">price per gf</span>
+          <span id="phaseTag" style="font-family:'Fredoka';font-weight:600;font-size:12.5px;color:var(--hot-pink);"></span>
+        </div>
+        <div style="font-family:'Fredoka';font-weight:700;font-size:34px;line-height:1;"><span id="price" class="skeleton">0.001</span> <span style="font-size:19px;color:var(--muted);">Ξ</span></div>
+
+        <!-- wallet -->
+        <div id="walletZone" style="margin-top:22px;">
+          <button id="connectBtn" style="width:100%;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;border:none;cursor:pointer;background:var(--hot-pink);color:#fff;font-family:'Fredoka';font-weight:600;font-size:16.5px;box-shadow:0 10px 26px rgba(255,95,162,.42);animation:pulseGlow 2.8s ease-in-out infinite;">connect wallet ♡</button>
+          <div id="walletRow" style="display:none;align-items:center;justify-content:space-between;gap:10px;">
+            <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(155,232,216,.28);border:1px solid rgba(155,232,216,.7);font-family:ui-monospace,monospace;font-size:13.5px;color:#1d6b58;">🟢 <span id="addrShort"></span></span>
+            <span id="wlBadge" style="display:none;padding:6px 12px;border-radius:999px;background:rgba(255,216,107,.3);border:1px solid rgba(255,216,107,.6);font-family:'Fredoka';font-weight:600;font-size:12.5px;color:#7a5d1c;">🎀 on the list</span>
+          </div>
+          <button id="switchBtn" style="display:none;width:100%;margin-top:10px;padding:13px 26px;border-radius:999px;border:none;cursor:pointer;background:var(--gold);color:#5a4310;font-family:'Fredoka';font-weight:600;font-size:15px;">switch network → <span class="switchChain">Sepolia</span></button>
+        </div>
+
+        <!-- qty + total -->
+        <div id="mintControls" style="margin-top:20px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;">
+            <span style="font-size:14px;color:var(--muted);font-weight:600;">how many besties?</span>
+            <span id="allowance" style="font-size:12.5px;color:var(--muted);"></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;margin-top:10px;">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <span id="qty" style="min-width:56px;text-align:center;font-family:'Fredoka';font-weight:700;font-size:30px;">1</span>
+            <button class="qty-btn" id="qtyPlus">+</button>
+            <button id="qtyMax" style="margin-left:auto;border:none;background:none;color:var(--lavender);font-family:'Fredoka';font-weight:600;font-size:14px;cursor:pointer;">max ♡</button>
+          </div>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-top:16px;padding-top:14px;border-top:1.5px dashed rgba(176,139,255,.3);">
+            <span style="font-size:14px;color:var(--muted);font-weight:600;">total</span>
+            <span style="font-family:'Fredoka';font-weight:700;font-size:24px;"><span id="total">0.001</span> <span style="font-size:15px;color:var(--muted);">Ξ</span></span>
+          </div>
+
+          <button id="mintBtn" disabled style="width:100%;margin-top:16px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 26px;border-radius:999px;border:none;cursor:pointer;background:var(--hot-pink);color:#fff;font-family:'Fredoka';font-weight:700;font-size:18px;box-shadow:0 10px 26px rgba(255,95,162,.42);animation:pulseGlow 2.8s ease-in-out infinite;">adopt her ♡</button>
+        </div>
+
+        <!-- status -->
+        <div id="status" style="display:none;margin-top:16px;padding:14px 16px;border-radius:16px;background:rgba(176,139,255,.10);font-family:'Fredoka';font-weight:600;font-size:14.5px;line-height:1.5;color:var(--plum);"></div>
+
+        <!-- fine print -->
+        <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(176,139,255,.16);display:flex;flex-direction:column;gap:7px;font-size:12.5px;color:var(--muted);">
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">contract: <span id="contractAddr" style="font-family:ui-monospace,monospace;">deploying… 🚧</span> <button class="copy-btn" id="copyAddr" style="display:none;">copy</button> <a id="explorerLink" href="#" target="_blank" rel="noopener" style="display:none;color:var(--lavender);font-weight:700;text-decoration:none;">↗ explorer</a></div>
+          <div>caps per wallet: <b id="capWl">3</b> on guest list · <b id="capPub">10</b> public · fake gf checks: <span style="color:var(--hot-pink);">no bots allowed uwu</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:20px;">
+    <div style="max-width:1180px;margin:0 auto;padding:30px clamp(16px,4vw,34px) 40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--plum);">
+        <img src="assets/uwugf-logo-t.png" alt="uwu gf" style="height:40px;width:auto;object-fit:contain;">
+      </a>
+      <div style="display:flex;gap:12px;">
+        <a href="#" aria-label="X" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;color:var(--plum);font-family:'Fredoka';font-weight:700;font-size:17px;">𝕏</a>
+        <a href="#" aria-label="OpenSea" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;font-size:20px;">⛵</a>
+      </div>
+      <div style="flex:1 1 100%;display:flex;justify-content:center;margin-top:2px;"><img src="assets/uwu-face.png" alt="uwu" style="height:30px;width:auto;object-fit:contain;opacity:.9;"></div>
+      <p style="flex:1 1 100%;text-align:center;font-size:13px;color:var(--muted);margin:6px 0 0;">uwu gf is a collection of hand-drawn art. nothing here is financial advice. be kind, stay delulu. 💕</p>
+    </div>
+  </footer>
+
+<script>
+(() => {
+  const cfg = window.UWUGF_CONFIG;
+  const ABI = [
+    "function totalSupply() view returns (uint256)",
+    "function MAX_CUTIES() view returns (uint256)",
+    "function uwuListPrice() view returns (uint256)",
+    "function publicPrice() view returns (uint256)",
+    "function maxPerUwu() view returns (uint256)",
+    "function maxPerDegen() view returns (uint256)",
+    "function uwuListOpen() view returns (bool)",
+    "function heartsOpen() view returns (bool)",
+    "function uwuMinted(address) view returns (uint256)",
+    "function degenMinted(address) view returns (uint256)",
+    "function uwuList(bytes32[] proof, uint256 qty) payable",
+    "function adopt(uint256 qty) payable",
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const state = {
+    read: null, contract: null, signer: null, addr: null, wrongChain: false,
+    supply: 0n, max: 6969n, wlPrice: null, pubPrice: null,
+    capWl: 3n, capPub: 10n, wlOpen: false, pubOpen: false,
+    mineWl: 0n, minePub: 0n, proofs: null, qty: 1,
+  };
+
+  // ---------- peek carousel ----------
+  const peeks = ["assets/peek-1.jpg","assets/peek-2.jpg","assets/peek-3.jpg","assets/peek-4.jpg","assets/peek-5.jpg","assets/peek-6.jpg"];
+  let peekI = 0;
+  setInterval(() => {
+    peekI = (peekI + 1) % peeks.length;
+    const img = document.querySelector("#peekFrame .peek");
+    img.style.opacity = 0;
+    setTimeout(() => { img.src = peeks[peekI]; img.style.transition = "opacity .6s"; img.style.opacity = 1; }, 380);
+  }, 3400);
+
+  // ---------- helpers ----------
+  const fmtEth = (wei) => { const s = ethers.formatEther(wei); return s.replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, ""); };
+  const short = (a) => a.slice(0, 6) + "…" + a.slice(-4);
+  const status = (html, tone) => {
+    const el = $("status"); el.style.display = "block"; el.innerHTML = html;
+    el.style.background = tone === "err" ? "rgba(255,95,162,.10)" : tone === "ok" ? "rgba(155,232,216,.25)" : "rgba(176,139,255,.10)";
+  };
+  const hideStatus = () => { $("status").style.display = "none"; };
+
+  const onList = () => !!(state.proofs && state.addr && state.proofs.proofs[state.addr.toLowerCase()]);
+  // which phase would THIS user mint in right now?
+  const phase = () => {
+    if (state.wlOpen && onList() && state.mineWl < state.capWl) return "wl";
+    if (state.pubOpen) return "public";
+    if (state.wlOpen) return "wl-locked"; // wl running but user not eligible
+    return "closed";
+  };
+  const phasePrice = (p) => (p === "wl" ? state.wlPrice : state.pubPrice);
+  const phaseCap = (p) => (p === "wl" ? state.capWl - state.mineWl : state.capPub - state.minePub);
+
+  // ---------- render ----------
+  function render() {
+    const p = phase();
+
+    // pills
+    const pill = (el, open, label) => {
+      el.textContent = label + (open ? " · open" : " · soon");
+      el.style.background = open ? "rgba(255,95,162,.12)" : "rgba(176,139,255,.14)";
+      el.style.color = open ? "var(--hot-pink)" : "var(--lavender)";
+    };
+    pill($("pillWl"), state.wlOpen, "🎀 guest list");
+    pill($("pillPub"), state.pubOpen, "💌 public");
+
+    // supply
+    $("minted").classList.remove("skeleton");
+    $("minted").textContent = state.supply.toString();
+    const pct = state.max ? Number(state.supply * 1000n / state.max) / 10 : 0;
+    $("supplyPct").textContent = pct.toFixed(1) + "%";
+    $("supplyBar").style.width = Math.max(pct, state.supply > 0n ? 1.2 : 0) + "%";
+
+    // price
+    if (state.pubPrice !== null) {
+      $("price").classList.remove("skeleton");
+      const showP = p === "wl" ? "wl" : "public";
+      $("price").textContent = fmtEth(phasePrice(showP === "wl" ? "wl" : "public") ?? 0n);
+      $("phaseTag").textContent = showP === "wl" ? "🎀 guest list price for you" : "💌 public price";
+    }
+    $("capWl").textContent = state.capWl.toString();
+    $("capPub").textContent = state.capPub.toString();
+
+    // wallet zone
+    $("connectBtn").style.display = state.addr ? "none" : "inline-flex";
+    $("walletRow").style.display = state.addr ? "flex" : "none";
+    $("switchBtn").style.display = state.addr && state.wrongChain ? "block" : "none";
+    if (state.addr) {
+      $("addrShort").textContent = short(state.addr);
+      $("wlBadge").style.display = onList() ? "inline-flex" : "none";
+    }
+
+    // qty bounds
+    const soldOut = state.supply >= state.max && state.max > 0n;
+    const walletCap = state.addr && !state.wrongChain && (p === "wl" || p === "public") ? phaseCap(p) : 0n;
+    const remainSupply = state.max - state.supply;
+    const maxQty = Number(walletCap < remainSupply ? walletCap : remainSupply);
+    state.qty = Math.min(Math.max(state.qty, 1), Math.max(maxQty, 1));
+    $("qty").textContent = state.qty;
+    $("qtyMinus").disabled = state.qty <= 1;
+    $("qtyPlus").disabled = state.qty >= maxQty;
+    $("allowance").textContent = state.addr && (p === "wl" || p === "public")
+      ? (walletCap > 0n ? `you can adopt ${walletCap} more this phase` : "phase limit reached for this wallet 🥺") : "";
+    const price = phasePrice(p === "wl" ? "wl" : "public");
+    $("total").textContent = price !== null && price !== undefined ? fmtEth(price * BigInt(state.qty)) : "—";
+
+    // mint button state machine
+    const btn = $("mintBtn");
+    const set = (txt, dis) => { btn.textContent = txt; btn.disabled = dis; };
+    if (!cfg.contract) set("contract deploying… 🚧", true);
+    else if (soldOut) set("she's all gone :(", true);
+    else if (!state.addr) set("connect wallet first bestie", true);
+    else if (state.wrongChain) set("wrong network 🥺", true);
+    else if (p === "closed") set("her heart isn't open yet", true);
+    else if (p === "wl-locked") set(state.pubOpen ? "adopt her ♡" : "guest list only rn 🥺", true);
+    else if (walletCap <= 0n) set("you've maxed out this phase 💕", true);
+    else set(p === "wl" ? `adopt ${state.qty} from the guest list 🎀` : `adopt ${state.qty === 1 ? "her" : state.qty + " of them"} ♡`, false);
+  }
+
+  // ---------- chain reads ----------
+  async function refresh() {
+    if (!cfg.contract || !state.read) { render(); return; }
+    try {
+      const c = new ethers.Contract(cfg.contract, ABI, state.read);
+      const [supply, max, wlP, pubP, capW, capP, wlO, pubO] = await Promise.all([
+        c.totalSupply(), c.MAX_CUTIES(), c.uwuListPrice(), c.publicPrice(),
+        c.maxPerUwu(), c.maxPerDegen(), c.uwuListOpen(), c.heartsOpen(),
+      ]);
+      Object.assign(state, { supply, max, wlPrice: wlP, pubPrice: pubP, capWl: capW, capPub: capP, wlOpen: wlO, pubOpen: pubO });
+      if (state.addr) {
+        const [mw, mp] = await Promise.all([c.uwuMinted(state.addr), c.degenMinted(state.addr)]);
+        state.mineWl = mw; state.minePub = mp;
+      }
+    } catch (e) { console.warn("refresh failed", e); }
+    render();
+  }
+
+  // ---------- wallet ----------
+  async function connect() {
+    if (!window.ethereum) { status("no wallet found 🥺 install <a href='https://metamask.io' target='_blank' rel='noopener' style='color:var(--hot-pink)'>metamask</a> and come back, i'll wait", "err"); return; }
+    try {
+      const bp = new ethers.BrowserProvider(window.ethereum, "any");
+      const accs = await bp.send("eth_requestAccounts", []);
+      state.addr = ethers.getAddress(accs[0]);
+      state.signer = await bp.getSigner();
+      const net = await bp.getNetwork();
+      state.wrongChain = Number(net.chainId) !== cfg.chainId;
+      hideStatus();
+      await refresh();
+    } catch (e) { status("connection cancelled 💔 it's ok, she forgives you", "err"); }
+  }
+
+  async function switchChain() {
+    try {
+      await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: cfg.chainHex }] });
+    } catch (e) {
+      if (e.code === 4902) {
+        await window.ethereum.request({ method: "wallet_addEthereumChain", params: [{
+          chainId: cfg.chainHex, chainName: cfg.chainName,
+          nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
+          rpcUrls: [cfg.rpc], blockExplorerUrls: [cfg.explorer],
+        }]});
+      }
+    }
+  }
+
+  // ---------- mint ----------
+  async function mint() {
+    const p = phase();
+    if (p !== "wl" && p !== "public") return;
+    const qty = BigInt(state.qty);
+    const value = phasePrice(p) * qty;
+    const c = new ethers.Contract(cfg.contract, ABI, state.signer);
+    try {
+      status("check your wallet bestie… 💅");
+      const tx = p === "wl"
+        ? await c.uwuList(state.proofs.proofs[state.addr.toLowerCase()], qty, { value })
+        : await c.adopt(qty, { value });
+      status(`she's getting ready… 💄 <a href="${cfg.explorer}/tx/${tx.hash}" target="_blank" rel="noopener" style="color:var(--hot-pink)">watch the tx ↗</a>`);
+      const rc = await tx.wait();
+      // token ids from Transfer events (ERC721A emits standard Transfer)
+      const iface = new ethers.Interface(["event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"]);
+      const tokenIds = rc.logs.map((l) => { try { return iface.parseLog(l)?.args?.tokenId?.toString(); } catch { return null; } }).filter(Boolean);
+      const links = tokenIds.map((id) => `<a href="${cfg.opensea}/${cfg.contract}/${id}" target="_blank" rel="noopener" style="color:var(--hot-pink)">gf #${id} ↗</a>`).join(" · ");
+      status(`SHE'S HOME 💕 you adopted ${tokenIds.length} — ${links}<br><a href="${cfg.explorer}/tx/${tx.hash}" target="_blank" rel="noopener" style="color:var(--lavender)">receipt ↗</a>`, "ok");
+      heartBurst();
+      await refresh();
+    } catch (e) {
+      const reason = e?.reason || e?.shortMessage || e?.message || "something went wrong";
+      status(`mint failed 💔 <span style="font-family:ui-monospace,monospace;font-size:13px;">${String(reason).slice(0, 140)}</span>`, "err");
+    }
+  }
+
+  function heartBurst() {
+    for (let i = 0; i < 24; i++) {
+      const h = document.createElement("div");
+      h.textContent = ["💕", "💗", "🌸", "✨", "🎀"][i % 5];
+      h.style.cssText = `position:fixed;left:${15 + Math.random() * 70}vw;top:${45 + Math.random() * 30}vh;font-size:${16 + Math.random() * 22}px;pointer-events:none;z-index:99;animation:floatUp ${1.4 + Math.random() * 1.4}s ease-out forwards;`;
+      document.body.appendChild(h);
+      setTimeout(() => h.remove(), 3000);
+    }
+  }
+
+  // ---------- wire up ----------
+  $("connectBtn").onclick = connect;
+  $("switchBtn").onclick = switchChain;
+  $("mintBtn").onclick = mint;
+  $("qtyMinus").onclick = () => { state.qty--; render(); };
+  $("qtyPlus").onclick = () => { state.qty++; render(); };
+  $("qtyMax").onclick = () => { state.qty = 999; render(); };
+  $("copyAddr").onclick = () => { navigator.clipboard.writeText(cfg.contract); $("copyAddr").textContent = "copied ♡"; setTimeout(() => ($("copyAddr").textContent = "copy"), 1400); };
+
+  if (window.ethereum) {
+    window.ethereum.on?.("accountsChanged", (a) => { state.addr = a[0] ? ethers.getAddress(a[0]) : null; if (!state.addr) state.signer = null; connectSilent(); });
+    window.ethereum.on?.("chainChanged", () => connectSilent());
+  }
+  async function connectSilent() {
+    if (!window.ethereum) return;
+    try {
+      const bp = new ethers.BrowserProvider(window.ethereum, "any");
+      const accs = await bp.send("eth_accounts", []);
+      if (accs.length) {
+        state.addr = ethers.getAddress(accs[0]);
+        state.signer = await bp.getSigner();
+        state.wrongChain = Number((await bp.getNetwork()).chainId) !== cfg.chainId;
+      }
+    } catch {}
+    refresh();
+  }
+
+  // ---------- boot ----------
+  (async () => {
+    if (cfg.isTestnet) { $("testnetBanner").style.display = "flex"; $("bannerChain").textContent = cfg.chainName; document.querySelectorAll(".switchChain").forEach((el) => (el.textContent = cfg.chainName)); }
+    if (cfg.contract) {
+      $("contractAddr").textContent = short(cfg.contract);
+      $("copyAddr").style.display = "inline-block";
+      const a = $("explorerLink"); a.style.display = "inline"; a.href = `${cfg.explorer}/address/${cfg.contract}`;
+    }
+    state.read = new ethers.JsonRpcProvider(cfg.rpc);
+    try { state.proofs = await (await fetch(cfg.wlProofsUrl, { cache: "no-store" })).json(); } catch { state.proofs = null; }
+    await connectSilent();
+    await refresh();
+    setInterval(refresh, 15000);
+  })();
+})();
+</script>
+</body>
+</html>
