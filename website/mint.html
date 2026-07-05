@@ -157,7 +157,7 @@
       </a>
       <div style="display:flex;gap:12px;">
         <a href="#" aria-label="X" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;color:var(--plum);font-family:'Fredoka';font-weight:700;font-size:17px;">𝕏</a>
-        <a href="#" id="footOS" target="_blank" rel="noopener" aria-label="OpenSea" title="the collection on opensea" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;font-size:20px;">⛵</a>
+        <a href="#" id="footOS" target="_blank" rel="noopener" aria-label="OpenSea" title="view the collection" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;font-size:20px;">⛵</a>
         <a href="#" id="footScan" target="_blank" rel="noopener" aria-label="Etherscan" title="the contract on etherscan" style="width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#fff;border:1.5px solid rgba(176,139,255,.3);text-decoration:none;color:var(--plum);font-family:'Fredoka';font-weight:700;font-size:17px;">Ξ</a>
       </div>
       <div style="flex:1 1 100%;display:flex;justify-content:center;margin-top:2px;"><img src="assets/uwu-face.png" alt="uwu" style="height:30px;width:auto;object-fit:contain;opacity:.9;"></div>
@@ -351,7 +351,7 @@
       // token ids from Transfer events (ERC721A emits standard Transfer)
       const iface = new ethers.Interface(["event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"]);
       const tokenIds = rc.logs.map((l) => { try { return iface.parseLog(l)?.args?.tokenId?.toString(); } catch { return null; } }).filter(Boolean);
-      const links = tokenIds.map((id) => `<a href="${cfg.opensea}/${cfg.contract}/${id}" target="_blank" rel="noopener" style="color:var(--hot-pink)">gf #${id} ↗</a>`).join(" · ");
+      const links = tokenIds.map((id) => `<a href="${cfg.tokenUrl.replace("{contract}", cfg.contract).replace("{id}", id)}" target="_blank" rel="noopener" style="color:var(--hot-pink)">gf #${id} ↗</a>`).join(" · ");
       status(`SHE'S HOME 💕 you adopted ${tokenIds.length} — ${links}<br><a href="${cfg.explorer}/tx/${tx.hash}" target="_blank" rel="noopener" style="color:var(--lavender)">receipt ↗</a>`, "ok");
       heartBurst();
       await refresh();
@@ -406,7 +406,7 @@
       $("copyAddr").style.display = "inline-block";
       const a = $("explorerLink"); a.style.display = "inline"; a.href = `${cfg.explorer}/address/${cfg.contract}`;
       $("footScan").href = `${cfg.explorer}/address/${cfg.contract}`;
-      $("footOS").href = `${cfg.opensea}/${cfg.contract}`;
+      $("footOS").href = cfg.collectionUrl.replace("{contract}", cfg.contract);
     }
     state.read = new ethers.JsonRpcProvider(cfg.rpc);
     try { state.proofs = await (await fetch(cfg.wlProofsUrl, { cache: "no-store" })).json(); } catch { state.proofs = null; }
