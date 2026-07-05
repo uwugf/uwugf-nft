@@ -31,7 +31,7 @@ sed -i '' "s|contract: \"\"|contract: \"$ADDR\"|" website/mint-config.js
 echo "── website/mint-config.js updated"
 
 # keyless source verification so the ABI is readable in a UI
-forge verify-contract "$ADDR" contract/src/UwUGF.sol:UwUGF \
+forge verify-contract "$ADDR" src/UwUGF.sol:UwUGF \
   --root contract --verifier sourcify --chain 11155111 2>&1 | tail -2 || echo "(sourcify verify failed — non-fatal)"
 
 echo "── done ♡  https://sepolia.etherscan.io/address/$ADDR"

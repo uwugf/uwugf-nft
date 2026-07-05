@@ -5,7 +5,7 @@ window.UWUGF_CONFIG = {
   chainHex: "0xaa36a7",
   chainName: "Sepolia",
   isTestnet: true,
-  contract: "0xaab5a750ed652117ad4856782c11e2891db5794a",                           // filled by deploy step
+  contract: "0xae1a2b095e55ac1e5177c0f1ff6b64fa9e9cfb54",                           // filled by deploy step
   rpc: "https://ethereum-sepolia-rpc.publicnode.com",
   explorer: "https://sepolia.etherscan.io",
   // token/collection viewers — {contract}/{id} are templated in by the page.

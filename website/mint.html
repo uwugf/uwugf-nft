@@ -147,6 +147,19 @@
         </div>
       </div>
     </div>
+
+    <!-- guest list checker + proof generator -->
+    <div style="margin-top:26px;background:#fff;border:1px solid rgba(176,139,255,.18);border-radius:28px;box-shadow:0 14px 38px rgba(176,139,255,.10);padding:clamp(20px,3vw,30px);">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span style="display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,95,162,.12);color:var(--hot-pink);font-family:'Fredoka';font-weight:600;font-size:13px;">🎀 guest list checker</span>
+        <span style="font-size:13.5px;color:var(--muted);">paste any wallet — see if she's expecting you, and grab your merkle proof for direct contract mints</span>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;">
+        <input id="wlAddr" placeholder="0x…" spellcheck="false" style="flex:1;min-width:240px;padding:13px 16px;border-radius:14px;border:1.5px solid rgba(176,139,255,.35);font-family:ui-monospace,monospace;font-size:14px;color:var(--plum);outline:none;background:#fffdfe;">
+        <button id="wlCheckBtn" style="padding:13px 22px;border-radius:999px;border:none;cursor:pointer;background:var(--hot-pink);color:#fff;font-family:'Fredoka';font-weight:600;font-size:15px;box-shadow:0 8px 20px rgba(255,95,162,.35);">check the list ♡</button>
+      </div>
+      <div id="wlOut" style="display:none;margin-top:14px;"></div>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -379,6 +392,32 @@
   $("qtyPlus").onclick = () => { state.qty++; render(); };
   $("qtyMax").onclick = () => { state.qty = 999; render(); };
   $("copyAddr").onclick = () => { navigator.clipboard.writeText(cfg.contract); $("copyAddr").textContent = "copied ♡"; setTimeout(() => ($("copyAddr").textContent = "copy"), 1400); };
+
+  // ---------- guest list checker / proof generator ----------
+  function checkList() {
+    const out = $("wlOut"); out.style.display = "block";
+    const box = (bg, bd, html) => `<div style="padding:14px 16px;border-radius:16px;background:${bg};border:1px solid ${bd};font-family:'Fredoka';font-weight:600;font-size:14.5px;line-height:1.55;color:var(--plum);">${html}</div>`;
+    let addr;
+    try { addr = ethers.getAddress($("wlAddr").value.trim()); }
+    catch { out.innerHTML = box("rgba(255,95,162,.08)", "rgba(255,95,162,.25)", "that's not a wallet address bestie 😅 it should look like 0x + 40 hex characters"); return; }
+    if (!state.proofs) { out.innerHTML = box("rgba(255,216,107,.15)", "rgba(255,216,107,.5)", "guest list isn't loaded 🥺 refresh the page and try again"); return; }
+    const proof = state.proofs.proofs[addr.toLowerCase()];
+    if (!proof) { out.innerHTML = box("rgba(176,139,255,.10)", "rgba(176,139,255,.3)", `not on the guest list 🥺 — but public mint is open to everyone, ${fmtEth(state.pubPrice ?? 0n)} Ξ each ♡`); return; }
+    const proofJson = JSON.stringify(proof);
+    const wlP = state.wlPrice ?? 0n;
+    out.innerHTML = box("rgba(155,232,216,.18)", "rgba(155,232,216,.6)",
+      `you're on the list! 🎀 <span style="font-family:ui-monospace,monospace;font-size:12.5px;">${short(addr)}</span> can adopt up to ${state.capWl} besties at ${fmtEth(wlP)} Ξ each<br>` +
+      `<div style="margin-top:10px;font-size:12.5px;color:var(--muted);">your merkle proof (for minting straight from the contract):</div>` +
+      `<textarea id="proofBox" readonly style="width:100%;margin-top:6px;padding:10px 12px;border-radius:12px;border:1px solid rgba(176,139,255,.3);font-family:ui-monospace,monospace;font-size:11.5px;color:var(--plum);background:#fffdfe;resize:vertical;min-height:${proof.length ? 74 : 46}px;">${proofJson}</textarea>` +
+      `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center;">` +
+      `<button id="copyProof" class="copy-btn" style="font-size:13px;padding:6px 12px;">copy proof</button>` +
+      `<a href="${cfg.explorer}/address/${cfg.contract}#writeContract" target="_blank" rel="noopener" style="color:var(--lavender);font-size:12.5px;font-weight:700;text-decoration:none;">open uwuList on the contract ↗</a>` +
+      `</div>` +
+      `<div style="margin-top:8px;font-size:12px;color:var(--muted);">how: call <b>uwuList(proof, qty)</b> — paste the proof, pick qty (max ${state.capWl}), set value to qty × ${fmtEth(wlP)} ETH. ${proof.length === 0 ? "your proof is empty-but-valid (tiny tree, it happens ♡)." : ""}</div>`);
+    $("copyProof").onclick = () => { navigator.clipboard.writeText(proofJson); $("copyProof").textContent = "copied ♡"; setTimeout(() => ($("copyProof").textContent = "copy proof"), 1400); };
+  }
+  $("wlCheckBtn").onclick = checkList;
+  $("wlAddr").addEventListener("keydown", (e) => { if (e.key === "Enter") checkList(); });
 
   if (window.ethereum) {
     window.ethereum.on?.("accountsChanged", (a) => { state.addr = a[0] ? ethers.getAddress(a[0]) : null; if (!state.addr) state.signer = null; connectSilent(); });
