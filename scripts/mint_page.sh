@@ -1,16 +1,37 @@
 #!/usr/bin/env bash
-# Show / hide the mint page on the live site (uwugf.netlify.app).
+# Show / hide the mint page on the live site (uwugf-nft.vercel.app).
 #
-#   scripts/mint_page.sh on      → mint.html reachable + "mint ♡" in the index nav
-#   scripts/mint_page.sh off     → mint urls 302 to the homepage, nav link removed
+#   scripts/mint_page.sh on      → mint page reachable + "mint ♡" in the index nav
+#   scripts/mint_page.sh off     → /mint, /mint.html, /mint-config.js, /wl/* all
+#                                  302 to the homepage + nav link removed
 #   scripts/mint_page.sh status
 #
-# Flips website/_redirects comments and patches the bundled index.html nav.
-# Changes are LOCAL — review with `git diff`, then commit + push to deploy.
+# Edits vercel.json "redirects" and patches the bundled index.html nav.
+# Changes are LOCAL — review with `git diff`, then commit + push (Vercel
+# auto-deploys main via the GitHub integration).
 set -euo pipefail
 cd "$(dirname "$0")/.."
-R=website/_redirects
 MODE="${1:-status}"
+
+redirects() { # add|remove|check the mint kill-switch rules in vercel.json
+  node -e '
+    const fs = require("fs");
+    const f = "vercel.json";
+    const mode = process.argv[1];
+    const j = JSON.parse(fs.readFileSync(f, "utf8"));
+    const MINT = ["/mint", "/mint.html", "/mint-config.js", "/wl/:path*"];
+    const isMint = (r) => MINT.includes(r.source);
+    const cur = j.redirects || [];
+    const has = cur.some(isMint);
+    if (mode === "check") { console.log(has ? "redirects: HIDDEN (302 → home)" : "redirects: OPEN (mint reachable)"); process.exit(0); }
+    let next = cur.filter((r) => !isMint(r));
+    if (mode === "add") next = next.concat(MINT.map((s) => ({ source: s, destination: "/", permanent: false })));
+    if (next.length) j.redirects = next; else delete j.redirects;
+    fs.writeFileSync(f, JSON.stringify(j, null, 2) + "\n");
+    JSON.parse(fs.readFileSync(f, "utf8")); // sanity
+    console.log("vercel.json redirects " + (mode === "add" ? "armed (mint hidden)" : "cleared (mint open)"));
+  ' "$1"
+}
 
 nav_link() { # add|remove|check the mint link inside the __bundler/template JSON
   node -e '
@@ -41,16 +62,10 @@ nav_link() { # add|remove|check the mint link inside the __bundler/template JSON
 }
 
 case "$MODE" in
-  on)
-    sed -i '' -e 's|^# MINT:OFF$|# MINT:ON|' -e 's|^/mint.html|# /mint.html|' -e 's|^/mint-config.js|# /mint-config.js|' -e 's|^/wl/\*|# /wl/*|' "$R"
-    nav_link add
-    echo "mint page: ON (open). now: git add -A website && git commit && git push" ;;
-  off)
-    sed -i '' -e 's|^# MINT:ON$|# MINT:OFF|' -e 's|^# /mint.html|/mint.html|' -e 's|^# /mint-config.js|/mint-config.js|' -e 's|^# /wl/\*|/wl/*|' "$R"
-    nav_link remove
-    echo "mint page: OFF (hidden). now: git add -A website && git commit && git push" ;;
-  status)
-    grep -q '^# MINT:ON$' "$R" && echo "redirects: OPEN (mint reachable)" || echo "redirects: HIDDEN (302 → home)"
-    nav_link check ;;
+  on)  redirects remove; nav_link add
+       echo "mint page: ON. now: git add vercel.json website/index.html && git commit && git push" ;;
+  off) redirects add; nav_link remove
+       echo "mint page: OFF. now: git add vercel.json website/index.html && git commit && git push" ;;
+  status) redirects check; nav_link check ;;
   *) echo "usage: $0 on|off|status"; exit 1 ;;
 esac
