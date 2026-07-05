@@ -68,7 +68,7 @@
         <div style="position:relative;width:min(100%,430px);aspect-ratio:1/1.06;">
           <div style="position:absolute;inset:0;background:#fff;border-radius:26px;box-shadow:0 18px 44px rgba(176,139,255,.26);transform:rotate(-2deg);"></div>
           <div style="position:absolute;inset:10px 10px 58px;border-radius:18px;overflow:hidden;transform:rotate(-2deg);" id="peekFrame">
-            <img class="peek" src="assets/peek-1.jpg" alt="uwu gf sneak peek" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+            <img class="peek" src="assets/peek-1.jpg" alt="uwu gf sneak peek" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .6s;">
           </div>
           <div style="position:absolute;left:0;right:0;bottom:12px;text-align:center;transform:rotate(-2deg);font-family:'Fredoka';font-weight:600;font-size:15px;color:var(--muted);">she could be yours ♡</div>
         </div>
@@ -197,7 +197,7 @@
     peekI = (peekI + 1) % peeks.length;
     const img = document.querySelector("#peekFrame .peek");
     img.style.opacity = 0;
-    setTimeout(() => { img.src = peeks[peekI]; img.style.transition = "opacity .6s"; img.style.opacity = 1; }, 380);
+    setTimeout(() => { img.src = peeks[peekI]; img.style.opacity = 1; }, 380);
   }, 3400);
 
   // ---------- helpers ----------
