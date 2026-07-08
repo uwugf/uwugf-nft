@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>mint · uwu gf — adopt your onchain girlfriend</title>
-<meta name="description" content="adopt your hand-drawn uwu girlfriend. guest list first, public after — she's waiting for you ♡">
+<title>mint · uwu gf — mint your onchain girlfriend</title>
+<meta name="description" content="mint your hand-drawn uwu girlfriend. guest list first, public after — she's waiting for you ♡">
 <link rel="canonical" href="https://uwugf-nft.vercel.app/mint">
 <link rel="icon" href="assets/uwu-face.png">
 <meta name="theme-color" content="#ff5fa2">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="uwu gf">
-<meta property="og:title" content="mint · uwu gf — adopt your onchain girlfriend">
-<meta property="og:description" content="adopt your hand-drawn uwu girlfriend. guest list first, public after — she's waiting for you ♡">
+<meta property="og:title" content="mint · uwu gf — mint your onchain girlfriend">
+<meta property="og:description" content="mint your hand-drawn uwu girlfriend. guest list first, public after — she's waiting for you ♡">
 <meta property="og:url" content="https://uwugf-nft.vercel.app/mint">
 <meta property="og:image" content="https://uwugf-nft.vercel.app/assets/social-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="uwu gf — hand-drawn girlfriends on ethereum">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mint · uwu gf — adopt your onchain girlfriend">
-<meta name="twitter:description" content="adopt your hand-drawn uwu girlfriend. guest list first, public after ♡">
+<meta name="twitter:title" content="mint · uwu gf — mint your onchain girlfriend">
+<meta name="twitter:description" content="mint your hand-drawn uwu girlfriend. guest list first, public after ♡">
 <meta name="twitter:image" content="https://uwugf-nft.vercel.app/assets/social-card.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,8 +75,8 @@
 
       <!-- left: the pitch -->
       <div>
-        <span style="display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,95,162,.12);color:var(--hot-pink);font-family:'Fredoka';font-weight:600;font-size:13px;">💕 the adoption center</span>
-        <h1 style="font-family:'Fredoka';font-weight:700;font-size:clamp(34px,4.8vw,56px);line-height:1.06;letter-spacing:-.015em;margin:18px 0 12px;">adopt your <span style="background:linear-gradient(90deg,var(--hot-pink),var(--lavender));-webkit-background-clip:text;background-clip:text;color:transparent;">uwu gf</span></h1>
+        <span style="display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,95,162,.12);color:var(--hot-pink);font-family:'Fredoka';font-weight:600;font-size:13px;">💕 the mint</span>
+        <h1 style="font-family:'Fredoka';font-weight:700;font-size:clamp(34px,4.8vw,56px);line-height:1.06;letter-spacing:-.015em;margin:18px 0 12px;">mint your <span style="background:linear-gradient(90deg,var(--hot-pink),var(--lavender));-webkit-background-clip:text;background-clip:text;color:transparent;">uwu gf</span></h1>
         <p style="margin:0 0 26px;font-size:16.5px;line-height:1.65;color:var(--muted);max-width:480px;">6969 hand-drawn girlfriends living rent-free onchain. no roadmap, no discord — just art, vibes and a girl who thinks you're funny.</p>
 
         <!-- polaroid -->
@@ -108,7 +108,7 @@
 
         <!-- supply -->
         <div style="margin:22px 0 6px;display:flex;align-items:baseline;justify-content:space-between;">
-          <span style="font-family:'Fredoka';font-weight:700;font-size:26px;"><span id="minted" class="skeleton">0</span> <span style="font-size:15px;color:var(--muted);font-weight:600;">/ 6969 adopted</span></span>
+          <span style="font-family:'Fredoka';font-weight:700;font-size:26px;"><span id="minted" class="skeleton">0</span> <span style="font-size:15px;color:var(--muted);font-weight:600;">/ 6969 minted</span></span>
           <span id="supplyPct" style="font-family:ui-monospace,monospace;font-size:13px;color:var(--muted);">0%</span>
         </div>
         <div style="height:14px;border-radius:999px;background:rgba(176,139,255,.16);overflow:hidden;">
@@ -149,7 +149,7 @@
             <span style="font-family:'Fredoka';font-weight:700;font-size:24px;"><span id="total">0.001</span> <span style="font-size:15px;color:var(--muted);">Ξ</span></span>
           </div>
 
-          <button id="mintBtn" disabled style="width:100%;margin-top:16px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 26px;border-radius:999px;border:none;cursor:pointer;background:var(--hot-pink);color:#fff;font-family:'Fredoka';font-weight:700;font-size:18px;box-shadow:0 10px 26px rgba(255,95,162,.42);animation:pulseGlow 2.8s ease-in-out infinite;">adopt her ♡</button>
+          <button id="mintBtn" disabled style="width:100%;margin-top:16px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:16px 26px;border-radius:999px;border:none;cursor:pointer;background:var(--hot-pink);color:#fff;font-family:'Fredoka';font-weight:700;font-size:18px;box-shadow:0 10px 26px rgba(255,95,162,.42);animation:pulseGlow 2.8s ease-in-out infinite;">mint her ♡</button>
         </div>
 
         <!-- status -->
@@ -208,7 +208,7 @@
     "function uwuMinted(address) view returns (uint256)",
     "function degenMinted(address) view returns (uint256)",
     "function uwuList(bytes32[] proof, uint256 qty) payable",
-    "function adopt(uint256 qty) payable",
+    "function mint(uint256 qty) payable",
   ];
 
   const $ = (id) => document.getElementById(id);
@@ -298,7 +298,7 @@
     $("qtyMinus").disabled = state.qty <= 1;
     $("qtyPlus").disabled = state.qty >= maxQty;
     $("allowance").textContent = state.addr && (p === "wl" || p === "public")
-      ? (walletCap > 0n ? `you can adopt ${walletCap} more this phase` : "phase limit reached for this wallet 🥺") : "";
+      ? (walletCap > 0n ? `you can mint ${walletCap} more this phase` : "phase limit reached for this wallet 🥺") : "";
     const price = phasePrice(p === "wl" ? "wl" : "public");
     $("total").textContent = price !== null && price !== undefined ? fmtEth(price * BigInt(state.qty)) : "—";
 
@@ -310,9 +310,9 @@
     else if (!state.addr) set("connect wallet first bestie", true);
     else if (state.wrongChain) set("wrong network 🥺", true);
     else if (p === "closed") set("her heart isn't open yet", true);
-    else if (p === "wl-locked") set(state.pubOpen ? "adopt her ♡" : "guest list only rn 🥺", true);
+    else if (p === "wl-locked") set(state.pubOpen ? "mint her ♡" : "guest list only rn 🥺", true);
     else if (walletCap <= 0n) set("you've maxed out this phase 💕", true);
-    else set(p === "wl" ? `adopt ${state.qty} from the guest list 🎀` : `adopt ${state.qty === 1 ? "her" : state.qty + " of them"} ♡`, false);
+    else set(p === "wl" ? `mint ${state.qty} from the guest list 🎀` : `mint ${state.qty === 1 ? "her" : state.qty + " of them"} ♡`, false);
   }
 
   // ---------- chain reads ----------
@@ -373,14 +373,14 @@
       status("check your wallet bestie… 💅");
       const tx = p === "wl"
         ? await c.uwuList(state.proofs.proofs[state.addr.toLowerCase()], qty, { value })
-        : await c.adopt(qty, { value });
+        : await c.mint(qty, { value });
       status(`she's getting ready… 💄 <a href="${cfg.explorer}/tx/${tx.hash}" target="_blank" rel="noopener" style="color:var(--hot-pink)">watch the tx ↗</a>`);
       const rc = await tx.wait();
       // token ids from Transfer events (ERC721A emits standard Transfer)
       const iface = new ethers.Interface(["event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)"]);
       const tokenIds = rc.logs.map((l) => { try { return iface.parseLog(l)?.args?.tokenId?.toString(); } catch { return null; } }).filter(Boolean);
       const links = tokenIds.map((id) => `<a href="${cfg.tokenUrl.replace("{contract}", cfg.contract).replace("{id}", id)}" target="_blank" rel="noopener" style="color:var(--hot-pink)">gf #${id} ↗</a>`).join(" · ");
-      status(`SHE'S HOME 💕 you adopted ${tokenIds.length} — ${links}<br><a href="${cfg.explorer}/tx/${tx.hash}" target="_blank" rel="noopener" style="color:var(--lavender)">receipt ↗</a>`, "ok");
+      status(`SHE'S HOME 💕 you minted ${tokenIds.length} — ${links}<br><a href="${cfg.explorer}/tx/${tx.hash}" target="_blank" rel="noopener" style="color:var(--lavender)">receipt ↗</a>`, "ok");
       heartBurst();
       await refresh();
     } catch (e) {
@@ -421,7 +421,7 @@
     const proofJson = JSON.stringify(proof);
     const wlP = state.wlPrice ?? 0n;
     out.innerHTML = box("rgba(155,232,216,.18)", "rgba(155,232,216,.6)",
-      `you're on the list! 🎀 <span style="font-family:ui-monospace,monospace;font-size:12.5px;">${short(addr)}</span> can adopt up to ${state.capWl} besties at ${fmtEth(wlP)} Ξ each<br>` +
+      `you're on the list! 🎀 <span style="font-family:ui-monospace,monospace;font-size:12.5px;">${short(addr)}</span> can mint up to ${state.capWl} besties at ${fmtEth(wlP)} Ξ each<br>` +
       `<div style="margin-top:10px;font-size:12.5px;color:var(--muted);">your merkle proof (for minting straight from the contract):</div>` +
       `<textarea id="proofBox" readonly style="width:100%;margin-top:6px;padding:10px 12px;border-radius:12px;border:1px solid rgba(176,139,255,.3);font-family:ui-monospace,monospace;font-size:11.5px;color:var(--plum);background:#fffdfe;resize:vertical;min-height:${proof.length ? 74 : 46}px;">${proofJson}</textarea>` +
       `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center;">` +

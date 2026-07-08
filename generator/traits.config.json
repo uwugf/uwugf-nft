@@ -22,6 +22,7 @@
     "06_Eyes",
     "08_Hair",
     "04_Choker",
+    "11_Sunglasses",
     "03_Hoodie",
     "09_Stuffie"
   ],
@@ -694,6 +695,41 @@
           "file": "super_rare/XX Choker.png",
           "tier": "super_rare",
           "weight": 10,
+          "art_done": true
+        }
+      ]
+    },
+    "11_Sunglasses": {
+      "category": "Sunglasses",
+      "required": false,
+      "none_weight": 1500,
+      "options": [
+        {
+          "name": "Rayban",
+          "file": "Rayban.png",
+          "tier": "common",
+          "weight": 100,
+          "art_done": true
+        },
+        {
+          "name": "Cateye Frame",
+          "file": "Cateye Frame.png",
+          "tier": "common",
+          "weight": 100,
+          "art_done": true
+        },
+        {
+          "name": "Cateye Sunnies",
+          "file": "Cateye Sunnies.png",
+          "tier": "common",
+          "weight": 100,
+          "art_done": true
+        },
+        {
+          "name": "Heart Sunnies",
+          "file": "rare/Heart Sunnies.png",
+          "tier": "rare",
+          "weight": 30,
           "art_done": true
         }
       ]

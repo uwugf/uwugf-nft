@@ -52,6 +52,7 @@ LAYERS = [
     ("06_Eyes",       "Eyes",       True,  0),
     ("08_Hair",       "Hair",       True,  0),
     ("04_Choker",     "Choker",     False, 40),
+    ("11_Sunglasses", "Sunglasses", False, 1500),  # over eyes+hair, UNDER the hood; most GFs wear none
     ("03_Hoodie",     "Hoodie",     True,  0),   # hood is the top layer -> frames the face
     ("09_Stuffie",    "Stuffie",    False, 80),
 ]
@@ -115,6 +116,16 @@ SPEC: dict[str, dict] = {
         "done": True,
         "traits": ["Heart Choker", "UWU Choker", "Star Choker", "XX Choker"],
         "tiers": {},
+    },
+    "Sunglasses": {
+        # gab's sunglasses trait (uploaded 2026-07-08, pulled from Drive folder
+        # 1osWQYHDvw4nQaeM96moC6kCXPFG3IosP → art/layers/11_Sunglasses/, 2048² canvas,
+        # registered to the character face). Composites OVER eyes + hair but UNDER the
+        # hood (Gabrielle: "no, hoodie is top of everything"). Optional + high
+        # none_weight => most GFs wear none.
+        "done": True,
+        "traits": ["Rayban", "Cateye Frame", "Cateye Sunnies", "Heart Sunnies"],
+        "tiers": {"Heart Sunnies": "rare"},
     },
     "Hair": {
         "done": True,   # all 18 uploaded to Drive 2026-07-02 ("done with all hair")

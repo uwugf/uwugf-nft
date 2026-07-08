@@ -115,6 +115,10 @@ def draw_placeholder_layer(base: Image.Image, category: str, name: str, size: in
             d.ellipse([s * (cx - 0.06), s * 0.36, s * (cx + 0.06), s * 0.47], fill=c)
     elif category == "Mouth":
         d.rounded_rectangle([s * 0.43, s * 0.55, s * 0.57, s * 0.61], radius=s * 0.02, fill=c)
+    elif category == "Sunglasses":
+        for cx in (0.38, 0.62):                                                       # lenses over the eyes
+            d.rounded_rectangle([s * (cx - 0.09), s * 0.34, s * (cx + 0.09), s * 0.46], radius=s * 0.02, fill=c)
+        d.rectangle([s * 0.47, s * 0.375, s * 0.53, s * 0.40], fill=c)                # bridge
     elif category == "Make-up":
         for cx in (0.30, 0.70):
             d.ellipse([s * (cx - 0.05), s * 0.48, s * (cx + 0.05), s * 0.55], fill=c)  # cheeks
@@ -184,7 +188,12 @@ def main():
     ap.add_argument("--placeholder", action="store_true")
     ap.add_argument("--only-available", action="store_true")
     ap.add_argument("--no-contact", action="store_true")
+    ap.add_argument("--layers-dir", default="art/layers",
+                    help="layer art root")
     args = ap.parse_args()
+
+    global ART
+    ART = ROOT / args.layers_dir
 
     if not CONFIG.exists():
         sys.exit("Missing config. Run:  python generator/build_config.py --scan")

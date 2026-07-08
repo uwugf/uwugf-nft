@@ -28,7 +28,7 @@ import "@openzeppelin/contracts/token/common/ERC2981.sol";
 contract UwUGF is ERC721A, ERC2981, Ownable {
     // ───────────────────────── immutable promises ─────────────────────────
     uint256 public constant MAX_CUTIES   = 6969;  // hard supply cap (immutable)
-    uint256 public constant TEAM_RESERVE = 100;   // team + 1/1s + KOL gifts cap
+    uint256 public constant TEAM_RESERVE = 169;   // treasury: team + 1/1s + KOL gifts (Natsio's plan)
 
     // ───────────────────────────── tunable knobs ──────────────────────────
     uint256 public uwuListPrice = 0.00069 ether;    // whitelist (cheaper, bestie ♡)
@@ -51,7 +51,7 @@ contract UwUGF is ERC721A, ERC2981, Ownable {
     mapping(address => uint256) public uwuMinted;   // wl minted per wallet
     mapping(address => uint256) public degenMinted; // public minted per wallet
 
-    event Adopted(address indexed degen, uint256 quantity, bool whitelist);
+    event Minted(address indexed degen, uint256 quantity, bool whitelist);
     event GlowUp(string baseURI);
 
     constructor(string memory hiddenURI_, address royaltyReceiver)
@@ -85,17 +85,17 @@ contract UwUGF is ERC721A, ERC2981, Ownable {
         require(msg.value >= uwuListPrice * qty, "send more love (eth)");
         uwuMinted[msg.sender] += qty;
         _mint(msg.sender, qty);
-        emit Adopted(msg.sender, qty, true);
+        emit Minted(msg.sender, qty, true);
     }
 
-    /// @notice public mint — adopt your UwU GF
-    function adopt(uint256 qty) external payable sheIsReal(qty) {
+    /// @notice public mint — mint your UwU GF
+    function mint(uint256 qty) external payable sheIsReal(qty) {
         require(heartsOpen, "her heart isn't open yet");
         require(degenMinted[msg.sender] + qty <= maxPerDegen, "leave some for others anon");
         require(msg.value >= publicPrice * qty, "send more love (eth)");
         degenMinted[msg.sender] += qty;
         _mint(msg.sender, qty);
-        emit Adopted(msg.sender, qty, false);
+        emit Minted(msg.sender, qty, false);
     }
 
     /// @notice owner mint for team, 1/1s & KOL gifts — capped by TEAM_RESERVE

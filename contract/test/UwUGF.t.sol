@@ -18,30 +18,31 @@ contract UwUGFTest is Test {
 
     function test_publicMint() public {
         gf.openHerHeart(false, true); // public on
-        vm.prank(alice);
-        gf.adopt{value: 0.001 ether * 2}(2);
+        // two-arg prank sets msg.sender AND tx.origin (sheIsReal rejects tx.origin != msg.sender)
+        vm.prank(alice, alice);
+        gf.mint{value: 0.001 ether * 2}(2);
         assertEq(gf.balanceOf(alice), 2);
         assertEq(gf.ownerOf(1), alice);
     }
 
     function test_publicMint_revertsWhenClosed() public {
-        vm.prank(alice);
+        vm.prank(alice, alice);
         vm.expectRevert("her heart isn't open yet");
-        gf.adopt{value: 0.001 ether}(1);
+        gf.mint{value: 0.001 ether}(1);
     }
 
     function test_publicMint_revertsUnderpaid() public {
         gf.openHerHeart(false, true);
-        vm.prank(alice);
+        vm.prank(alice, alice);
         vm.expectRevert("send more love (eth)");
-        gf.adopt{value: 0.00069 ether}(1);
+        gf.mint{value: 0.00069 ether}(1);
     }
 
     function test_publicCap() public {
         gf.openHerHeart(false, true);
-        vm.prank(alice);
+        vm.prank(alice, alice);
         vm.expectRevert("leave some for others anon");
-        gf.adopt{value: 0.001 ether * 11}(11); // maxPerDegen = 10
+        gf.mint{value: 0.001 ether * 11}(11); // maxPerDegen = 10
     }
 
     function test_whitelistMint_singleLeafTree() public {
@@ -50,7 +51,7 @@ contract UwUGFTest is Test {
         gf.setGuestList(leaf);
         gf.openHerHeart(true, false); // wl on
         bytes32[] memory proof = new bytes32[](0);
-        vm.prank(alice);
+        vm.prank(alice, alice);
         gf.uwuList{value: 0.00069 ether * 3}(proof, 3);
         assertEq(gf.balanceOf(alice), 3);
     }
@@ -60,15 +61,15 @@ contract UwUGFTest is Test {
         gf.setGuestList(leaf);
         gf.openHerHeart(true, false);
         bytes32[] memory proof = new bytes32[](0);
-        vm.prank(bob);
+        vm.prank(bob, bob);
         vm.expectRevert("you're not on the list");
         gf.uwuList{value: 0.00069 ether}(proof, 1);
     }
 
     function test_reveal() public {
         gf.openHerHeart(false, true);
-        vm.prank(alice);
-        gf.adopt{value: 0.001 ether}(1);
+        vm.prank(alice, alice);
+        gf.mint{value: 0.001 ether}(1);
         assertEq(gf.tokenURI(1), "ipfs://hidden/hidden.json");
         gf.glowUp("ipfs://realCID/");
         assertEq(gf.tokenURI(1), "ipfs://realCID/1.json");
@@ -76,7 +77,7 @@ contract UwUGFTest is Test {
 
     function test_devReserveCap() public {
         vm.expectRevert("over the reserve");
-        gf.devUwu(owner, 101); // TEAM_RESERVE = 100
+        gf.devUwu(owner, 170); // TEAM_RESERVE = 169
     }
 
     function test_provenancePinkySwearOnce() public {
@@ -88,8 +89,8 @@ contract UwUGFTest is Test {
 
     function test_withdrawLove() public {
         gf.openHerHeart(false, true);
-        vm.prank(alice);
-        gf.adopt{value: 0.001 ether}(1);
+        vm.prank(alice, alice);
+        gf.mint{value: 0.001 ether}(1);
         gf.setLoveJar(bob);
         uint256 before = bob.balance;
         gf.withdrawLove();
