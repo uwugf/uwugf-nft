@@ -462,7 +462,10 @@
       $("footScan").href = `${cfg.explorer}/address/${cfg.contract}`;
       $("footOS").href = cfg.collectionUrl.replace("{contract}", cfg.contract);
     }
-    state.read = new ethers.JsonRpcProvider(cfg.rpc);
+    // batchMaxCount:1 → send each read as its own request (free RPCs like drpc cap
+    // batches at 3; publicnode hangs on big batches). staticNetwork → skip re-detecting
+    // the chain every call. Keeps phase/price reads reliable across providers.
+    state.read = new ethers.JsonRpcProvider(cfg.rpc, cfg.chainId, { batchMaxCount: 1, staticNetwork: true });
     try { state.proofs = await (await fetch(cfg.wlProofsUrl, { cache: "no-store" })).json(); } catch { state.proofs = null; }
     await connectSilent();
     await refresh();
