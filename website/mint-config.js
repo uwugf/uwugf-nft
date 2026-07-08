@@ -6,7 +6,7 @@ window.UWUGF_CONFIG = {
   chainName: "Sepolia",
   isTestnet: true,
   contract: "0x9fdA76223560fEBf5D36C8Af3D80Ee500206c294",                           // filled by deploy step
-  rpc: "https://ethereum-sepolia-rpc.publicnode.com",
+  rpc: "https://sepolia.drpc.org",
   explorer: "https://sepolia.etherscan.io",
   // token/collection viewers — {contract}/{id} are templated in by the page.
   // testnet: Blockscout (OpenSea killed testnets); prod swap →
