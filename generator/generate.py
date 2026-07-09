@@ -27,7 +27,7 @@ Flags:
     --no-contact      skip the contact sheet
 """
 from __future__ import annotations
-import argparse, hashlib, json, random, sys
+import argparse, hashlib, json, random, re, sys
 from pathlib import Path
 
 try:
@@ -75,6 +75,14 @@ def weighted_choice(rng: random.Random, options: list[dict], none_weight: int):
     return rng.choices(pool, weights=weights, k=1)[0]
 
 
+_GLASSES_OK_EYE = re.compile(r"^(Bright|Rolling)-(Green|Blue|Brown|Gold)$")
+
+
+def _glasses_allowed_on(eye_name) -> bool:
+    """Stylist rule: shades only on plain everyday eyes (see generator/harmony.py)."""
+    return bool(eye_name and _GLASSES_OK_EYE.match(eye_name))
+
+
 def roll_dna(rng: random.Random, layers: dict, only_available: bool):
     """Return ordered list of (folder, category, option_or_None)."""
     dna = []
@@ -89,6 +97,11 @@ def roll_dna(rng: random.Random, layers: dict, only_available: bool):
             continue
         choice = weighted_choice(rng, opts, cfg["none_weight"] if not cfg["required"] else 0)
         dna.append((folder, cfg["category"], choice))
+    # stylist rule: shades only ride on plain eyes — never hide a statement eye
+    # (mirrors generator/harmony.py; keep the two in sync).
+    eye = next((o["name"] for _f, cat, o in dna if cat == "Eyes" and o), None)
+    if not _glasses_allowed_on(eye):
+        dna = [(f, cat, (None if cat == "Sunglasses" else o)) for f, cat, o in dna]
     return dna
 
 

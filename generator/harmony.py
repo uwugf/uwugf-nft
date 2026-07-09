@@ -50,6 +50,19 @@ PAIR_WEIGHTS = [
 ACCEPT = 0.85          # accept a roll at/above this score (max floor that keeps every trait mintable)
 MAX_TRIES = 50         # rejection-sampling budget; then best-seen wins
 
+# ── stylist rule: sunglasses only ride on plain, everyday eyes ──────────────
+# Every "statement" eye (hearts, diamonds, side-eye, alien, ghost, dead, dazed,
+# sniper, lucky, uwu) IS the gf — the stylist refuses to hide them behind shades.
+# So glasses are only allowed on the standard open eyes: Bright-<color> and
+# Rolling-<color>. This is an ALLOW-LIST (not tier-based, since --scan flattens
+# tiers): any eye that isn't plainly one of these can never wear glasses, and a
+# new/unknown eye fails safe to "no glasses". Hoodie still composites above glasses.
+import re as _re
+GLASSES_OK_EYE = _re.compile(r"^(Bright|Rolling)-(Green|Blue|Brown|Gold)$")
+
+def glasses_allowed_on(eye_name: str | None) -> bool:
+    return bool(eye_name and GLASSES_OK_EYE.match(eye_name))
+
 
 # ---------------------------------------------------------------- analysis --
 
@@ -161,6 +174,11 @@ def harmony_score(combo: dict[str, str], pal: dict) -> float:
     if mk and hd and not mk["neutral"] and not mk["multi"] and not hd["neutral"] and not hd.get("pastel"):
         total += _pair_score(mk, hd) * 0.10
         weight += 0.10
+    # shades are small but a loud frame shouldn't fight a loud hood — gentle nudge
+    sg = info("Sunglasses")
+    if sg and hd and not sg["neutral"] and not sg["multi"] and not hd["neutral"]:
+        total += _pair_score(sg, hd) * 0.08
+        weight += 0.08
     return total / weight if weight else 1.0
 
 
@@ -186,6 +204,11 @@ def roll_once(rng: random.Random, layers: dict) -> dict[str, tuple]:
         pick = rng.choices(pool, weights=weights, k=1)[0]
         if pick is not None:
             out[c["category"]] = (folder, pick)
+    # stylist rule: shades only ride on plain eyes; statement eyes stay visible
+    if "Sunglasses" in out:
+        eye = out["Eyes"][1]["name"] if "Eyes" in out else None
+        if not glasses_allowed_on(eye):
+            del out["Sunglasses"]
     return out
 
 

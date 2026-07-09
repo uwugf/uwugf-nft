@@ -710,6 +710,38 @@
   "pastel": true,
   "dom_bucket": 0
  },
+ "Sunglasses/Rayban": {
+  "neutral": false,
+  "hue": 14.999999999999998,
+  "sat": 0.515,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Sunglasses/Cateye Frame": {
+  "neutral": false,
+  "hue": 45.0,
+  "sat": 0.21,
+  "multi": false,
+  "pastel": true,
+  "dom_bucket": 1
+ },
+ "Sunglasses/Cateye Sunnies": {
+  "neutral": false,
+  "hue": 16.581418363049682,
+  "sat": 0.585,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 0
+ },
+ "Sunglasses/Heart Sunnies": {
+  "neutral": false,
+  "hue": 285.0,
+  "sat": 0.58,
+  "multi": false,
+  "pastel": false,
+  "dom_bucket": 9
+ },
  "Hoodie/Og White": {
   "neutral": true,
   "hue": null,
