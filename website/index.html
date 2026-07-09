@@ -56,9 +56,9 @@
   #submitBtn{width:100%;margin-top:6px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:15px 26px;border-radius:999px;border:none;cursor:pointer;background:var(--hot-pink);color:#fff;font-family:'Fredoka';font-weight:700;font-size:17px;box-shadow:0 10px 26px rgba(255,95,162,.42);animation:pulseGlow 2.8s ease-in-out infinite;transition:transform .12s;}
   #submitBtn:hover:not(:disabled){transform:translateY(-1px);}
   #submitBtn:disabled{background:linear-gradient(90deg,#e9d8ef,#e3dcf5);color:#a68fb8;box-shadow:none;animation:none;cursor:not-allowed;}
-  .gf-card{position:relative;aspect-ratio:1;border-radius:24px;overflow:hidden;box-shadow:0 14px 30px rgba(176,139,255,.18);animation:bob 4.2s ease-in-out infinite;transition:transform .2s;}
+  .gf-card{position:relative;aspect-ratio:1;border-radius:24px;overflow:hidden;box-shadow:0 14px 30px rgba(176,139,255,.18);animation:bob 4.2s ease-in-out infinite;transition:transform .2s;cursor:pointer;}
   .gf-card:hover{transform:translateY(-4px) scale(1.02);}
-  .gf-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .gf-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .18s;}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,52px);align-items:center;}
   .about-grid,.stylist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   .apply-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
@@ -121,7 +121,7 @@
         </div>
       </div>
       <div style="min-width:0;">
-        <div style="display:flex;justify-content:center;margin:0 0 12px;"><span class="chip">🌈 meet a few of the cuties ✨</span></div>
+        <div style="display:flex;justify-content:center;margin:0 0 12px;"><span class="chip">🔀 tap a card to shuffle the cuties ✨</span></div>
         <div id="gf-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:13px;scroll-margin-top:96px;"></div>
       </div>
     </div>
@@ -280,13 +280,25 @@
   const COUNTDOWN = "2026-08-15T17:00:00Z";
   const $ = (id) => document.getElementById(id);
 
-  // gf gallery (3x3 bank)
+  // gf gallery — 9 shown, randomized from a bank of many (tap a card to shuffle)
+  const BANK = 28;
   const grid = $("gf-grid");
-  for (let i = 1; i <= 9; i++) {
+  const src = (n) => "assets/bank/gf-" + String(n).padStart(2,"0") + ".jpg";
+  const shown = new Set();
+  const pickNew = () => { let n; do { n = 1 + Math.floor(Math.random()*BANK); } while (shown.has(n)); return n; };
+  for (let i = 0; i < 9; i++) {
+    const n = pickNew(); shown.add(n);
     const d = document.createElement("div");
-    d.className = "gf-card";
-    d.style.animationDelay = ((i % 3) * 0.35) + "s";
-    d.innerHTML = '<img src="assets/bank/grid-' + String(i).padStart(2,"0") + '.jpg" alt="uwu gf" loading="lazy">';
+    d.className = "gf-card"; d.style.animationDelay = ((i % 3) * 0.35) + "s";
+    d.dataset.n = n; d.title = "tap to shuffle ✨";
+    d.innerHTML = '<img src="' + src(n) + '" alt="uwu gf" loading="lazy">';
+    d.addEventListener("click", () => {
+      shown.delete(+d.dataset.n);
+      const m = pickNew(); shown.add(m); d.dataset.n = m;
+      const img = d.querySelector("img");
+      img.style.opacity = "0";
+      setTimeout(() => { img.onload = () => img.style.opacity = "1"; img.src = src(m); }, 160);
+    });
     grid.appendChild(d);
   }
 
