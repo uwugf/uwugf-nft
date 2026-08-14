@@ -10,11 +10,11 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 ## 0) Bio + pinned
 
 **Bio:**
-> 6969 hand-drawn uwu girlfriends ♡ she's cute, she's degen, she's onchain · mint on Ethereum · wl open 🎀 uwugf.xyz
+> 6969 hand-drawn uwu girlfriends ♡ she's cute, she's degen, she's onchain · mint on Robinhood Chain · wl open 🎀 uwugf.xyz
 
 **Pinned (the one-liner):**
 > she will not text you back but she WILL be in your wallet forever 🥺
-> 6969 uwu gfs. wl 0.00069Ξ / public 0.001Ξ. on Ethereum. ♡
+> 6969 uwu gfs. wl 0.00069Ξ / public 0.001Ξ. on Robinhood Chain. ♡
 
 ---
 
@@ -41,7 +41,7 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 
 > 3/ rarity that actually means something — common → rare → super rare → legendary, with a handful of 1/1s (yes there's an EXIT LIQUIDITY one, yes it's iconic).
 
-> 4/ 6969 supply · wl 0.00069Ξ · public 0.001Ξ · minting on Ethereum, built on ERC-721A to keep gas as lean as L1 lets us 🎀 6.9% royalties bc of course.
+> 4/ 6969 supply · wl 0.00069Ξ · public 0.001Ξ · minting on Robinhood Chain (the ethereum L2), built on ERC-721A so gas stays pocket change 🎀 6.9% royalties bc of course.
 
 > 5/ whitelist is how you get her cheapest. drop a 🥺 + follow + tag your most delusional crypto friend. wl form below ⬇️ uwugf.xyz
 
@@ -88,7 +88,7 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 > [3-up render]
 
 > 24 HOURS 🚨💕
-> set a reminder. charge your Ethereum wallet. hydrate.
+> set a reminder. bridge some ETH to Robinhood Chain. hydrate.
 > wl 0.00069Ξ → public 0.001Ξ → gone.
 
 > 1 HOUR. she's nervous. you're nervous. mint soon 🎀
@@ -99,7 +99,7 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 
 > SHE'S LIVE 🥺💕 MINT IS OPEN
 > → uwugf.xyz
-> wl: 0.00069Ξ · public: 0.001Ξ · on Ethereum
+> wl: 0.00069Ξ · public: 0.001Ξ · on Robinhood Chain
 > 6969 uwu gfs. go go go 🏃💨
 
 > halfway gone in [X] min 😭 the uwu gfs are FLYING
@@ -111,7 +111,7 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 
 > SOLD OUT 🎀🥺💕 6969/6969
 > every single uwu gf has found a degen to live with. thank you for the most delulu launch ever.
-> reveal in [X] hrs ✨ secondary on @opensea now 👀
+> reveal in [X] hrs ✨ secondary: [confirm which marketplace indexes Robinhood Chain before posting] 👀
 
 > she's revealed ✨ go look at your gf. she's been waiting.
 > [reveal hero grid]
@@ -128,7 +128,7 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 
 ## 9) KOL / collab DM template
 
-> hii! 🥺 we're launching UwU GF — 6969 hand-drawn uwu girlfriends on Ethereum
+> hii! 🥺 we're launching UwU GF — 6969 hand-drawn uwu girlfriends on Robinhood Chain
 > (wl 0.00069 / public 0.001). we sketched a 1/1 inspired by you & saved you a
 > wl spot, zero ask. if it's your vibe we'd love a gm 💕 [link]
 

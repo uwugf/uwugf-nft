@@ -25,9 +25,9 @@ forge test -vvv
 
 | Theme name | Who | What it does |
 |---|---|---|
-| `uwuList(proof, qty)` | whitelist | mint at `uwuListPrice` (0.001 Ξ), Merkle-gated |
-| `adopt(qty)` | public | mint at `publicPrice` (0.0069 Ξ) |
-| `devUwu(to, qty)` | owner | team / 1-of-1 / KOL mint (≤ `TEAM_RESERVE` = 100) |
+| `uwuList(proof, qty)` | whitelist | mint at `uwuListPrice` (0.00069 Ξ), Merkle-gated |
+| `mint(qty)` | public | mint at `publicPrice` (0.001 Ξ) |
+| `devUwu(to, qty)` | owner | team / 1-of-1 / KOL mint (≤ `TEAM_RESERVE` = 169) |
 | `openHerHeart(wl, pub)` | owner | toggle the whitelist / public phases |
 | `setGuestList(root)` | owner | set the whitelist Merkle root |
 | `glowUp(baseURI)` | owner | **the reveal** — point metadata at the real IPFS CID |
@@ -43,7 +43,8 @@ forge test -vvv
 3. **Deploy** with a *hidden* `HIDDEN_URI` so art stays unrevealed at mint:
    ```bash
    cp .env.example .env   # fill PRIVATE_KEY, ROYALTY_RECEIVER, HIDDEN_URI
-   forge script script/Deploy.s.sol:Deploy --rpc-url mainnet --broadcast --verify -vvvv
+   ../scripts/deploy_robinhood.sh testnet    # dress rehearsal, then:
+   ../scripts/deploy_robinhood.sh mainnet
    ```
 4. `pinkySwear(provenanceHash)` — commit provenance on-chain.
 5. `setGuestList(merkleRoot)` then `openHerHeart(true, false)` — whitelist opens.
@@ -51,17 +52,46 @@ forge test -vvv
 7. After sellout, `glowUp("ipfs://<metadataCID>/")` — **reveal** ✨.
 8. `withdrawLove()` — to the team multisig.
 
-## Chain: Ethereum mainnet (decided)
+## Chain: Robinhood Chain (decided)
 
-Launching on **Ethereum L1**. ERC-721A keeps mint gas about as low as L1 allows
-(cheap batch mints), but gas is still real — keep that in mind when finalising
-per-wallet caps so a mint is worth it. Always do a **Sepolia** testnet dry-run
-before mainnet. The contract is chain-agnostic if you ever revisit an L2 later.
+Launching on **Robinhood Chain**, a permissionless EVM L2 that pays gas in ETH.
+Nothing in the contract changes: same Solidity, same ERC-721A, same ETH prices,
+standard Foundry tooling. What changes is that gas is L2-cheap, so the per-wallet
+caps (3 wl / 10 public) are comfortable rather than gas-limited.
+
+| | mainnet | testnet |
+|---|---|---|
+| chain id | `4663` | `46630` |
+| rpc | `https://rpc.mainnet.chain.robinhood.com` | `https://rpc.testnet.chain.robinhood.com` |
+| explorer | `https://robinhoodchain.blockscout.com` | `https://explorer.testnet.chain.robinhood.com` |
+| gas token | ETH | ETH |
+| verification | Blockscout (no API key) | Blockscout (no API key) |
+
+Deploy with `scripts/deploy_robinhood.sh [testnet|mainnet]`. Always do the
+**testnet dress rehearsal first**: it runs the identical code path and opens both
+mint phases so the site is clickable end to end.
+
+Gas reality check, measured on mainnet (block 36,639,534): base fee **0.0395 gwei**.
+Our deploy is ~2.29M gas, so **deploying costs about 0.00009 ETH**, and a mint is
+cents. The old L1 worry about "is a 0.001 Ξ mint even worth the gas" is gone.
+
+Two things to sort before mint day:
+- **Bridged ETH.** Minters need ETH *on Robinhood Chain*, not on L1. The mint page
+  says so; make sure the socials do too.
+- **Public RPC limits.** `rpc.mainnet.chain.robinhood.com` is shared and rate
+  limited, and the mint page polls every 15s. Put a dedicated endpoint in
+  `ROBINHOOD_RPC_URL` (and in `website/mint-config.js`) before launch.
+
+The contract stays chain-agnostic, so an L1 or Base deploy is still one env var away.
 
 ## Security notes
-- `MAX_CUTIES` (6969) and `TEAM_RESERVE` (100) are `constant` — cannot be raised.
+- `MAX_CUTIES` (6969) and `TEAM_RESERVE` (169) are `constant` — cannot be raised.
 - No `setSupply`, no unbounded owner mint, no `selfdestruct`, no proxy/upgrade.
 - `tx.origin == msg.sender` blocks contract/bot minting (simple, intentional).
+  **Read this again before the L2 launch:** it also blocks every smart-contract
+  wallet (Safe, ERC-4337 / account-abstraction, most in-app embedded wallets).
+  On L1 that was a small tax; on an L2 whose likely audience arrives in an app
+  wallet it may be a large one. Keep it or drop it, but decide on purpose.
 - `loveJar` can't be the zero address; provenance can only be set once.
-- Before mainnet launch, get a proper audit or at least a peer review +
-  testnet dry-run on Sepolia. This is real money on a public chain.
+- Before mainnet launch, get a proper audit or at least a peer review + a
+  testnet dry-run on Robinhood Chain testnet. This is real money on a public chain.

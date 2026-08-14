@@ -51,6 +51,8 @@ python generator/generate.py --count 6969 --only-available
 - ✅ **Promo/mint website** — first draft in `website/`.
 - 🟨 **Art** — Backgrounds done; Skin/Eyes/Mouth/Choker/Hoodie in progress;
   Hair/Make-up/Stuffie not drawn yet. See [docs/ART_STATUS.md](docs/ART_STATUS.md).
-- ⏳ **IPFS upload / deploy / OpenSea** — pipeline-ready, waiting on final art + your keys.
+- ⏳ **IPFS upload / deploy** — pipeline-ready, waiting on final art + your keys.
+- 🟦 **Chain: Robinhood Chain** (EVM L2, gas in ETH). Mainnet `4663`, testnet `46630`.
+  Deploy via `scripts/deploy_robinhood.sh [testnet|mainnet]`; explorer is Blockscout.
 
 👉 **Read [docs/PROJECT_PLAN.md](docs/PROJECT_PLAN.md) for the roadmap + the decisions I need from you.**

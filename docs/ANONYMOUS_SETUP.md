@@ -89,5 +89,5 @@ Everything below is the full stack for the actual mint.
 ## What I can do once you're set up
 - **Website**: you attach the zip / log into Netlify in Chrome → I deploy + wire the domain.
 - **IPFS**: give me a Pinata API key → I pin images + metadata, return CIDs, rewrite metadata.
-- **Contract**: you fund the fresh deployer + drop its key in `contract/.env` → I run the Sepolia dry-run, then mainnet deploy + verify (you approve the final broadcast).
+- **Contract**: you fund the fresh deployer with ETH **bridged onto Robinhood Chain** + drop its key in `contract/.env` → I run the Robinhood testnet dry-run, then the mainnet deploy + Blockscout verify (you approve the final broadcast).
 - I will **never** ask for or handle your seed phrase, and I can't create accounts or sign in for you.

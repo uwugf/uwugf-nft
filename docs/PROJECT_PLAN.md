@@ -41,21 +41,26 @@ Cute, degen, community-driven. Target prices: **WL 0.001 Ξ**, **public 0.0069 �
 - [ ] Build the WL Merkle tree from approved addresses → `merkleRoot`
 
 **Phase 3 — contract**
-- [ ] `forge test` green, deploy to **Sepolia**, full dry-run
-- [ ] Deploy to chosen mainnet/L2, verify on explorer
+- [ ] `forge test` green, deploy to **Robinhood Chain testnet** (46630), full dry-run
+- [ ] Deploy to **Robinhood Chain mainnet** (4663), verify on Blockscout
 - [ ] `pinkySwear(provenance)` · `setGuestList(root)` · set prices/caps
 
 **Phase 4 — mint**
 - [ ] Wire website to the deployed contract address + ABI + chain
 - [ ] WL mint window → public mint window
 - [ ] `glowUp(metadataCID)` reveal after sellout
-- [ ] Confirm OpenSea collection renders (auto-indexes on Ethereum); set banner,
-      description, royalties, socials
+- [ ] Confirm the collection renders on the Robinhood Chain Blockscout explorer
+- [ ] Check which secondary marketplace (if any) indexes Robinhood Chain; if none
+      does yet, drop the OpenSea links from the site + socials rather than ship
+      dead links, and say plainly where secondary will live
 - [ ] `withdrawLove()` to team multisig
 
 ## 🟦 Decisions I need from you
-1. ~~Chain~~ ✅ **DECIDED: Ethereum mainnet.** ERC-721A minimises mint gas; we may
-   revisit per-wallet caps so a mint is worth the L1 gas. Dry-run on Sepolia first.
+1. ~~Chain~~ ✅ **DECIDED: Robinhood Chain** (permissionless EVM L2, gas in ETH,
+   mainnet 4663 / testnet 46630). Contract is unchanged; gas is L2-cheap, so the
+   caps are no longer gas-constrained. Dry-run on Robinhood testnet first.
+   Open follow-ups: bridged ETH for minters, a dedicated RPC for mint day, and
+   whether the `tx.origin` anti-bot gate should stay (it blocks smart wallets).
 2. **Final prices & caps.** Confirm WL 0.001 / public 0.0069, per-wallet caps
    (currently WL 3 / public 10), and WL allocation size.
 3. **Whitelist mechanism.** Merkle allowlist (built-in) vs a simpler "WL = public
