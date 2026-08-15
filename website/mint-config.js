@@ -16,9 +16,12 @@ const UWUGF_NETWORKS = {
     chainName: "Robinhood Chain",
     isTestnet: false,
     contract: "", // filled by scripts/deploy_robinhood.sh
-    // public rpc is shared + rate limited — swap for a dedicated endpoint
-    // (chainstack / quicknode / dwellir) before mint day, the site polls every 15s.
-    rpc: "https://rpc.mainnet.chain.robinhood.com",
+    // NOT the official rpc.mainnet.chain.robinhood.com: some ISPs (MyRepublic ID
+    // among them) DNS-block *.robinhood.com, which would break the mint page AND
+    // the visitor's wallet. This mirror serves the same chain 4663 from an
+    // unblocked domain. Still shared + rate limited, and the page polls every 15s,
+    // so buy a dedicated endpoint (chainstack / quicknode / dwellir) before mint day.
+    rpc: "https://robinhood.drpc.org",
     explorer: "https://robinhoodchain.blockscout.com",
     nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
     // token/collection viewers — {contract}/{id} are templated in by the page.
@@ -34,8 +37,9 @@ const UWUGF_NETWORKS = {
     chainHex: "0xb626",
     chainName: "Robinhood Chain Testnet",
     isTestnet: true,
-    contract: "",
-    rpc: "https://rpc.testnet.chain.robinhood.com",
+    contract: "0xaab5a750ed652117ad4856782c11e2891db5794a",
+    rpc: "https://robinhood-testnet.drpc.org", // unblocked mirror, see the mainnet note above
+
     explorer: "https://explorer.testnet.chain.robinhood.com",
     nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
     collectionUrl: "https://explorer.testnet.chain.robinhood.com/token/{contract}",

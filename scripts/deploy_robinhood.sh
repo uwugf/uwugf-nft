@@ -75,6 +75,12 @@ ADDR=$(python3 -c "import json;print([t['contractAddress'] for t in json.load(op
 cd ..
 echo "ADDR=$ADDR"
 
+# run-latest.json records the SIMULATED address even when the broadcast fails, and
+# the grep above hides forge's error. Confirm there is really code on chain before
+# firing owner txs at an address that may not exist (this bit us on sepolia once).
+[ "$(cast code "$ADDR" --rpc-url "$RPC")" != "0x" ] || {
+  echo "!! no code at $ADDR — the broadcast did not land. Full log: /tmp/uwugf-deploy-robinhood.log"; exit 6; }
+
 echo "── setGuestList($GUEST_ROOT)"
 cast send "$ADDR" "setGuestList(bytes32)" "$GUEST_ROOT" --private-key "$PRIVATE_KEY" --rpc-url "$RPC" > /dev/null
 
