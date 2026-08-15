@@ -10,6 +10,13 @@ IPs move, so they're re-resolved over DNS-over-HTTPS at startup rather than pinn
     python3 scripts/rh_rpc_proxy.py --net testnet --port 8546
     ROBINHOOD_TESTNET_RPC_URL=http://127.0.0.1:8546 ./scripts/deploy_robinhood.sh testnet
 
+Also fronts the Blockscout explorer, so contract verification works from a
+blocked network too:
+
+    python3 scripts/rh_rpc_proxy.py --net explorer-testnet --port 8548
+    forge verify-contract <addr> src/UwUGF.sol:UwUGF --root contract \
+      --chain-id 46630 --verifier blockscout --verifier-url http://127.0.0.1:8548/api/
+
 Dev convenience only. Don't point the public mint page at this — use the real
 endpoint, or the unblocked mirror https://rpc.arrowrpc.com for mainnet.
 """
@@ -19,6 +26,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 UPSTREAM = {
     "mainnet": "rpc.mainnet.chain.robinhood.com",
     "testnet": "rpc.testnet.chain.robinhood.com",
+    "explorer-mainnet": "robinhoodchain.blockscout.com",
+    "explorer-testnet": "explorer.testnet.chain.robinhood.com",
 }
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
@@ -50,30 +59,34 @@ def make_handler(host):
     class Handler(BaseHTTPRequestHandler):
         protocol_version = "HTTP/1.1"
 
-        def do_POST(self):
-            body = self.rfile.read(int(self.headers.get("content-length", 0)))
-            req = urllib.request.Request(
-                f"https://{host}", data=body, method="POST",
-                headers={"content-type": "application/json", "user-agent": UA, "accept": "*/*"},
-            )
+        def _forward(self, method):
+            # Path and query are preserved, so this also fronts Blockscout's
+            # /api?module=contract&action=... verification endpoints, not just JSON-RPC.
+            body = self.rfile.read(int(self.headers.get("content-length", 0) or 0)) or None
+            headers = {"user-agent": UA, "accept": "*/*"}
+            if ct := self.headers.get("content-type"):
+                headers["content-type"] = ct
+            req = urllib.request.Request(f"https://{host}{self.path}", data=body,
+                                         method=method, headers=headers)
             try:
-                payload = urllib.request.urlopen(req, timeout=60).read()
-                code = 200
-            except Exception as exc:  # surface upstream failures as a JSON-RPC error
+                resp = urllib.request.urlopen(req, timeout=120)
+                payload, code = resp.read(), resp.status
+                ctype = resp.headers.get("content-type", "application/json")
+            except urllib.error.HTTPError as exc:      # pass upstream errors through verbatim
+                payload, code = exc.read(), exc.code
+                ctype = exc.headers.get("content-type", "application/json")
+            except Exception as exc:
                 payload = json.dumps({"jsonrpc": "2.0", "id": None,
                                       "error": {"code": -32603, "message": f"proxy: {exc}"}}).encode()
-                code = 502
+                code, ctype = 502, "application/json"
             self.send_response(code)
-            self.send_header("content-type", "application/json")
+            self.send_header("content-type", ctype)
             self.send_header("content-length", str(len(payload)))
             self.end_headers()
             self.wfile.write(payload)
 
-        def do_GET(self):
-            self.send_response(200)
-            self.send_header("content-length", "2")
-            self.end_headers()
-            self.wfile.write(b"ok")
+        do_POST = lambda self: self._forward("POST")
+        do_GET = lambda self: self._forward("GET")
 
         def log_message(self, *args):
             pass  # forge is chatty enough
