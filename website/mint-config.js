@@ -16,12 +16,15 @@ const UWUGF_NETWORKS = {
     chainName: "Robinhood Chain",
     isTestnet: false,
     contract: "", // filled by scripts/deploy_robinhood.sh
-    // NOT the official rpc.mainnet.chain.robinhood.com: some ISPs (MyRepublic ID
-    // among them) DNS-block *.robinhood.com, which would break the mint page AND
-    // the visitor's wallet. This mirror serves the same chain 4663 from an
-    // unblocked domain. Still shared + rate limited, and the page polls every 15s,
-    // so buy a dedicated endpoint (chainstack / quicknode / dwellir) before mint day.
-    rpc: "https://robinhood.drpc.org",
+    // Dedicated Alchemy endpoint, origin-locked to uwugf.xyz in the Alchemy
+    // dashboard — the key is public by necessity (this file ships to browsers),
+    // so the domain allowlist is what protects the quota. Deliberately NOT the
+    // official rpc.mainnet.chain.robinhood.com: some ISPs (MyRepublic ID among
+    // them) DNS-block *.robinhood.com, which would break both the mint page and
+    // the visitor's own wallet.
+    // Server-side callers (forge/cast) CANNOT use this URL — they send no Origin
+    // and Alchemy rejects them. They use ROBINHOOD_RPC_URL from contract/.env.
+    rpc: "https://robinhood-mainnet.g.alchemy.com/v2/alch_VsdmGJeNplEfTmeDBMZcd",
     explorer: "https://robinhoodchain.blockscout.com",
     nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
     // token/collection viewers — {contract}/{id} are templated in by the page.
