@@ -441,7 +441,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     function setHint(t){if(hint)hint.textContent=t;}
     function visible(){var o=[];document.querySelectorAll('[data-reveal]').forEach(function(x){o.push(x.dataset.cur);});return o;}
     function sfxRare(){[440,554,659,880,1108].forEach(function(f,i){setTimeout(function(){tone(f,f*1.01,0.28,'square',0.22);tone(f*2,f*2.02,0.3,'sine',0.12);},i*95);});}
-    document.querySelectorAll('[data-reveal]').forEach(function(t){
+    // Bind per card, idempotently. This used to run once over a snapshot of the
+    // grid; when the runtime re-rendered those divs the fresh ones had no click
+    // listener, so cards silently stopped revealing until the next reload.
+    function bindReveal(t){
+      if(t.__uwuRevealBound)return; t.__uwuRevealBound=1;
       var img=t.querySelector('img');
       t.dataset.cur=img.getAttribute('src');
       t.dataset.baseAnim=t.style.animation;
@@ -498,7 +502,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         if(t.dataset.cur!==BACK){sfx('tick');flipTo(BACK,function(){setTimeout(function(){flipTo(pick,finish);},300);});}
         else{flipTo(pick,finish);}
       });
-    });
+    }
+    document.querySelectorAll('[data-reveal]').forEach(bindReveal);
+    new MutationObserver(function(){document.querySelectorAll('[data-reveal]').forEach(bindReveal);})
+      .observe(document.documentElement,{childList:true,subtree:true});
     document.addEventListener('click',function(e){
       if(e.target.closest('#uwu-sound-btn'))return;
       if(e.target.closest('[data-reveal]'))return;
