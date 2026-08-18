@@ -42,7 +42,9 @@ if [ -z "$SEEN" ]; then
   echo "   dig +short ${RPC#https://}  — if that returns 158.140.186.3 / block.myrepublic.co.id,"
   echo "   it is the ISP DNS-blocking *.robinhood.com, not the chain being down."
   echo "   fix: set DNS to 1.1.1.1, or add the real IPs to /etc/hosts (see contract/.env.example),"
-  echo "   or for mainnet: ROBINHOOD_RPC_URL=https://rpc.arrowrpc.com $0 $NET"
+  echo "   or run the proxy:  python3 scripts/rh_rpc_proxy.py --net $NET --port 8547"
+  echo "   then:              ROBINHOOD_RPC_URL=http://127.0.0.1:8547 $0 $NET"
+  echo "   (do NOT use robinhood.drpc.org for mainnet: free tier only answers eth_chainId)"
   exit 4
 fi
 [ "$SEEN" = "$CHAIN_ID" ] || { echo "!! rpc reports chain id $SEEN, expected $CHAIN_ID — wrong endpoint"; exit 4; }
