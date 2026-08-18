@@ -52,10 +52,10 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 > WHITELIST IS OPEN 🎀🥺
 > wl gets you in at 0.00069Ξ (vs 0.001 public). limited spots.
 >
-> ✅ follow @uwugf
+> ✅ follow @uwugirlzRH
 > ✅ ♡ + rt this
 > ✅ tag 3 friends who need a gf
-> ✅ apply → uwugf.xyz/whitelist
+> ✅ apply → uwugf.xyz/#whitelist
 >
 > she's choosing her besties carefully 💅
 
