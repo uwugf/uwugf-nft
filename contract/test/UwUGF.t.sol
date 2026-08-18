@@ -18,7 +18,8 @@ contract UwUGFTest is Test {
 
     function test_publicMint() public {
         gf.openHerHeart(false, true); // public on
-        // two-arg prank sets msg.sender AND tx.origin (sheIsReal rejects tx.origin != msg.sender)
+        // two-arg prank sets msg.sender AND tx.origin; kept so these tests still
+        // describe a plain EOA mint now that the tx.origin gate is gone
         vm.prank(alice, alice);
         gf.mint{value: 0.001 ether * 2}(2);
         assertEq(gf.balanceOf(alice), 2);
@@ -102,4 +103,30 @@ contract UwUGFTest is Test {
         assertEq(recv, owner);
         assertEq(amt, 0.069 ether); // 6.9%
     }
+
+    // ── smart-wallet / bot minting (the tx.origin gate was removed on purpose) ──
+    function test_contractWalletCanMint() public {
+        MinterBot bot = new MinterBot(gf);
+        vm.deal(address(bot), 1 ether);
+        gf.openHerHeart(false, true);
+        // msg.sender is the bot contract while tx.origin stays this test EOA:
+        // exactly the shape the old anti-bot require() rejected.
+        bot.mintOne{value: 0.001 ether}();
+        assertEq(gf.balanceOf(address(bot)), 1);
+    }
+}
+
+/// @dev minimal contract wallet used by test_contractWalletCanMint
+contract MinterBot {
+    UwUGF private immutable gf;
+
+    constructor(UwUGF gf_) {
+        gf = gf_;
+    }
+
+    function mintOne() external payable {
+        gf.mint{value: msg.value}(1);
+    }
+
+    receive() external payable {}
 }

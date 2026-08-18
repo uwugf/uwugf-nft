@@ -111,7 +111,7 @@ floor" / "100x" talk** — keep it about the art, the vibe, and the community.
 
 > SOLD OUT 🎀🥺💕 6969/6969
 > every single uwu gf has found a degen to live with. thank you for the most delulu launch ever.
-> reveal in [X] hrs ✨ secondary: [confirm which marketplace indexes Robinhood Chain before posting] 👀
+> reveal in [X] hrs ✨ secondary on @opensea now 👀
 
 > she's revealed ✨ go look at your gf. she's been waiting.
 > [reveal hero grid]

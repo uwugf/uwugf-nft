@@ -25,10 +25,11 @@ const UWUGF_NETWORKS = {
     explorer: "https://robinhoodchain.blockscout.com",
     nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
     // token/collection viewers — {contract}/{id} are templated in by the page.
-    // Blockscout is the chain's official explorer and indexes ERC-721 natively.
-    // If a marketplace lists us later, point collectionUrl/tokenUrl at it instead.
-    collectionUrl: "https://robinhoodchain.blockscout.com/token/{contract}",
-    tokenUrl: "https://robinhoodchain.blockscout.com/token/{contract}/instance/{id}",
+    // OpenSea lists Robinhood Chain as chain slug "robinhood" (confirmed against
+    // their live /api/v2/chains), so secondary lives there. Blockscout stays the
+    // explorer for the contract itself.
+    collectionUrl: "https://opensea.io/assets/robinhood/{contract}",
+    tokenUrl: "https://opensea.io/assets/robinhood/{contract}/{id}",
   },
 
   // ── Robinhood Chain testnet — play money, same code path ──
@@ -37,7 +38,7 @@ const UWUGF_NETWORKS = {
     chainHex: "0xb626",
     chainName: "Robinhood Chain Testnet",
     isTestnet: true,
-    contract: "0xaab5a750ed652117ad4856782c11e2891db5794a",
+    contract: "0xfce1d7fcb0bfb2a846c7f4feb613c7a419215ab6",
     rpc: "https://robinhood-testnet.drpc.org", // unblocked mirror, see the mainnet note above
 
     explorer: "https://explorer.testnet.chain.robinhood.com",

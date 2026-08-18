@@ -67,7 +67,10 @@ contract UwUGF is ERC721A, ERC2981, Ownable {
 
     modifier sheIsReal(uint256 qty) {
         require(qty > 0, "mint at least one bestie");
-        require(tx.origin == msg.sender, "no bots allowed uwu");      // anti-bot
+        // No tx.origin == msg.sender gate, deliberately: it would have blocked every
+        // smart-contract wallet (Safe, ERC-4337, in-app embedded wallets) along with
+        // the bots, and on an app-centric L2 that is most of the audience. Contract
+        // minting is allowed; the per-wallet caps are what keep any one minter honest.
         require(_totalMinted() + qty <= MAX_CUTIES, "she's all gone :(");
         _;
     }

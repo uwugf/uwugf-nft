@@ -87,11 +87,12 @@ The contract stays chain-agnostic, so an L1 or Base deploy is still one env var 
 ## Security notes
 - `MAX_CUTIES` (6969) and `TEAM_RESERVE` (169) are `constant` — cannot be raised.
 - No `setSupply`, no unbounded owner mint, no `selfdestruct`, no proxy/upgrade.
-- `tx.origin == msg.sender` blocks contract/bot minting (simple, intentional).
-  **Read this again before the L2 launch:** it also blocks every smart-contract
-  wallet (Safe, ERC-4337 / account-abstraction, most in-app embedded wallets).
-  On L1 that was a small tax; on an L2 whose likely audience arrives in an app
-  wallet it may be a large one. Keep it or drop it, but decide on purpose.
+- **No `tx.origin == msg.sender` gate** (removed 2026-08-18, deliberate call).
+  It would have blocked every smart-contract wallet (Safe, ERC-4337, in-app
+  embedded wallets) along with the bots, and on an app-centric L2 that is most
+  of the audience. Contract minting is therefore possible: the per-wallet caps
+  (`maxPerUwu` 3 / `maxPerDegen` 10) are what limit any single minter, and a
+  determined bot can still spread across wallets. That is the accepted trade.
 - `loveJar` can't be the zero address; provenance can only be set once.
 - Before mainnet launch, get a proper audit or at least a peer review + a
   testnet dry-run on Robinhood Chain testnet. This is real money on a public chain.
