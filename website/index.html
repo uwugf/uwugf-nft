@@ -546,17 +546,17 @@ document.addEventListener('DOMContentLoaded', async function() {
     form.dataset.tasksInit="1";
     var box=document.createElement('div');
     box.style.cssText="margin-top:18px;border:1.5px dashed rgba(176,139,255,.4);border-radius:18px;padding:16px 16px 14px;";
-    box.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="font-family:Fredoka;font-weight:700;font-size:14px;letter-spacing:.02em;color:var(--plum);">COMMUNITY TASKS</span><span id="wlTaskProg" style="font-family:Fredoka;font-weight:700;font-size:13px;color:var(--muted);">0/'+TASKS.length+'</span></div><div id="wlTasks" style="display:flex;flex-direction:column;gap:10px;"></div><p style="margin:11px 2px 0;font-size:12px;color:var(--muted);">tap <b>go</b> to open each one, then tick it off 🎀</p>';
+    box.innerHTML='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;"><span style="font-family:Fredoka;font-weight:700;font-size:14px;letter-spacing:.02em;color:var(--plum);">COMMUNITY TASKS</span><span id="wlTaskProg" style="font-family:Fredoka;font-weight:700;font-size:13px;color:var(--muted);">0/'+TASKS.length+'</span></div><div id="wlTasks" style="display:flex;flex-direction:column;gap:10px;"></div><input type="hidden" name="tasks" id="wlTasksField" value=""><p style="margin:11px 2px 0;font-size:12px;color:var(--muted);">tap <b>go</b> to open each one, then tick it off 🎀</p>';
     var grid=form.querySelector('[data-wl-grid]')||form.firstElementChild;
     grid.insertAdjacentElement('afterend', box);
     var list=box.querySelector('#wlTasks');
     TASKS.forEach(function(t){
       var row=document.createElement('label');
       row.style.cssText="display:flex;align-items:center;gap:12px;padding:11px 13px;border-radius:14px;background:#fff;border:1.5px solid var(--soft-lav);";
-      row.innerHTML='<input type="checkbox" data-id="'+t.id+'" style="width:22px;height:22px;accent-color:var(--hot-pink);flex:0 0 auto;cursor:pointer;"><span style="flex:1;font-family:Quicksand;font-weight:600;font-size:14px;color:var(--plum);">'+t.label+'</span><a href="'+t.url+'" target="_blank" rel="noopener" data-id="'+t.id+'" style="padding:7px 14px;border-radius:999px;background:var(--lavender);color:#fff;font-family:Fredoka;font-weight:600;font-size:13px;text-decoration:none;">go ↗</a>';
+      row.innerHTML='<input type="checkbox" name="task_'+t.id+'" value="yes" data-id="'+t.id+'" style="width:22px;height:22px;accent-color:var(--hot-pink);flex:0 0 auto;cursor:pointer;"><span style="flex:1;font-family:Quicksand;font-weight:600;font-size:14px;color:var(--plum);">'+t.label+'</span><a href="'+t.url+'" target="_blank" rel="noopener" data-id="'+t.id+'" style="padding:7px 14px;border-radius:999px;background:var(--lavender);color:#fff;font-family:Fredoka;font-weight:600;font-size:13px;text-decoration:none;">go ↗</a>';
       list.appendChild(row);
     });
-    function count(){ var n=0; list.querySelectorAll('input').forEach(function(cb){ if(cb.checked)n++; }); box.querySelector('#wlTaskProg').textContent=n+'/'+TASKS.length; return n; }
+    function count(){ var n=0,done=[]; list.querySelectorAll('input').forEach(function(cb){ if(cb.checked){n++;done.push(cb.dataset.id);} }); box.querySelector('#wlTaskProg').textContent=n+'/'+TASKS.length; var f=box.querySelector('#wlTasksField'); if(f)f.value=done.join(','); return n; }
     list.querySelectorAll('input').forEach(function(cb){ cb.addEventListener('change',count); });
     list.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ var cb=list.querySelector('input[data-id="'+a.dataset.id+'"]'); setTimeout(function(){ cb.checked=true; count(); },400); }); });
     form.addEventListener('submit', function(e){
