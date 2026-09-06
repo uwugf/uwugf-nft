@@ -1,164 +1,102 @@
-# UwU GF: Ten Layers and One Very Opinionated Stylist
+# she has ten layers and a stylist who says no
 
-*Draft. All numbers below are counted from the finished 6,969.*
-*Structure follows the Blokyz "Prehistoric: An Era of Cavemen" format: lore first,
-captioned character groups, then the rarity table.*
+*Draft v3. Voice: crypto twitter, not a whitepaper.*
 
 ---
 
-She is 6,969 hand-drawn girlfriends. Not generated art with a hand-drawn filter
-over it, and not a model's idea of "cute anime girl". An actual human drew every
-hoodie, every stray eyelash, every badly-behaved stuffie.
+Somebody drew all of this by hand.
 
-What follows is how she is put together, who decides what she wears, and which of
-her are one of one.
+Not "AI with a hand-drawn filter". Not a model's guess at what cute looks like.
+An actual person sat there and drew every hoodie, every stray eyelash, every
+stuffie with a slightly concerning facial expression. Layer by layer, on a
+tablet, at hours no healthy person should be awake.
 
----
+That is the whole pitch. Everything below is just how she got dressed.
 
-## The Ten Layers
-
-Every gf is assembled from ten layers, stacked in a fixed order so the art always
-reads correctly: the hood falls over the hair, the sunglasses sit on the face and
-not on the fringe, the stuffie stays in frame.
-
-| No. | Layer | Traits | Always present? |
-|---|---|---|---|
-| 1 | Background | 15 | yes |
-| 2 | Skin | 8 | yes |
-| 3 | Make-up | 6 | often bare |
-| 4 | Mouth | 14 | yes |
-| 5 | Eyes | 24 | yes |
-| 6 | Hair | 18 | yes |
-| 7 | Choker | 4 | sometimes |
-| 8 | Sunglasses | 4 | rarely |
-| 9 | Hoodie | 17 | yes |
-| 10 | Stuffie | 5 | sometimes |
-
-Four of those layers are allowed to be empty, and that emptiness is deliberate.
-A bare face is not a missing trait, it is a look. Sunglasses in particular are
-tuned to be uncommon, because most gfs would rather you saw her eyes.
-
-*[IMAGE: five gfs side by side showing the same base with different hoodies]*
-*Caption: One skin, five moods.*
+*[IMAGE: hero row of 5 gfs]*
 
 ---
 
-## The Tiers
+## ten layers, stacked in the right order
 
-Traits are weighted, not uniform. A legendary trait is drawn roughly **33x less
-often** than a common one.
+Background, skin, make-up, mouth, eyes, hair, choker, shades, hoodie, stuffie.
 
-| Tier | Relative weight |
-|---|---|
-| Common | 100 |
-| Rare | 30 |
-| Super rare | 10 |
-| Legendary | 3 |
+The order matters more than it sounds. The hood falls over the hair instead of
+clipping through it. The shades sit on her face, not on her fringe. The stuffie
+stays in her arms and not behind her head. Small stuff. It is the difference
+between art and a layered PNG accident.
 
-The legendaries hide in the places you actually look: a handful of eyes, one
-skin, one mouth, two hoodies. Rarity you can spot across a room, not rarity
-buried in a metadata field nobody opens.
+Some layers are allowed to be empty, on purpose. A bare face is a look. Shades
+are rare because most of these girls would rather you saw her eyes.
 
-*[IMAGE: legendary eyes close-up grid]*
-*Caption: Diamonds, Ghost, Alien, Sniper. The eyes that stop the scroll.*
+*[IMAGE: same gf, five hoodies]*
+*Caption: one girl, five entire personalities*
 
 ---
 
-## The Resident Stylist
+## the stylist
 
-Most PFP collections roll every layer independently and ship whatever falls out.
-That is how you end up with a mint full of gfs wearing a lime hoodie against a
-lime background, technically rare and genuinely unwearable.
+Here is the part nobody else does.
 
-UwU GF has a stylist. She is code, she has opinions, and she has veto power.
+Most collections roll every layer at random and ship whatever falls out. That is
+how you get a mint full of lime hoodie on lime background, technically rare,
+genuinely unwearable. You have seen those collections. You have probably held
+one.
 
-Before any gf is minted, her combination is scored on colour relationships:
-hoodie against background, hair against both, make-up and skin in support. The
-score runs 0 to 1. Anything below **0.85 is thrown out and re-rolled.** No
-exceptions, no "it's fine, it's rare".
+UwU GF has a stylist. She is code. She has opinions. She has veto power.
 
-*[IMAGE: vibe-pass-1..4.jpg]*
-*Caption: Approved. The stylist let these leave the house.*
+Every girl gets scored on whether her colours actually work together before she
+is allowed to exist. Hoodie against background. Hair against both. If she does
+not clear the bar she gets thrown out and rolled again. No exceptions, no "it's
+fine, it's rare".
 
-*[IMAGE: vibe-fail-1..4.jpg]*
-*Caption: Denied. All four scored around 0.42. Technically valid, aesthetically a crime.*
+*[IMAGE: vibe-pass grid]*
+*Caption: approved. allowed to leave the house.*
 
-The important part: **the stylist never changes the odds.** She rejects a
-*combination*, then rolls again from the same weighted deck. Every trait stays
-exactly as mintable as its tier says. Your legendary is not rarer or commoner
-because of her, it just arrives dressed properly.
+*[IMAGE: vibe-fail grid]*
+*Caption: denied. rare, technically. a crime, aesthetically.*
 
-### House rules
+**The part that matters: she never touches your odds.** She rejects the *outfit*
+and rolls again from the same deck. Every trait stays exactly as rare as it was
+always going to be. Your legendary is not rarer or commoner because of her. She
+just makes sure it shows up dressed.
 
-Two rules are absolute, because breaking either one ruins the drawing:
+### two rules she will not bend
 
-1. **Sunglasses only go on plain eyes.** If a gf rolled Diamonds, Ghost, Alien,
-   Sniper, Lucky, Dead, Dazed, SideEye or X eyes, the shades are refused. Nobody
-   spends a legendary trait and then covers it up.
-2. **The hood sits above everything except the face.** Hair tucks under, chokers
-   sit below, and the stuffie always stays in her arms.
+**Shades only go on plain eyes.** If you rolled Diamonds, Ghost, Alien or Uwu
+eyes, no sunglasses. Nobody spends a legendary trait and then covers it up.
 
----
-
-## The One of Ones
-
-Six gfs are not assembled from layers at all. They were drawn start to finish as
-single pieces, and they share none of their traits with the other 6,963.
-
-| No. | Name | Notes |
-|---|---|---|
-| 1 | Harry Potter | the scar, the scarf, the disappointed eyebrows |
-| 2 | McDonald's | headset on, shift never ending |
-| 3 | OpenSea | sailing, allegedly |
-| 4 | Whale | you know exactly what she means |
-| 5 | Farm Girl | cow hoodie, barn, zero notes |
-| 6 | Ghost | not a costume, we think |
-
-Their token IDs are **scattered at random through the supply**, not 1 through 6 and
-not the last six. There is no position in the mint that gets you closer to one.
-In the metadata they carry a single attribute, `1 of 1`, which puts them at the
-top of the rarity ranking on their own.
-
-*[IMAGE: the six 1/1s as a 3×2 grid]*
-*Caption: Six drawn one at a time. Scattered anywhere in the 6,969.*
+**The hood goes over everything except her face.** Hair tucks under. Chokers sit
+below. That is the whole hierarchy.
 
 ---
 
-## The Set, In Numbers
+## the six
 
-Every legendary and one of one in the finished set, counted from the actual
-6,969 rather than estimated from the weights:
+Six girls are not built from layers at all. Drawn start to finish, one at a
+time, sharing nothing with anybody else in the collection.
 
-| Trait | Layer | Tier | Count | % of set | 1 in |
-|---|---|---|---|---|---|
-| Farm Girl | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
-| Ghost | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
-| Harry Potter | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
-| McDonald's | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
-| OpenSea | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
-| Whale | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
-| Ghost | Eyes | Legendary | 9 | 0.13% | 774 |
-| Uwu | Eyes | Legendary | 12 | 0.17% | 581 |
-| Lucky | Eyes | Legendary | 13 | 0.19% | 536 |
-| Dazed | Eyes | Legendary | 17 | 0.24% | 410 |
-| Rainbow | Hoodie | Legendary | 21 | 0.30% | 332 |
-| Black & Gold | Hoodie | Legendary | 26 | 0.37% | 268 |
-| Zombie | Skin | Legendary | 34 | 0.49% | 205 |
-| Vampire 2 | Mouth | Legendary | 37 | 0.53% | 188 |
+Harry Potter. McDonald's, headset on, shift never ending. OpenSea, sailing,
+allegedly. Whale, and you know exactly what she means. Farm Girl in a cow
+hoodie. And Ghost, who we are told is not wearing a costume.
 
-The full 125-trait breakdown, every layer and every tier, lives in the rarity sheet.
+Their token IDs are scattered anywhere in the set. Not the first six, not the
+last six, no pattern, no early-mint advantage. You either pull one or you cope.
+
+*[IMAGE: the six, 3x2]*
 
 ---
 
-## Provenance
+## the boring but important bit
 
-The full image set is hashed before anything is revealed, and that hash is
-committed on-chain in a single call that can never be made twice. It proves the
-art-to-token assignment was fixed in advance. Nobody, including us, could look
-at who minted what and then reshuffle the rares.
+The whole art set was hashed before a single one was minted, and that hash goes
+on-chain in a call that can only ever happen once.
 
-Hash: `7570802eeb702163f3860fa704603d3182c6ce811385b26ea046ffa9e3c1d264`
+Translation: we could not have looked at who minted what and quietly moved the
+good ones around. Nobody can. Not you, not us. That is the point.
 
 ---
 
-*She will not text you back but she will be in your wallet forever.*
+She will not text you back.
+
+She will be in your wallet forever.
