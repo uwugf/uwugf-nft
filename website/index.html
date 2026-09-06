@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         return blk;
       }
       if(el.closest('#traits'))return 'wardrobe';
-      if(el.closest('#whitelist,form'))return 'form';
+      if(el.closest('#mint,form'))return 'form';
       if(el.closest('#faq,[id*="faq"]'))return 'faq';
       var sec=el.closest('section');
       if(sec&&/faq|delulu/i.test(sec.textContent.slice(0,400)))return 'faq';
@@ -512,7 +512,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       if(e.target.closest('#uwu-sound-btn'))return;
       if(e.target.closest('[data-reveal]'))return;
       var el=e.target, z=zone(el);
-      var cta=el.closest('a[href="#whitelist"],button[type="submit"]');
+      var cta=el.closest('a[href="#mint"],button[type="submit"]');
       var interactive=el.closest('a,button,summary,[role="button"],input,textarea,select,label');
       var img=el.closest('img');
       if(cta){sfx('wow');burst(e.clientX,e.clientY,true,'form');}
