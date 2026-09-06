@@ -1,6 +1,6 @@
 # UwU GF: Ten Layers and One Very Opinionated Stylist
 
-*Draft. Numbers marked `{{ }}` are filled from the final generated set.*
+*Draft. All numbers below are counted from the finished 6,969.*
 *Structure follows the Blokyz "Prehistoric: An Era of Cavemen" format: lore first,
 captioned character groups, then the rarity table.*
 
@@ -126,8 +126,27 @@ top of the rarity ranking on their own.
 
 ## The Set, In Numbers
 
-{{ RARITY_TABLE: final trait counts and set percentages, generated from the
-completed collection: layer, trait, tier, count, % of set, 1-in-N }}
+Every legendary and one of one in the finished set, counted from the actual
+6,969 rather than estimated from the weights:
+
+| Trait | Layer | Tier | Count | % of set | 1 in |
+|---|---|---|---|---|---|
+| Farm Girl | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
+| Ghost | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
+| Harry Potter | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
+| McDonald's | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
+| OpenSea | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
+| Whale | 1 of 1 | 1 of 1 | 1 | 0.01% | 6 969 |
+| Ghost | Eyes | Legendary | 9 | 0.13% | 774 |
+| Uwu | Eyes | Legendary | 12 | 0.17% | 581 |
+| Lucky | Eyes | Legendary | 13 | 0.19% | 536 |
+| Dazed | Eyes | Legendary | 17 | 0.24% | 410 |
+| Rainbow | Hoodie | Legendary | 21 | 0.30% | 332 |
+| Black & Gold | Hoodie | Legendary | 26 | 0.37% | 268 |
+| Zombie | Skin | Legendary | 34 | 0.49% | 205 |
+| Vampire 2 | Mouth | Legendary | 37 | 0.53% | 188 |
+
+The full 125-trait breakdown, every layer and every tier, lives in the rarity sheet.
 
 ---
 
@@ -138,7 +157,7 @@ committed on-chain in a single call that can never be made twice. It proves the
 art-to-token assignment was fixed in advance. Nobody, including us, could look
 at who minted what and then reshuffle the rares.
 
-Hash: `{{ PROVENANCE_HASH }}`
+Hash: `7570802eeb702163f3860fa704603d3182c6ce811385b26ea046ffa9e3c1d264`
 
 ---
 
