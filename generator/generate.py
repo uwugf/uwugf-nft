@@ -192,6 +192,20 @@ def build_metadata(token_id: int, dna, collection: dict) -> dict:
     }
 
 
+def build_oneofone_metadata(token_id: int, name: str, collection: dict) -> dict:
+    """1/1s carry a single defining trait instead of a rolled DNA, so rarity
+    scoring (1 / frequency) puts them at the top of the set on their own."""
+    return {
+        "name": f"{collection['name']} #{token_id} — {name}",
+        "description": collection["description"],
+        "image": f"ipfs://__IMAGES_CID__/{token_id}.png",
+        "external_url": f"{collection['external_url']}/gf/{token_id}",
+        "edition": token_id,
+        "dna": f"1of1:{name}",
+        "attributes": [{"trait_type": "1 of 1", "value": name}],
+    }
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--count", type=int)
@@ -223,6 +237,15 @@ def main():
     print(f"♡ generating {count} UwU GFs @ {size}px "
           f"({'placeholder' if args.placeholder else 'art'} mode, seed {args.seed})")
 
+    # ---- 1/1s: scattered through the supply, not parked at the front ----
+    ones = config.get("one_of_ones") or []
+    ones = [o for o in ones if isinstance(o, dict) and (ART / "10_OneOfOne" / o["file"]).exists()]
+    slot_rng = random.Random(args.seed ^ 0x1010)
+    slots = sorted(slot_rng.sample(range(args.start, args.start + count), len(ones))) if ones else []
+    one_by_tid = {tid_: o for tid_, o in zip(slots, slot_rng.sample(ones, len(ones)))}
+    if ones:
+        print(f"  1/1s at token ids: {', '.join(str(t) for t in slots)}")
+
     seen: set[str] = set()
     all_meta: list[dict] = []
     image_hashes: list[str] = []
@@ -232,6 +255,23 @@ def main():
     tid = args.start
     made = 0
     while made < count:
+        if tid in one_by_tid:
+            o = one_by_tid[tid]
+            art = Image.open(ART / "10_OneOfOne" / o["file"]).convert("RGBA")
+            if art.size != (size, size):
+                art = art.resize((size, size), Image.LANCZOS)
+            out = IMG_DIR / f"{tid}.png"
+            art.save(out)
+            image_hashes.append(hashlib.sha256(out.read_bytes()).hexdigest())
+            meta = build_oneofone_metadata(tid, o.get("display") or o["name"], collection)
+            (META_DIR / f"{tid}.json").write_text(json.dumps(meta, indent=2, ensure_ascii=False))
+            all_meta.append(meta)
+            if not args.no_contact and len(thumbs) < 100:
+                thumbs.append(art.convert("RGB").resize((200, 200), Image.LANCZOS))
+            made += 1
+            tid += 1
+            continue
+
         dna = roll_dna(rng, layers, args.only_available)
         h = dna_hash(dna)
         retries = 0

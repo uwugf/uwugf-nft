@@ -904,18 +904,36 @@
     }
   },
   "one_of_ones": [
-    "EXIT LIQUIDITY",
-    "PUNK",
-    "PUDGY",
-    "OPENSEA",
-    "HARRY POTTER",
-    "DEGEN",
-    "WHALE",
-    "MCDO",
-    "GRADUATION",
-    "GEISHA",
-    "DUBAI CHOCOLATE",
-    "SPIDERMAN"
+    {
+      "name": "HARRY POTTER",
+      "file": "HARRY POTTER.png",
+      "display": "Harry Potter"
+    },
+    {
+      "name": "MCDO",
+      "file": "MCDO.png",
+      "display": "McDonald's"
+    },
+    {
+      "name": "OPENSEA",
+      "file": "OPENSEA.png",
+      "display": "OpenSea"
+    },
+    {
+      "name": "WHALE",
+      "file": "WHALE.png",
+      "display": "Whale"
+    },
+    {
+      "name": "FARM GIRL",
+      "file": "FARM GIRL.png",
+      "display": "Farm Girl"
+    },
+    {
+      "name": "GHOST",
+      "file": "GHOST.png",
+      "display": "Ghost"
+    }
   ],
   "kols": [
     "https://x.com/jerezizzz",
