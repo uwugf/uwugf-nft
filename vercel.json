@@ -2,5 +2,17 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "outputDirectory": "website",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/mint",
+      "destination": "/#mint",
+      "permanent": false
+    },
+    {
+      "source": "/mint.html",
+      "destination": "/#mint",
+      "permanent": false
+    }
+  ]
 }

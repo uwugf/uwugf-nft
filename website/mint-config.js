@@ -41,7 +41,7 @@ const UWUGF_NETWORKS = {
     chainHex: "0xb626",
     chainName: "Robinhood Chain Testnet",
     isTestnet: true,
-    contract: "0xfce1d7fcb0bfb2a846c7f4feb613c7a419215ab6",
+    contract: "", // pre-launch: address kept out of the public config
     rpc: "https://robinhood-testnet.drpc.org", // unblocked mirror, see the mainnet note above
 
     explorer: "https://explorer.testnet.chain.robinhood.com",
@@ -52,7 +52,7 @@ const UWUGF_NETWORKS = {
 };
 
 // ⚠️ flip to "robinhood" only after the testnet dress rehearsal passes.
-const UWUGF_ACTIVE = "robinhoodTestnet";
+const UWUGF_ACTIVE = "robinhood";
 
 window.UWUGF_CONFIG = Object.assign(
   {
